@@ -1,0 +1,319 @@
+﻿[
+  {
+    "group": "Tombs of Amascut",
+    "style": "RANGED",
+    "note": "Ranged is used primarily for Zebak, Akkha and the Wardens. Twisted bow dominates at Zebak because it scales with the target's Magic level. Zaryte crossbow is kept for its special attack.",
+    "specWeapons": ["Zaryte crossbow", "Bandos godsword", "Elder maul"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Masori mask (f)", "Masori mask", "Crystal helm", "Armadyl helmet", "Eclipse moon helm", "Karil's coif", "Guthix coif"], "ids": [27235, 27226, 23971, 11826, 29010, 4732, 10382]},
+      {"slot": "AMULET", "items": ["Necklace of rupture", "Necklace of anguish", "Amulet of fury", "Amulet of glory"], "ids": [33639, 19547, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ranging cape"], "ids": [28951, 22109, 10499, 9757]},
+      {"slot": "BODY", "items": ["Masori body (f)", "Masori body", "Crystal body", "Armadyl chestplate", "Eclipse moon chestplate", "Karil's leathertop", "Black d'hide body"], "ids": [27238, 27229, 23975, 11828, 29004, 4736, 2503]},
+      {"slot": "LEGS", "items": ["Masori chaps (f)", "Masori chaps", "Crystal legs", "Armadyl chainskirt", "Eclipse moon tassets", "Karil's leatherskirt", "Black d'hide chaps"], "ids": [27241, 27232, 23979, 11830, 29007, 4738, 2497]},
+      {"slot": "WEAPON", "items": ["Twisted bow", "Bow of faerdhinen", "Zaryte crossbow", "Armadyl crossbow", "Toxic blowpipe", "Eclipse atlatl", "Dragon crossbow", "Rune crossbow"], "ids": [20997, 25865, 26374, 11785, 12926, 29000, 21902, 9185], "note": "Bow of faerdhinen with full crystal armour beats a Masori and crossbow setup, because crystal gives it 30% accuracy and 15% damage that no stat line shows. Eclipse atlatl wants full Eclipse moon."},
+      {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward"], "ids": [21000, 22002, 11926]},
+      {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Black d'hide vambraces"], "ids": [26235, 7462, 2491]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots"], "ids": [31097, 31092, 31088, 13237, 19927]},
+      {"slot": "RING", "items": ["Venator ring", "Lightbearer", "Archers ring (i)", "Ring of suffering (i)"], "ids": [28310, 25975, 11771, 20657]},
+      {"slot": "AMMO", "items": ["Dragon arrow", "Ruby dragon bolts (e)", "Ruby bolts (e)", "Diamond dragon bolts (e)", "Amethyst arrow", "Rune arrow", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [11227, 21944, 9242, 21946, 21332, 893, 22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "group": "Tombs of Amascut",
+    "style": "MAGIC",
+    "note": "Magic is used primarily for Akkha and the Wardens. Tumeken's shadow receives a 4x buff inside the raid and is all but required to mage Zebak, whose magic defence is otherwise too high.",
+    "specWeapons": ["Bandos godsword", "Elder maul"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Ancestral hat", "Virtus mask", "Ahrim's hood", "Blue moon helm", "Mystic hat"], "ids": [21018, 26241, 4708, 29019, 4089]},
+      {"slot": "AMULET", "items": ["Occult necklace", "Amulet of fury", "Amulet of glory"], "ids": [12002, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Imbued saradomin cape", "Imbued guthix cape", "Imbued zamorak cape", "Ardougne cloak 4"], "ids": [21791, 21793, 21795, 13124]},
+      {"slot": "BODY", "items": ["Ancestral robe top", "Virtus robe top", "Ahrim's robetop", "Blue moon chestplate", "Mystic robe top"], "ids": [21021, 26243, 4712, 29013, 4091]},
+      {"slot": "LEGS", "items": ["Ancestral robe bottom", "Virtus robe bottom", "Ahrim's robeskirt", "Blue moon tassets", "Mystic robe bottom"], "ids": [21024, 26245, 4714, 29016, 4093]},
+      {"slot": "WEAPON", "items": ["Tumeken's shadow", "Eye of ayak", "Sanguinesti staff", "Trident of the swamp", "Trident of the seas", "Warped sceptre"], "ids": [27275, 31113, 22323, 12899, 11905, 28585]},
+      {"slot": "SHIELD", "items": ["Elidinis' ward (f)", "Elidinis' ward", "Arcane spirit shield", "Mage's book", "Book of the dead", "Malediction ward"], "ids": [27251, 25985, 12825, 6889, 25818, 11924]},
+      {"slot": "GLOVES", "items": ["Confliction gauntlets", "Tormented bracelet", "Barrows gloves"], "ids": [31106, 19544, 7462]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (et)", "Avernic treads", "Eternal boots", "Infinity boots"], "ids": [31097, 31093, 31088, 13235, 6920]},
+      {"slot": "RING", "items": ["Magus ring", "Lightbearer", "Seers ring (i)", "Brimstone ring"], "ids": [28313, 25975, 11770, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "group": "Theatre of Blood",
+    "style": "MELEE",
+    "note": "Melee is used predominantly throughout the raid, so every role brings the best melee gear available.",
+    "specWeapons": ["Dragon claws", "Elder maul", "Bandos godsword", "Crystal halberd", "Dragon warhammer", "Voidwaker", "Burning claws"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Torva full helm", "Oathplate helm", "Neitiznot faceguard", "Serpentine helm", "Blood moon helm", "Helm of neitiznot", "Void melee helm", "Berserker helm"], "ids": [26382, 30750, 24271, 12931, 29028, 10828, 11665, 3751]},
+      {"slot": "AMULET", "items": ["Amulet of rancour", "Amulet of torture", "Amulet of blood fury", "Amulet of fury", "Amulet of strength", "Amulet of glory"], "ids": [29801, 19553, 24780, 6585, 1725, 1706]},
+      {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Ardougne cloak 4"], "ids": [21295, 6570, 22114, 13124]},
+      {"slot": "BODY", "items": ["Torva platebody", "Oathplate chest", "Bandos chestplate", "Blood moon chestplate", "Fighter torso", "Elite void top", "Inquisitor's hauberk", "Obsidian platebody"], "ids": [26384, 30753, 11832, 29022, 10551, 13072, 24420, 21301]},
+      {"slot": "LEGS", "items": ["Torva platelegs", "Oathplate legs", "Bandos tassets", "Blood moon tassets", "Obsidian platelegs", "Elite void robe", "Inquisitor's plateskirt"], "ids": [26386, 30756, 11834, 29025, 21304, 13073, 24421]},
+      {"slot": "WEAPON", "items": ["Scythe of vitur", "Noxious halberd", "Soulreaper axe", "Inquisitor's mace", "Elder maul", "Ghrazi rapier", "Blade of saeldor", "Abyssal bludgeon", "Abyssal tentacle", "Osmumten's fang", "Abyssal whip", "Ursine chainmace", "Dragon scimitar", "Dual macuahuitl"], "ids": [22325, 29796, 28338, 24417, 21003, 22324, 23995, 13263, 12006, 26219, 4151, 27660, 4587, 28997], "note": "Scythe hits three times against large targets, which no stat line shows."},
+      {"slot": "SHIELD", "items": ["Avernic defender", "Dragon defender", "Rune defender"], "ids": [22322, 12954, 8850]},
+      {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Void knight gloves", "Rune gloves"], "ids": [22981, 7462, 8842, 7460]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Aranea boots", "Dragon boots"], "ids": [31097, 31091, 31088, 13239, 29806, 11840]},
+      {"slot": "RING", "items": ["Ultor ring", "Bellator ring", "Berserker ring (i)", "Brimstone ring"], "ids": [28307, 28316, 11773, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing"], "ids": [22947, 22945, 20220, 20232]}
+    ]
+  },
+  {
+    "group": "Theatre of Blood",
+    "style": "RANGED",
+    "note": "Twisted bow excels against the high-Magic bosses, notably Maiden and Xarpus. Rangers usually bring 15-25 black chinchompas and a twisted buckler for groups.",
+    "specWeapons": ["Dragon claws", "Elder maul", "Bandos godsword", "Crystal halberd", "Dragon warhammer"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Void ranger helm", "Masori mask (f)", "Masori mask", "Armadyl helmet", "Crystal helm", "Guthix coif", "Karil's coif"], "ids": [11664, 27235, 27226, 11826, 23971, 10382, 4732]},
+      {"slot": "AMULET", "items": ["Necklace of rupture", "Necklace of anguish", "Amulet of fury", "Amulet of glory"], "ids": [33639, 19547, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ranging cape"], "ids": [28951, 22109, 10499, 9757]},
+      {"slot": "BODY", "items": ["Elite void top", "Masori body (f)", "Masori body", "Armadyl chestplate", "Crystal body", "Karil's leathertop", "Black d'hide body"], "ids": [13072, 27238, 27229, 11828, 23975, 4736, 2503]},
+      {"slot": "LEGS", "items": ["Elite void robe", "Masori chaps (f)", "Masori chaps", "Armadyl chainskirt", "Crystal legs", "Karil's leatherskirt", "Black d'hide chaps"], "ids": [13073, 27241, 27232, 11830, 23979, 4738, 2497]},
+      {"slot": "WEAPON", "items": ["Twisted bow", "Toxic blowpipe", "Zaryte crossbow", "Bow of faerdhinen", "Armadyl crossbow", "Dragon crossbow", "Rune crossbow"], "ids": [20997, 12926, 26374, 25865, 11785, 21902, 9185], "note": "Twisted bow damage scales with the target's Magic level."},
+      {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward"], "ids": [21000, 22002, 11926], "note": "With chinchompas."},
+      {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Void knight gloves", "Black d'hide vambraces"], "ids": [26235, 7462, 8842, 2491]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots"], "ids": [31097, 31092, 31088, 13237, 19927]},
+      {"slot": "RING", "items": ["Venator ring", "Lightbearer", "Archers ring (i)", "Ring of suffering (i)"], "ids": [28310, 25975, 11771, 20657]},
+      {"slot": "AMMO", "items": ["Dragon arrow", "Amethyst arrow", "Rada's blessing 4", "Ruby dragon bolts (e)", "Diamond dragon bolts (e)", "Ruby bolts (e)", "Rune arrow", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [11227, 21332, 22947, 21944, 21946, 9242, 893, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "group": "Theatre of Blood",
+    "style": "MAGIC",
+    "note": "The freezer needs Ice Barrage for mandatory Nylocas containment. Maging in elite void saves considerable inventory space.",
+    "specWeapons": ["Dragon claws", "Elder maul", "Tonalztics of ralos", "Crystal halberd", "Dragon warhammer", "Bandos godsword"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Ancestral hat", "Virtus mask", "Ahrim's hood", "Void mage helm", "Blue moon helm", "Mystic hat"], "ids": [21018, 26241, 4708, 11663, 29019, 4089]},
+      {"slot": "AMULET", "items": ["Occult necklace", "Amulet of fury", "Amulet of glory"], "ids": [12002, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Imbued saradomin cape", "Imbued guthix cape", "Imbued zamorak cape", "Ardougne cloak 4"], "ids": [21791, 21793, 21795, 13124]},
+      {"slot": "BODY", "items": ["Ancestral robe top", "Virtus robe top", "Ahrim's robetop", "Elite void top", "Blue moon chestplate", "Mystic robe top"], "ids": [21021, 26243, 4712, 13072, 29013, 4091]},
+      {"slot": "LEGS", "items": ["Ancestral robe bottom", "Virtus robe bottom", "Ahrim's robeskirt", "Elite void robe", "Blue moon tassets", "Mystic robe bottom"], "ids": [21024, 26245, 4714, 13073, 29016, 4093]},
+      {"slot": "WEAPON", "items": ["Tumeken's shadow", "Sanguinesti staff", "Eye of ayak", "Kodai wand", "Staff of the dead", "Ancient sceptre", "Trident of the swamp", "Master wand", "Trident of the seas", "Warped sceptre"], "ids": [27275, 22323, 31113, 21006, 11791, 27624, 12899, 6914, 11905, 28585]},
+      {"slot": "SHIELD", "items": ["Elidinis' ward (f)", "Elidinis' ward", "Book of darkness", "Arcane spirit shield", "Mage's book", "Malediction ward"], "ids": [27251, 25985, 12612, 12825, 6889, 11924]},
+      {"slot": "GLOVES", "items": ["Confliction gauntlets", "Tormented bracelet", "Void knight gloves", "Barrows gloves"], "ids": [31106, 19544, 8842, 7462]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (et)", "Avernic treads", "Eternal boots", "Infinity boots"], "ids": [31097, 31093, 31088, 13235, 6920]},
+      {"slot": "RING", "items": ["Magus ring", "Lightbearer", "Seers ring (i)", "Brimstone ring"], "ids": [28313, 25975, 11770, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "group": "Chambers of Xeric",
+    "style": "MELEE",
+    "note": "Crush is needed for Tekton; Vasa's crystals want stab. Elder maul and Dragon warhammer give a guaranteed defence reduction on their first hit at Tekton, and should land before a Bandos godsword.",
+    "specWeapons": ["Bandos godsword", "Elder maul", "Zamorak godsword", "Voidwaker", "Dragon claws", "Bone dagger", "Arclight"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Torva full helm", "Oathplate helm", "Neitiznot faceguard", "Inquisitor's great helm", "Serpentine helm", "Blood moon helm", "Helm of neitiznot", "Berserker helm"], "ids": [26382, 30750, 24271, 24419, 12931, 29028, 10828, 3751]},
+      {"slot": "AMULET", "items": ["Amulet of rancour", "Amulet of torture", "Amulet of blood fury", "Amulet of fury", "Amulet of strength", "Amulet of glory"], "ids": [29801, 19553, 24780, 6585, 1725, 1706]},
+      {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Ardougne cloak 4"], "ids": [21295, 6570, 22114, 13124]},
+      {"slot": "BODY", "items": ["Torva platebody", "Oathplate chest", "Inquisitor's hauberk", "Bandos chestplate", "Blood moon chestplate", "Fighter torso", "Obsidian platebody"], "ids": [26384, 30753, 24420, 11832, 29022, 10551, 21301]},
+      {"slot": "LEGS", "items": ["Torva platelegs", "Oathplate legs", "Inquisitor's plateskirt", "Bandos tassets", "Blood moon tassets", "Obsidian platelegs"], "ids": [26386, 30756, 24421, 11834, 29025, 21304]},
+      {"slot": "WEAPON", "items": ["Scythe of vitur", "Osmumten's fang", "Ghrazi rapier", "Noxious halberd", "Zamorakian hasta", "Dragon hunter lance", "Inquisitor's mace", "Blade of saeldor", "Ursine chainmace", "Soulreaper axe", "Elder maul", "Abyssal bludgeon", "Abyssal tentacle", "Dragon scimitar", "Abyssal whip", "Dual macuahuitl"], "ids": [22325, 26219, 22324, 29796, 11889, 22978, 24417, 23995, 27660, 28338, 21003, 13263, 12006, 4587, 4151, 28997], "note": "Dragon hunter lance gains a hidden bonus against draconic targets in the raid."},
+      {"slot": "SHIELD", "items": ["Avernic defender", "Dragon defender", "Rune defender"], "ids": [22322, 12954, 8850]},
+      {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Rune gloves"], "ids": [22981, 7462, 7460]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Aranea boots", "Dragon boots"], "ids": [31097, 31091, 31088, 13239, 29806, 11840]},
+      {"slot": "RING", "items": ["Lightbearer", "Ultor ring", "Berserker ring (i)", "Brimstone ring", "Bellator ring"], "ids": [25975, 28307, 11773, 22975, 28316]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing"], "ids": [22947, 22945, 20220, 20232]}
+    ]
+  },
+  {
+    "group": "Chambers of Xeric",
+    "style": "RANGED",
+    "note": "Twisted bow scales with the target's Magic level, which is why it dominates here despite ordinary-looking stats.",
+    "specWeapons": ["Zaryte crossbow", "Bandos godsword", "Elder maul"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Masori mask (f)", "Masori mask", "Armadyl helmet", "Crystal helm", "Eclipse moon helm", "Guthix coif", "Karil's coif"], "ids": [27235, 27226, 11826, 23971, 29010, 10382, 4732]},
+      {"slot": "AMULET", "items": ["Necklace of rupture", "Necklace of anguish", "Amulet of fury", "Amulet of glory"], "ids": [33639, 19547, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ranging cape"], "ids": [28951, 22109, 10499, 9757]},
+      {"slot": "BODY", "items": ["Masori body (f)", "Masori body", "Armadyl chestplate", "Crystal body", "Guthix d'hide body", "Black d'hide body", "Eclipse moon chestplate", "Karil's leathertop"], "ids": [27238, 27229, 11828, 23975, 10378, 2503, 29004, 4736]},
+      {"slot": "LEGS", "items": ["Masori chaps (f)", "Masori chaps", "Armadyl chainskirt", "Crystal legs", "Guthix chaps", "Black d'hide chaps", "Eclipse moon tassets", "Karil's leatherskirt"], "ids": [27241, 27232, 11830, 23979, 10380, 2497, 29007, 4738]},
+      {"slot": "WEAPON", "items": ["Twisted bow", "Toxic blowpipe", "Dragon hunter crossbow", "Zaryte crossbow", "Bow of faerdhinen", "Armadyl crossbow", "Dragon crossbow", "Rune crossbow"], "ids": [20997, 12926, 21012, 26374, 25865, 11785, 21902, 9185], "note": "Bow of faerdhinen needs full crystal armour to reach its potential, and ignores the ammo slot."},
+      {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward"], "ids": [21000, 22002, 11926]},
+      {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Black d'hide vambraces"], "ids": [26235, 7462, 2491]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots"], "ids": [31097, 31092, 31088, 13237, 19927]},
+      {"slot": "RING", "items": ["Venator ring", "Lightbearer", "Archers ring (i)", "Ring of suffering (i)"], "ids": [28310, 25975, 11771, 20657]},
+      {"slot": "AMMO", "items": ["Dragon arrow", "Ruby dragon bolts (e)", "Ruby bolts (e)", "Diamond dragon bolts (e)", "Amethyst arrow", "Rune arrow", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [11227, 21944, 9242, 21946, 21332, 893, 22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "group": "Chambers of Xeric",
+    "style": "MAGIC",
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Ancestral hat", "Virtus mask", "Ahrim's hood", "Blue moon helm", "Bloodbark helm", "Dagon'hai hat", "Mystic hat"], "ids": [21018, 26241, 4708, 29019, 25413, 24288, 4089]},
+      {"slot": "AMULET", "items": ["Occult necklace", "Amulet of fury", "Amulet of glory"], "ids": [12002, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Imbued saradomin cape", "Imbued guthix cape", "Imbued zamorak cape", "Ardougne cloak 4"], "ids": [21791, 21793, 21795, 13124]},
+      {"slot": "BODY", "items": ["Ancestral robe top", "Virtus robe top", "Ahrim's robetop", "Blue moon chestplate", "Bloodbark body", "Dagon'hai robe top", "Mystic robe top"], "ids": [21021, 26243, 4712, 29013, 25404, 24291, 4091]},
+      {"slot": "LEGS", "items": ["Ancestral robe bottom", "Virtus robe bottom", "Ahrim's robeskirt", "Blue moon tassets", "Bloodbark legs", "Dagon'hai robe bottom", "Mystic robe bottom"], "ids": [21024, 26245, 4714, 29016, 25416, 24294, 4093]},
+      {"slot": "WEAPON", "items": ["Tumeken's shadow", "Eye of ayak", "Sanguinesti staff", "Trident of the swamp", "Trident of the seas", "Warped sceptre"], "ids": [27275, 31113, 22323, 12899, 11905, 28585], "note": "Tumeken's shadow triples magic bonuses from gear, so it changes what the rest of the setup is worth."},
+      {"slot": "SHIELD", "items": ["Elidinis' ward (f)", "Elidinis' ward", "Arcane spirit shield", "Tome of earth", "Tome of fire", "Ancient wyvern shield", "Mage's book", "Malediction ward"], "ids": [27251, 25985, 12825, 30064, 20714, 21633, 6889, 11924], "note": "A tome only helps while you are casting that element's spells. With a powered staff - Tumeken's shadow, Eye of ayak, Sanguinesti - you attack with the staff itself, so the tome does nothing and the ward's magic damage is worth more."},
+      {"slot": "GLOVES", "items": ["Confliction gauntlets", "Tormented bracelet", "Barrows gloves"], "ids": [31106, 19544, 7462]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (et)", "Avernic treads", "Eternal boots", "Infinity boots"], "ids": [31097, 31093, 31088, 13235, 6920]},
+      {"slot": "RING", "items": ["Magus ring", "Lightbearer", "Seers ring (i)", "Brimstone ring"], "ids": [28313, 25975, 11770, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "group": "Inferno",
+    "style": "RANGED",
+    "note": "The Twisted bow is the single most influential investment here, because it scales with the target's Magic level and both Jad and Zuk are high-Magic.",
+    "specWeapons": ["Toxic blowpipe", "Eldritch nightmare staff"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Justiciar faceguard", "Masori mask (f)", "Crystal helm", "Masori mask", "Armadyl helmet", "Guthix coif", "Karil's coif"], "ids": [22326, 27235, 23971, 27226, 11826, 10382, 4732]},
+      {"slot": "AMULET", "items": ["Necklace of rupture", "Necklace of anguish", "Amulet of fury", "Amulet of glory"], "ids": [33639, 19547, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ranging cape"], "ids": [28951, 22109, 10499, 9757]},
+      {"slot": "BODY", "items": ["Masori body (f)", "Crystal body", "Virtus robe top", "Masori body", "Armadyl chestplate", "Karil's leathertop", "Black d'hide body"], "ids": [27238, 23975, 26243, 27229, 11828, 4736, 2503]},
+      {"slot": "LEGS", "items": ["Masori chaps (f)", "Crystal legs", "Virtus robe bottom", "Masori chaps", "Armadyl chainskirt", "Karil's leatherskirt", "Black d'hide chaps"], "ids": [27241, 23979, 26245, 27232, 11830, 4738, 2497]},
+      {"slot": "WEAPON", "items": ["Twisted bow", "Bow of faerdhinen", "Toxic blowpipe", "Zaryte crossbow", "Armadyl crossbow", "Dragon crossbow", "Rune crossbow"], "ids": [20997, 25865, 12926, 26374, 11785, 21902, 9185], "note": "Bow of faerdhinen is the affordable alternative, but needs full crystal armour."},
+      {"slot": "SHIELD", "items": ["Elysian spirit shield", "Crystal shield", "Twisted buckler", "Dragonfire ward", "Odium ward"], "ids": [12817, 23991, 21000, 22002, 11926]},
+      {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Black d'hide vambraces"], "ids": [26235, 7462, 2491]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads", "Echo boots", "Pegasian boots", "Avernic treads (pe)", "Guthix d'hide boots"], "ids": [31097, 31088, 28945, 13237, 31092, 19927]},
+      {"slot": "RING", "items": ["Ring of suffering (i)", "Ring of suffering", "Lightbearer", "Venator ring", "Archers ring (i)"], "ids": [20657, 20655, 25975, 28310, 11771]},
+      {"slot": "AMMO", "items": ["Dragon arrow", "Amethyst arrow", "Ruby dragon bolts (e)", "Diamond dragon bolts (e)", "Ruby bolts (e)", "Rune arrow", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [11227, 21332, 21944, 21946, 9242, 893, 22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "group": "Fortis Colosseum",
+    "style": "MELEE",
+    "note": "Scythe of vitur is the highest overall DPS here. A melee-only setup is strongly discouraged for a first quiver.",
+    "specWeapons": ["Saradomin godsword", "Dragon claws"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Torva full helm", "Neitiznot faceguard", "Oathplate helm", "Serpentine helm", "Blood moon helm", "Helm of neitiznot", "Berserker helm"], "ids": [26382, 24271, 30750, 12931, 29028, 10828, 3751]},
+      {"slot": "AMULET", "items": ["Amulet of blood fury", "Amulet of rancour", "Amulet of torture", "Amulet of fury", "Amulet of strength", "Amulet of glory"], "ids": [24780, 29801, 19553, 6585, 1725, 1706]},
+      {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Ardougne cloak 4"], "ids": [21295, 6570, 22114, 13124]},
+      {"slot": "BODY", "items": ["Torva platebody", "Bandos chestplate", "Oathplate chest", "Blood moon chestplate", "Inquisitor's hauberk", "Fighter torso", "Obsidian platebody"], "ids": [26384, 11832, 30753, 29022, 24420, 10551, 21301]},
+      {"slot": "LEGS", "items": ["Torva platelegs", "Bandos tassets", "Oathplate legs", "Blood moon tassets", "Inquisitor's plateskirt", "Obsidian platelegs"], "ids": [26386, 11834, 30756, 29025, 24421, 21304]},
+      {"slot": "WEAPON", "items": ["Scythe of vitur", "Noxious halberd", "Soulreaper axe", "Blade of saeldor", "Abyssal tentacle", "Abyssal whip", "Elder maul", "Inquisitor's mace", "Ghrazi rapier", "Abyssal bludgeon", "Osmumten's fang", "Dragon scimitar", "Ursine chainmace", "Dual macuahuitl"], "ids": [22325, 29796, 28338, 23995, 12006, 4151, 21003, 24417, 22324, 13263, 26219, 4587, 27660, 28997]},
+      {"slot": "SHIELD", "items": ["Elysian spirit shield", "Avernic defender", "Dragon defender", "Rune defender"], "ids": [12817, 22322, 12954, 8850]},
+      {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Rune gloves"], "ids": [22981, 7462, 7460]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Dragon boots"], "ids": [31097, 31091, 31088, 13239, 11840]},
+      {"slot": "RING", "items": ["Ultor ring", "Lightbearer", "Bellator ring", "Berserker ring (i)", "Brimstone ring"], "ids": [28307, 25975, 28316, 11773, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing"], "ids": [22947, 22945, 20220, 20232]}
+    ]
+  },
+  {
+    "group": "Fortis Colosseum",
+    "style": "RANGED",
+    "specWeapons": ["Saradomin godsword", "Dragon claws"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Masori mask (f)", "Masori mask", "Armadyl helmet", "Crystal helm", "Guthix coif", "Karil's coif"], "ids": [27235, 27226, 11826, 23971, 10382, 4732]},
+      {"slot": "AMULET", "items": ["Necklace of rupture", "Amulet of blood fury", "Necklace of anguish", "Amulet of fury", "Amulet of glory"], "ids": [33639, 24780, 19547, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ranging cape"], "ids": [28951, 22109, 10499, 9757]},
+      {"slot": "BODY", "items": ["Masori body (f)", "Masori body", "Armadyl chestplate", "Crystal body", "Karil's leathertop", "Black d'hide body"], "ids": [27238, 27229, 11828, 23975, 4736, 2503]},
+      {"slot": "LEGS", "items": ["Masori chaps (f)", "Masori chaps", "Armadyl chainskirt", "Crystal legs", "Karil's leatherskirt", "Black d'hide chaps"], "ids": [27241, 27232, 11830, 23979, 4738, 2497]},
+      {"slot": "WEAPON", "items": ["Twisted bow", "Venator bow", "Toxic blowpipe", "Zaryte crossbow", "Bow of faerdhinen", "Armadyl crossbow", "Dragon crossbow", "Rune crossbow"], "ids": [20997, 27610, 12926, 26374, 25865, 11785, 21902, 9185]},
+      {"slot": "SHIELD", "items": ["Elysian spirit shield", "Twisted buckler", "Dragonfire ward", "Odium ward"], "ids": [12817, 21000, 22002, 11926]},
+      {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Black d'hide vambraces"], "ids": [26235, 7462, 2491]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots"], "ids": [31097, 31092, 31088, 13237, 19927]},
+      {"slot": "RING", "items": ["Lightbearer", "Venator ring", "Archers ring (i)", "Ring of suffering (i)"], "ids": [25975, 28310, 11771, 20657]},
+      {"slot": "AMMO", "items": ["Dragon arrow", "Ruby dragon bolts (e)", "Diamond dragon bolts (e)", "Amethyst arrow", "Ruby bolts (e)", "Rune arrow", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [11227, 21944, 21946, 21332, 9242, 893, 22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "group": "Fortis Colosseum",
+    "style": "MAGIC",
+    "note": "Tumeken's shadow is the only viable magic weapon for clearing waves.",
+    "specWeapons": ["Saradomin godsword", "Dragon claws"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Ancestral hat", "Virtus mask", "Ahrim's hood", "Blue moon helm", "Mystic hat"], "ids": [21018, 26241, 4708, 29019, 4089]},
+      {"slot": "AMULET", "items": ["Occult necklace", "Amulet of blood fury", "Amulet of fury", "Amulet of glory"], "ids": [12002, 24780, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Imbued saradomin cape", "Infernal cape", "Imbued guthix cape", "Imbued zamorak cape", "Ardougne cloak 4"], "ids": [21791, 21295, 21793, 21795, 13124]},
+      {"slot": "BODY", "items": ["Ancestral robe top", "Virtus robe top", "Ahrim's robetop", "Blue moon chestplate", "Mystic robe top"], "ids": [21021, 26243, 4712, 29013, 4091]},
+      {"slot": "LEGS", "items": ["Ancestral robe bottom", "Virtus robe bottom", "Ahrim's robeskirt", "Blue moon tassets", "Mystic robe bottom"], "ids": [21024, 26245, 4714, 29016, 4093]},
+      {"slot": "WEAPON", "items": ["Tumeken's shadow", "Eye of ayak", "Sanguinesti staff", "Trident of the swamp", "Trident of the seas", "Warped sceptre"], "ids": [27275, 31113, 22323, 12899, 11905, 28585]},
+      {"slot": "SHIELD", "items": ["Elidinis' ward (f)", "Arcane spirit shield", "Elidinis' ward", "Mage's book", "Malediction ward"], "ids": [27251, 12825, 25985, 6889, 11924]},
+      {"slot": "GLOVES", "items": ["Confliction gauntlets", "Tormented bracelet", "Barrows gloves"], "ids": [31106, 19544, 7462]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (et)", "Avernic treads", "Eternal boots", "Infinity boots"], "ids": [31097, 31093, 31088, 13235, 6920]},
+      {"slot": "RING", "items": ["Magus ring", "Lightbearer", "Seers ring (i)", "Brimstone ring"], "ids": [28313, 25975, 11770, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "monster": "Vorkath",
+    "style": "RANGED",
+    "note": "Salve amulet (ei) and a Slayer helmet do not stack - you get one or the other, so pick whichever is higher. Many players run full Elite void with the salve; Masori with a Slayer helmet and an Anguish is the stronger setup if you have it. Vorkath is undead, so the salve applies at all.",
+    "specWeapons": ["Dragon claws", "Voidwaker"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Slayer helmet (i)", "Masori mask (f)", "Void ranger helm", "Masori mask", "Armadyl helmet", "Crystal helm", "Guthix coif", "Karil's coif"], "ids": [11865, 27235, 11664, 27226, 11826, 23971, 10382, 4732], "note": "Only while on a matching Slayer task, where the imbued helm's 16.67% accuracy and damage beats anything else in this slot. Off task it does nothing at all - use Masori mask (f) instead."},
+      {"slot": "AMULET", "items": ["Salve amulet(ei)", "Necklace of anguish", "Necklace of rupture", "Amulet of fury", "Amulet of glory"], "ids": [12018, 19547, 33639, 6585, 1706], "note": "Salve (ei) beats Anguish here because Vorkath is undead."},
+      {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ranging cape"], "ids": [28951, 22109, 10499, 9757]},
+      {"slot": "BODY", "items": ["Masori body (f)", "Elite void top", "Masori body", "Armadyl chestplate", "Crystal body", "Karil's leathertop", "Black d'hide body"], "ids": [27238, 13072, 27229, 11828, 23975, 4736, 2503]},
+      {"slot": "LEGS", "items": ["Masori chaps (f)", "Elite void robe", "Masori chaps", "Armadyl chainskirt", "Crystal legs", "Karil's leatherskirt", "Black d'hide chaps"], "ids": [27241, 13073, 27232, 11830, 23979, 4738, 2497]},
+      {"slot": "WEAPON", "items": ["Dragon hunter crossbow", "Zaryte crossbow", "Armadyl crossbow", "Twisted bow", "Bow of faerdhinen", "Toxic blowpipe", "Dragon crossbow", "Rune crossbow"], "ids": [21012, 26374, 11785, 20997, 25865, 12926, 21902, 9185]},
+      {"slot": "SHIELD", "items": ["Dragonfire ward", "Anti-dragon shield", "Twisted buckler", "Odium ward"], "ids": [22002, 1540, 21000, 11926], "note": "Dragonfire protection is required, not optional."},
+      {"slot": "GLOVES", "items": ["Zaryte vambraces", "Void knight gloves", "Barrows gloves", "Black d'hide vambraces"], "ids": [26235, 8842, 7462, 2491]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots"], "ids": [31097, 31092, 31088, 13237, 19927]},
+      {"slot": "RING", "items": ["Venator ring", "Lightbearer", "Archers ring (i)", "Ring of suffering (i)"], "ids": [28310, 25975, 11771, 20657]},
+      {"slot": "AMMO", "items": ["Ruby dragon bolts (e)", "Diamond dragon bolts (e)", "Dragon arrow", "Amethyst arrow", "Ruby bolts (e)", "Rune arrow", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [21944, 21946, 11227, 21332, 9242, 893, 22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "monster": "Vorkath",
+    "style": "MELEE",
+    "note": "A Dragonfire shield is not required, but worth bringing if you are not running super antifire potions. Salve amulet (ei) and a Slayer helmet do not stack here - use whichever is better, not both.",
+    "specWeapons": ["Dragon claws", "Voidwaker"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Slayer helmet (i)", "Torva full helm", "Oathplate helm", "Neitiznot faceguard", "Serpentine helm", "Blood moon helm", "Helm of neitiznot", "Berserker helm"], "ids": [11865, 26382, 30750, 24271, 12931, 29028, 10828, 3751], "note": "Only while on a matching Slayer task, where the imbued helm's 16.67% accuracy and damage beats anything else in this slot. Off task it does nothing at all - use Torva full helm instead."},
+      {"slot": "AMULET", "items": ["Amulet of rancour", "Salve amulet (e)", "Amulet of torture", "Amulet of blood fury", "Amulet of fury", "Amulet of strength", "Amulet of glory"], "ids": [29801, 10588, 19553, 24780, 6585, 1725, 1706]},
+      {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Ardougne cloak 4"], "ids": [21295, 6570, 22114, 13124]},
+      {"slot": "BODY", "items": ["Torva platebody", "Bandos chestplate", "Oathplate chest", "Blood moon chestplate", "Inquisitor's hauberk", "Fighter torso", "Obsidian platebody"], "ids": [26384, 11832, 30753, 29022, 24420, 10551, 21301]},
+      {"slot": "LEGS", "items": ["Torva platelegs", "Bandos tassets", "Oathplate legs", "Blood moon tassets", "Inquisitor's plateskirt", "Obsidian platelegs"], "ids": [26386, 11834, 30756, 29025, 24421, 21304]},
+      {"slot": "WEAPON", "items": ["Dragon hunter lance", "Scythe of vitur", "Osmumten's fang", "Ghrazi rapier", "Noxious halberd", "Inquisitor's mace", "Blade of saeldor", "Ursine chainmace", "Soulreaper axe", "Elder maul", "Abyssal bludgeon", "Abyssal tentacle", "Abyssal whip", "Dragon scimitar", "Dual macuahuitl"], "ids": [22978, 22325, 26219, 22324, 29796, 24417, 23995, 27660, 28338, 21003, 13263, 12006, 4151, 4587, 28997]},
+      {"slot": "SHIELD", "items": ["Avernic defender", "Dragon defender", "Rune defender"], "ids": [22322, 12954, 8850]},
+      {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Rune gloves"], "ids": [22981, 7462, 7460]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Dragon boots"], "ids": [31097, 31091, 31088, 13239, 11840]},
+      {"slot": "RING", "items": ["Ultor ring", "Berserker ring (i)", "Bellator ring", "Brimstone ring"], "ids": [28307, 11773, 28316, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing"], "ids": [22947, 22945, 20220, 20232]}
+    ]
+  },
+  {
+    "monster": "Nex",
+    "style": "RANGED",
+    "note": "This is the setup. A Zaryte crossbow with Ruby dragon bolts (e) beats everything else here - the ruby proc hits for a flat 100, which against her health pool is worth far more than a bigger max hit. Melee with an Osmumten's fang works for the accuracy re-roll but is not recommended, and magic is the weakest of the three.",
+    "specWeapons": ["Zaryte crossbow", "Armadyl crossbow", "Voidwaker", "Toxic blowpipe"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Masori mask (f)", "Armadyl helmet", "Ancient coif", "Masori mask", "Crystal helm", "Guthix coif", "Karil's coif"], "ids": [27235, 11826, 12496, 27226, 23971, 10382, 4732]},
+      {"slot": "AMULET", "items": ["Necklace of rupture", "Necklace of anguish", "Amulet of fury", "Amulet of glory"], "ids": [33639, 19547, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Max cape", "Ava's accumulator", "Ranging cape"], "ids": [28951, 22109, 13342, 10499, 9757]},
+      {"slot": "BODY", "items": ["Masori body (f)", "Armadyl chestplate", "Eclipse moon chestplate", "Karil's leathertop", "Ancient d'hide body", "Masori body", "Crystal body", "Black d'hide body"], "ids": [27238, 11828, 29004, 4736, 12492, 27229, 23975, 2503]},
+      {"slot": "LEGS", "items": ["Masori chaps (f)", "Armadyl chainskirt", "Eclipse moon tassets", "Karil's leatherskirt", "Ancient chaps", "Masori chaps", "Crystal legs", "Black d'hide chaps"], "ids": [27241, 11830, 29007, 4738, 12494, 27232, 23979, 2497]},
+      {"slot": "WEAPON", "items": ["Zaryte crossbow", "Twisted bow", "Armadyl crossbow", "Dragon crossbow", "Rune crossbow", "Bow of faerdhinen", "Toxic blowpipe"], "ids": [26374, 20997, 11785, 21902, 9185, 25865, 12926], "note": "Twisted bow is far better against the minions and Blood reavers."},
+      {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward"], "ids": [21000, 22002, 11926]},
+      {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Ancient bracers", "Black d'hide vambraces"], "ids": [26235, 7462, 12490, 2491]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Ancient d'hide boots", "Guthix d'hide boots"], "ids": [31097, 31092, 31088, 13237, 19921, 19927]},
+      {"slot": "RING", "items": ["Lightbearer", "Venator ring", "Archers ring (i)", "Ring of suffering (i)"], "ids": [25975, 28310, 11771, 20657]},
+      {"slot": "AMMO", "items": ["Ruby dragon bolts (e)", "Diamond dragon bolts (e)", "Ruby bolts (e)", "Dragon arrow", "Amethyst arrow", "Rune arrow", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [21944, 21946, 9242, 11227, 21332, 893, 22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "monster": "Nex",
+    "style": "MELEE",
+    "note": "Not recommended, but workable. An Osmumten's fang is the weapon for it, because its accuracy re-roll is what gets through her +260 Defence. Ranged with ruby bolts is materially better.",
+    "specWeapons": ["Zaryte crossbow", "Voidwaker", "Burning claws"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Torva full helm", "Neitiznot faceguard", "Serpentine helm", "Eclipse moon helm", "Oathplate helm", "Blood moon helm", "Helm of neitiznot", "Berserker helm"], "ids": [26382, 24271, 12931, 29010, 30750, 29028, 10828, 3751]},
+      {"slot": "AMULET", "items": ["Amulet of blood fury", "Amulet of rancour", "Amulet of torture", "Amulet of fury", "Amulet of strength", "Amulet of glory"], "ids": [24780, 29801, 19553, 6585, 1725, 1706]},
+      {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Max cape", "Mythical cape", "Ardougne cloak 4"], "ids": [21295, 6570, 13342, 22114, 13124]},
+      {"slot": "BODY", "items": ["Torva platebody", "Masori body (f)", "Bandos chestplate", "Oathplate chest", "Blood moon chestplate", "Inquisitor's hauberk", "Fighter torso", "Obsidian platebody"], "ids": [26384, 27238, 11832, 30753, 29022, 24420, 10551, 21301]},
+      {"slot": "LEGS", "items": ["Torva platelegs", "Masori chaps (f)", "Bandos tassets", "Oathplate legs", "Blood moon tassets", "Inquisitor's plateskirt", "Obsidian platelegs"], "ids": [26386, 27241, 11834, 30756, 29025, 24421, 21304]},
+      {"slot": "WEAPON", "items": ["Scythe of vitur", "Osmumten's fang", "Ghrazi rapier", "Elder maul", "Noxious halberd", "Inquisitor's mace", "Abyssal bludgeon", "Blade of saeldor", "Soulreaper axe", "Ursine chainmace", "Abyssal tentacle", "Abyssal whip", "Dragon scimitar", "Dual macuahuitl"], "ids": [22325, 26219, 22324, 21003, 29796, 24417, 13263, 23995, 28338, 27660, 12006, 4151, 4587, 28997]},
+      {"slot": "SHIELD", "items": ["Avernic defender", "Dragon defender", "Rune defender"], "ids": [22322, 12954, 8850]},
+      {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Rune gloves"], "ids": [22981, 7462, 7460]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Dragon boots"], "ids": [31097, 31091, 31088, 13239, 11840]},
+      {"slot": "RING", "items": ["Lightbearer", "Ultor ring", "Brimstone ring", "Berserker ring (i)", "Bellator ring"], "ids": [25975, 28307, 22975, 11773, 28316]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing"], "ids": [22947, 22945, 20220, 20232]}
+    ]
+  }
+]

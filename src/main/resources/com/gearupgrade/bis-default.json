@@ -1,0 +1,62 @@
+﻿[
+  {
+    "isDefault": true,
+    "style": "MELEE",
+    "note": "General melee ladder, used where no boss-specific table exists. It ranks gear by overall strength rather than by any one boss's weakness, so check the boss notes above for a required attack style or weapon type.",
+    "specWeapons": ["Dragon claws", "Voidwaker", "Bandos godsword", "Elder maul", "Dragon warhammer"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Torva full helm", "Oathplate helm", "Neitiznot faceguard", "Serpentine helm", "Blood moon helm", "Helm of neitiznot", "Berserker helm"], "ids": [26382, 30750, 24271, 12931, 29028, 10828, 3751]},
+      {"slot": "AMULET", "items": ["Amulet of rancour", "Amulet of torture", "Amulet of blood fury", "Amulet of fury", "Amulet of strength", "Amulet of glory"], "ids": [29801, 19553, 24780, 6585, 1725, 1706]},
+      {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Ardougne cloak 4"], "ids": [21295, 6570, 22114, 13124]},
+      {"slot": "BODY", "items": ["Torva platebody", "Oathplate chest", "Bandos chestplate", "Blood moon chestplate", "Inquisitor's hauberk", "Fighter torso", "Obsidian platebody"], "ids": [26384, 30753, 11832, 29022, 24420, 10551, 21301]},
+      {"slot": "LEGS", "items": ["Torva platelegs", "Oathplate legs", "Bandos tassets", "Blood moon tassets", "Inquisitor's plateskirt", "Obsidian platelegs"], "ids": [26386, 30756, 11834, 29025, 24421, 21304]},
+      {"slot": "WEAPON", "items": ["Scythe of vitur", "Noxious halberd", "Soulreaper axe", "Osmumten's fang", "Blade of saeldor", "Ghrazi rapier", "Inquisitor's mace", "Abyssal bludgeon", "Ursine chainmace", "Elder maul", "Abyssal tentacle", "Dual macuahuitl", "Abyssal whip", "Dragon scimitar"], "ids": [22325, 29796, 28338, 26219, 23995, 22324, 24417, 13263, 27660, 21003, 12006, 28997, 4151, 4587]},
+      {"slot": "SHIELD", "items": ["Avernic defender", "Dragon defender", "Rune defender"], "ids": [22322, 12954, 8850]},
+      {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Rune gloves"], "ids": [22981, 7462, 7460]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Dragon boots"], "ids": [31097, 31091, 31088, 13239, 11840]},
+      {"slot": "RING", "items": ["Ultor ring", "Bellator ring", "Berserker ring (i)", "Brimstone ring"], "ids": [28307, 28316, 11773, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing"], "ids": [22947, 22945, 20220, 20232]}
+    ]
+  },
+  {
+    "isDefault": true,
+    "style": "RANGED",
+    "note": "General ranged ladder, used where no boss-specific table exists. A Bow of faerdhinen only appears if you own crystal armour, since the set is what makes it strong.",
+    "specWeapons": ["Zaryte crossbow", "Voidwaker", "Dragon claws"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Masori mask (f)", "Masori mask", "Armadyl helmet", "Crystal helm", "Guthix coif", "Karil's coif"], "ids": [27235, 27226, 11826, 23971, 10382, 4732]},
+      {"slot": "AMULET", "items": ["Necklace of rupture", "Necklace of anguish", "Amulet of fury", "Amulet of glory"], "ids": [33639, 19547, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ranging cape"], "ids": [28951, 22109, 10499, 9757]},
+      {"slot": "BODY", "items": ["Masori body (f)", "Masori body", "Armadyl chestplate", "Crystal body", "Karil's leathertop", "Black d'hide body"], "ids": [27238, 27229, 11828, 23975, 4736, 2503]},
+      {"slot": "LEGS", "items": ["Masori chaps (f)", "Masori chaps", "Armadyl chainskirt", "Crystal legs", "Karil's leatherskirt", "Black d'hide chaps"], "ids": [27241, 27232, 11830, 23979, 4738, 2497]},
+      {"slot": "WEAPON", "items": ["Twisted bow", "Zaryte crossbow", "Bow of faerdhinen", "Armadyl crossbow", "Toxic blowpipe", "Dragon crossbow", "Rune crossbow"], "ids": [20997, 26374, 25865, 11785, 12926, 21902, 9185]},
+      {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward"], "ids": [21000, 22002, 11926]},
+      {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Black d'hide vambraces"], "ids": [26235, 7462, 2491]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots"], "ids": [31097, 31092, 31088, 13237, 19927]},
+      {"slot": "RING", "items": ["Venator ring", "Lightbearer", "Archers ring (i)", "Ring of suffering (i)"], "ids": [28310, 25975, 11771, 20657]},
+      {"slot": "AMMO", "items": ["Ruby dragon bolts (e)", "Diamond dragon bolts (e)", "Dragon arrow", "Amethyst arrow", "Ruby bolts (e)", "Rune arrow", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [21944, 21946, 11227, 21332, 9242, 893, 22947, 22945, 20220, 20232, 20223]}
+    ]
+  },
+  {
+    "isDefault": true,
+    "style": "MAGIC",
+    "note": "General magic ladder, used where no boss-specific table exists. Tomes only help when casting that element's spells - with a charged staff they do nothing, so the ward ranks above them.",
+    "specWeapons": ["Eldritch nightmare staff", "Accursed sceptre", "Voidwaker"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Ancestral hat", "Virtus mask", "Ahrim's hood", "Blue moon helm", "Mystic hat"], "ids": [21018, 26241, 4708, 29019, 4089]},
+      {"slot": "AMULET", "items": ["Occult necklace", "Amulet of fury", "Amulet of glory"], "ids": [12002, 6585, 1706]},
+      {"slot": "CAPE", "items": ["Imbued saradomin cape", "Imbued guthix cape", "Imbued zamorak cape", "Ardougne cloak 4"], "ids": [21791, 21793, 21795, 13124]},
+      {"slot": "BODY", "items": ["Ancestral robe top", "Virtus robe top", "Ahrim's robetop", "Blue moon chestplate", "Mystic robe top"], "ids": [21021, 26243, 4712, 29013, 4091]},
+      {"slot": "LEGS", "items": ["Ancestral robe bottom", "Virtus robe bottom", "Ahrim's robeskirt", "Blue moon tassets", "Mystic robe bottom"], "ids": [21024, 26245, 4714, 29016, 4093]},
+      {"slot": "WEAPON", "items": ["Tumeken's shadow", "Eye of ayak", "Sanguinesti staff", "Trident of the swamp", "Trident of the seas", "Warped sceptre"], "ids": [27275, 31113, 22323, 12899, 11905, 28585]},
+      {"slot": "SHIELD", "items": ["Elidinis' ward (f)", "Elidinis' ward", "Arcane spirit shield", "Mage's book", "Malediction ward"], "ids": [27251, 25985, 12825, 6889, 11924]},
+      {"slot": "GLOVES", "items": ["Confliction gauntlets", "Tormented bracelet", "Barrows gloves"], "ids": [31106, 19544, 7462]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (et)", "Avernic treads", "Eternal boots", "Infinity boots"], "ids": [31097, 31093, 31088, 13235, 6920]},
+      {"slot": "RING", "items": ["Magus ring", "Lightbearer", "Seers ring (i)", "Brimstone ring"], "ids": [28313, 25975, 11770, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing", "Unholy blessing"], "ids": [22947, 22945, 20220, 20232, 20223]}
+    ]
+  }
+]

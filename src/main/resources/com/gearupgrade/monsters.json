@@ -1,0 +1,1419 @@
+﻿[
+  {
+    "name": "Training dummy (no defence)",
+    "group": "Reference",
+    "tier": "Reference",
+    "hitpoints": 1000,
+    "defenceLevel": 0, "magicLevel": 0,
+    "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 0,
+    "verified": true
+  },
+
+  {
+    "name": "Akkha",
+    "group": "Tombs of Amascut",
+    "tier": "Master",
+    "hitpoints": 400,
+    "defenceLevel": 80, "magicLevel": 100,
+    "dstab": 60, "dslash": 120, "dcrush": 120, "dmagic": 10, "drange": 60,
+    "verified": true,
+    "requiredStyles": ["MAGIC", "RANGED"],
+    "notes": [
+      {
+        "item": "Magic is his weakness",
+        "reason": "Magic defence is +10 against +120 slash and crush. Tumeken's shadow is by far the strongest option because it receives a 4x buff from magic damage gear inside the raid."
+      },
+      {
+        "item": "He only protects one style at a time",
+        "reason": "Akkha prays against a single style, so the meta is to bring two strong styles and swap to whichever he is not protecting. Magic-first with a ranged switch is the standard pairing."
+      }
+    ]
+  },
+  {
+    "name": "Ba-Ba",
+    "group": "Tombs of Amascut",
+    "tier": "Master",
+    "hitpoints": 380,
+    "defenceLevel": 80, "magicLevel": 100,
+    "dstab": 80, "dslash": 160, "dcrush": 240, "dmagic": 280, "drange": 200,
+    "verified": true
+  },
+  {
+    "name": "Kephri",
+    "group": "Tombs of Amascut",
+    "tier": "Master",
+    "hitpoints": 150,
+    "defenceLevel": 80, "magicLevel": 125,
+    "dstab": 60, "dslash": 300, "dcrush": 100, "dmagic": 200, "drange": 300,
+    "attributes": ["kalphite"],
+    "weaknessElement": "fire",
+    "weaknessPercent": 40,
+    "verified": true
+  },
+  {
+    "name": "Wardens (P2)",
+    "group": "Tombs of Amascut",
+    "tier": "Master",
+    "hitpoints": 140,
+    "defenceLevel": 100, "magicLevel": 190,
+    "dstab": 70, "dslash": 70, "dcrush": 70, "dmagic": -30, "drange": 70,
+    "weaknessElement": "earth",
+    "weaknessPercent": 50,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Magic setup",
+        "reason": "Magic defence is -30 while stab, slash, crush and ranged are all +70, so this phase is done on magic."
+      }
+    ]
+  },
+  {
+    "name": "Wardens (P3, enraged)",
+    "group": "Tombs of Amascut",
+    "tier": "Master",
+    "hitpoints": 880,
+    "defenceLevel": 180, "magicLevel": 150,
+    "dstab": 40, "dslash": 40, "dcrush": 20, "dmagic": 20, "drange": 20,
+    "weaknessElement": "earth",
+    "weaknessPercent": 50,
+    "verified": true
+  },
+  {
+    "name": "Zebak", "viableStyles": ["MAGIC", "RANGED"], "styleRestriction": "Melee is not the play at Zebak - his crush defence is +260 and he puts out far too much damage to stand next to. A Tumeken's shadow is the strongest option, with a Bow of faerdhinen behind it, and his ranged defence of +110 is his weakest side.",
+    "group": "Tombs of Amascut",
+    "tier": "Master",
+    "hitpoints": 580,
+    "defenceLevel": 70, "magicLevel": 100,
+    "dstab": 160, "dslash": 160, "dcrush": 260, "dmagic": 200, "drange": 110,
+    "verified": true
+  },
+
+  {
+    "name": "Duke Sucellus", "viableStyles": ["MELEE"], "styleRestriction": "The Duke is weak to slash and the wiki is explicit that ranged and magic are not viable alternatives here. His projectile hits up to 48 if you are not praying against it, so the fight is fought in melee range regardless.",
+    "group": "Desert Treasure II",
+    "tier": "Elite",
+    "hitpoints": 485,
+    "defenceLevel": 275, "magicLevel": 310,
+    "dstab": 255, "dslash": 45, "dcrush": 190, "dmagic": 440, "drange": 320,
+    "attributes": ["demon"],
+    "verified": true,
+    "notes": [
+      {
+        "item": "Slash weapon",
+        "reason": "Slash defence is only +45 against +255 stab and +190 crush, so a slash weapon is far ahead here."
+      }
+    ]
+  },
+  {
+    "name": "The Leviathan", "viableStyles": ["RANGED", "MAGIC"], "styleRestriction": "Melee is not used at the Leviathan - his ranged defence is +50 against +260 stab, and getting into melee range only earns you his bite attack. Magic is worth bringing for shadow spells to stun him, but ranged is the damage.",
+    "group": "Desert Treasure II",
+    "tier": "Elite",
+    "hitpoints": 900,
+    "defenceLevel": 250, "magicLevel": 160,
+    "dstab": 260, "dslash": 190, "dcrush": 230, "dmagic": 280, "drange": 50,
+    "verified": true
+  },
+  {
+    "name": "The Whisperer", "viableStyles": ["MAGIC"], "styleRestriction": "Magic defence is +10 against +180 stab and +300 ranged, so this is a magic fight.",
+    "group": "Desert Treasure II",
+    "tier": "Elite",
+    "hitpoints": 900,
+    "defenceLevel": 250, "magicLevel": 180,
+    "dstab": 180, "dslash": 300, "dcrush": 220, "dmagic": 10, "drange": 300,
+    "weaknessElement": "earth",
+    "weaknessPercent": 60,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Magic setup",
+        "reason": "Magic defence is only +10 against +180 stab and +300 ranged, which is why this fight is done on magic."
+      }
+    ]
+  },
+  {
+    "name": "Vardorvis", "viableStyles": ["MELEE"], "styleRestriction": "Magic and ranged defence are both +580, so only melee is viable.",
+    "group": "Desert Treasure II",
+    "tier": "Elite",
+    "hitpoints": 700,
+    "defenceLevel": 270, "magicLevel": 215,
+    "dstab": 215, "dslash": 65, "dcrush": 85, "dmagic": 580, "drange": 580,
+    "weaknessElement": "fire",
+    "weaknessPercent": 35,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Slash weapon",
+        "reason": "Magic and ranged defence are both +580, so only melee is viable. Slash (+65) is the weakest of the three melee styles."
+      },
+      {
+        "item": "Defence scales with health",
+        "reason": "Vardorvis' defence level climbs from 270 to about 360 as the fight goes on. Rankings here use the starting value. The wiki DPS calculator stores his base as 0 and applies the scaling itself, so this one value is deliberately not synced from upstream."
+      }
+    ]
+  },
+
+  {
+    "name": "Commander Zilyana",
+    "group": "God Wars Dungeon",
+    "tier": "Hard",
+    "hitpoints": 255,
+    "defenceLevel": 300, "magicLevel": 300,
+    "dstab": 100, "dslash": 100, "dcrush": 100, "dmagic": 100, "drange": 100,
+    "verified": true,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Flat defences",
+        "reason": "Every defensive bonus is +100 and she has no elemental weakness, so style choice here comes down to her high Defence and Magic levels rather than a soft spot."
+      }
+    ]
+  },
+  {
+    "name": "General Graardor",
+    "group": "God Wars Dungeon",
+    "tier": "Hard",
+    "hitpoints": 255,
+    "defenceLevel": 250, "magicLevel": 80,
+    "dstab": 90, "dslash": 90, "dcrush": 90, "dmagic": 298, "drange": 90,
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 40,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Magic defence is +298 but his Magic level is 80",
+        "reason": "The bonus looks huge, yet the roll is driven mostly by Magic level, so magic is not as hopeless as +298 implies - and he is 40% weak to earth."
+      }
+    ]
+  },
+  {
+    "name": "K'ril Tsutsaroth",
+    "group": "God Wars Dungeon",
+    "tier": "Hard",
+    "hitpoints": 255,
+    "defenceLevel": 270, "magicLevel": 200,
+    "dstab": 70, "dslash": 80, "dcrush": 80, "dmagic": 80, "drange": 80,
+    "attributes": ["demon"],
+    "verified": true,
+    "weaknessElement": "water",
+    "weaknessPercent": 30,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Demonbane weapons",
+        "reason": "He is a demon, so Emberlight and Arclight outperform weapons with far better raw stats. His defences are otherwise almost flat at +70 to +80."
+      }
+    ]
+  },
+  {
+    "name": "Kree'arra", "viableStyles": ["RANGED", "MAGIC"], "styleRestriction": "Kree'arra flies, so melee cannot reach him. Ranged is the standard, with magic as the alternative.",
+    "group": "God Wars Dungeon",
+    "tier": "Hard",
+    "hitpoints": 255,
+    "defenceLevel": 260, "magicLevel": 200,
+    "dstab": 180, "dslash": 180, "dcrush": 180, "dmagic": 200, "drange": 200,
+    "attributes": ["flying"],
+    "verified": true,
+    "weaknessElement": "air",
+    "weaknessPercent": 30,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Ranged is about staying out of his melee",
+        "reason": "His defensive bonuses are nearly flat (+180 melee, +200 magic and ranged), so ranged is not chosen for accuracy. It is chosen because his melee is his hardest attack and distance avoids it. A Noxious halberd reaches two tiles and can hit airborne targets, so melee is viable in teams with a Soulflame horn."
+      }
+    ]
+  },
+  {
+    "name": "Nex", "styleRestriction": "Ranged is the answer here - a Zaryte crossbow with Ruby dragon bolts (e) puts out damage nothing else matches, because the ruby proc does a flat 100 against her huge health pool. Melee works with an Osmumten's fang for its accuracy re-roll, but is not recommended. Magic is usable and clearly the weakest of the three.",
+    "group": "Nex",
+    "tier": "Elite",
+    "hitpoints": 3400,
+    "defenceLevel": 260, "magicLevel": 230,
+    "dstab": 40, "dslash": 140, "dcrush": 60, "dmagic": 300, "drange": 190,
+    "verified": true,
+    "immunities": ["poison", "venom", "cannons"],
+    "requiredStyles": ["RANGED", "MELEE"],
+    "notes": [
+      {
+        "item": "Stab weapon",
+        "reason": "Stab defence is +40 against +140 slash, +190 ranged and +300 magic, which is why Osmumten's fang is the melee pick rather than a scythe."
+      },
+      {
+        "item": "Ranged and melee in one trip",
+        "reason": "Ranged dominates the Shadow phase while melee is used for Smoke, Blood and Zaros, so both setups are carried together."
+      }
+    ]
+  },
+
+  {
+    "name": "Great Olm (head)",
+    "group": "Chambers of Xeric",
+    "tier": "Master",
+    "hitpoints": 800,
+    "defenceLevel": 150, "magicLevel": 250,
+    "dstab": 200, "dslash": 200, "dcrush": 200, "dmagic": 200, "drange": 50,
+    "attributes": ["dragon", "xerician"],
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 50,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Ranged the head",
+        "reason": "Ranged defence is +50 against +200 on every other style, so the head is a ranged target. His high Magic level is also why a Twisted bow performs so well."
+      }
+    ]
+  },
+  {
+    "name": "Great Olm (left claw)",
+    "group": "Chambers of Xeric",
+    "tier": "Master",
+    "hitpoints": 600,
+    "defenceLevel": 175, "magicLevel": 175,
+    "dstab": 50, "dslash": 50, "dcrush": 50, "dmagic": 200, "drange": 200,
+    "attributes": ["dragon", "xerician"],
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 50,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Melee the left claw",
+        "reason": "All melee defences are +50 against +200 magic and ranged - the opposite of the head."
+      }
+    ]
+  },
+  {
+    "name": "Great Olm (right claw)",
+    "group": "Chambers of Xeric",
+    "tier": "Master",
+    "hitpoints": 600,
+    "defenceLevel": 175, "magicLevel": 87,
+    "dstab": 200, "dslash": 200, "dcrush": 200, "dmagic": 50, "drange": 200,
+    "attributes": ["dragon", "xerician"],
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 50,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Mage the right claw",
+        "reason": "Magic defence is +50 against +200 everywhere else, and its Magic level is only 87. Each part of Olm wants a different style."
+      }
+    ]
+  },
+  {
+    "name": "Verzik Vitur (P1)",
+    "group": "Theatre of Blood",
+    "tier": "Master",
+    "hitpoints": 2000,
+    "defenceLevel": 20, "magicLevel": 400,
+    "dstab": 20, "dslash": 20, "dcrush": 20, "dmagic": 20, "drange": 20,
+    "verified": true
+  },
+  {
+    "name": "Verzik Vitur (P2)",
+    "group": "Theatre of Blood",
+    "tier": "Master",
+    "hitpoints": 3500,
+    "defenceLevel": 200, "magicLevel": 400,
+    "dstab": 100, "dslash": 60, "dcrush": 100, "dmagic": 70, "drange": 250,
+    "verified": true
+  },
+  {
+    "name": "Verzik Vitur (P3)",
+    "group": "Theatre of Blood",
+    "tier": "Master",
+    "hitpoints": 3500,
+    "defenceLevel": 150, "magicLevel": 300,
+    "dstab": 70, "dslash": 30, "dcrush": 70, "dmagic": 100, "drange": 230,
+    "weaknessElement": "fire",
+    "weaknessPercent": 50,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Slash weapon",
+        "reason": "Slash defence is +30 against +70 stab/crush and +230 ranged, so a scythe or other slash weapon is well ahead on this phase."
+      }
+    ]
+  },
+  {"name": "The Maiden of Sugadinti", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 3500, "defenceLevel": 200, "magicLevel": 350, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 0, "verified": true,
+    "notes": [{"item": "Twisted bow shines here", "reason": "Her Magic level is 350, and Twisted bow damage scales with the target's Magic level."}]},
+  {"name": "Pestilent Bloat", "viableStyles": ["MELEE"], "styleRestriction": "Magic defence is +600 and ranged +800 against slash +20. Melee only.", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 2000, "defenceLevel": 100, "magicLevel": 150, "dstab": 40, "dslash": 20, "dcrush": 40, "dmagic": 600, "drange": 800, "verified": true, "attributes": ["undead"],
+    "notes": [{"item": "Melee only, and Salve works", "reason": "Magic defence is +600 and ranged +800 against slash +20. He is undead, so a Salve amulet (ei) applies."}]},
+  {"name": "Nylocas Vasilias", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 2500, "defenceLevel": 50, "magicLevel": 50, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 0, "verified": true, "weaknessElement": "fire", "weaknessPercent": 15,
+    "requiredStyles": ["MELEE", "RANGED", "MAGIC"],
+    "notes": [{"item": "All three styles, switched to match its colour", "reason": "The boss cycles colour and only takes damage from the matching style, so every style is carried at once. Defences are all 0 - the check is switching speed, not gear."}]},
+  {"name": "Sotetseg", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 4000, "defenceLevel": 200, "magicLevel": 250, "dstab": 70, "dslash": 70, "dcrush": 70, "dmagic": 30, "drange": 150, "verified": true,
+    "notes": [{"item": "Magic", "reason": "Magic defence is +30 against +70 melee and +150 ranged."}]},
+  {"name": "Xarpus", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 5000, "defenceLevel": 250, "magicLevel": 220, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 160, "verified": true, "weaknessElement": "air", "weaknessPercent": 50,
+    "notes": [{"item": "Melee or magic, not ranged", "reason": "Ranged defence is +160 while every melee style and magic sit at 0."}]},
+
+  {"name": "Vasa Nistirio", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 300, "defenceLevel": 175, "magicLevel": 230, "dstab": 170, "dslash": 190, "dcrush": 40, "dmagic": 400, "drange": 40, "verified": true, "attributes": ["xerician"],
+    "notes": [{"item": "Crush or ranged", "reason": "Crush is +40 and ranged +40, against +170 stab, +190 slash and +400 magic."}]},
+  {"name": "Vespula", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 200, "defenceLevel": 88, "magicLevel": 88, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 70, "drange": 60, "verified": true, "weaknessElement": "fire", "weaknessPercent": 50, "attributes": ["xerician", "flying"]},
+  {"name": "Muttadile", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 250, "defenceLevel": 220, "magicLevel": 250, "dstab": -5, "dslash": 82, "dcrush": 60, "dmagic": 75, "drange": 0, "verified": true, "weaknessElement": "earth", "weaknessPercent": 40, "attributes": ["xerician"],
+    "notes": [{"item": "Stab or ranged", "reason": "Stab defence is -5 and ranged 0, against +82 slash and +75 magic."}]},
+  {"name": "Vanguard", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 180, "defenceLevel": 160, "magicLevel": 150, "dstab": 315, "dslash": 340, "dcrush": 400, "dmagic": 110, "drange": 50, "verified": true, "attributes": ["xerician"],
+    "notes": [{"item": "Ranged", "reason": "Ranged defence is +50 against +315 or more on every melee style. Their health must also be kept close together or they heal."}]},
+  {"name": "Ice demon", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 140, "defenceLevel": 160, "magicLevel": 390, "dstab": 70, "dslash": 70, "dcrush": 110, "dmagic": 40, "drange": 140, "verified": true, "weaknessElement": "fire", "weaknessPercent": 150, "attributes": ["demon", "xerician"],
+    "notes": [{"item": "150% weak to fire", "reason": "The largest fire weakness in the raid, and fire spells are required to break its shield regardless of your gear."}]},
+
+  {
+    "name": "Tekton",
+    "group": "Chambers of Xeric",
+    "tier": "Master",
+    "hitpoints": 300,
+    "defenceLevel": 205, "magicLevel": 205,
+    "dstab": 155, "dslash": 165, "dcrush": 105, "dmagic": 0, "drange": 0,
+    "attributes": ["xerician"],
+    "weaknessElement": "water",
+    "weaknessPercent": 20,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +105 against +155 stab and +165 slash, which is why crush weapons are used here."
+      },
+      {
+        "item": "Elder maul / Dragon warhammer",
+        "reason": "Both give a guaranteed defence reduction on their first hit at Tekton, so they should land before a Bandos godsword."
+      }
+    ]
+  },
+  {
+    "name": "TzKal-Zuk", "viableStyles": ["RANGED", "MAGIC"], "styleRestriction": "Melee is not used in the Inferno. It is a ranged fight throughout, with a magic switch for freezing the Jads and Zuk's healers.",
+    "group": "Inferno",
+    "tier": "Master",
+    "hitpoints": 1200,
+    "defenceLevel": 260, "magicLevel": 150,
+    "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 350, "drange": 100,
+    "weaknessElement": "water",
+    "weaknessPercent": 40,
+    "verified": true
+  },
+  {
+    "name": "Sol Heredit", "viableStyles": ["MELEE"], "styleRestriction": "Magic defence is +750 and ranged +825 against slash +5. Melee only.",
+    "group": "Fortis Colosseum",
+    "tier": "Master",
+    "hitpoints": 1500,
+    "defenceLevel": 200, "magicLevel": 300,
+    "dstab": 65, "dslash": 5, "dcrush": 30, "dmagic": 750, "drange": 825,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Slash weapon",
+        "reason": "Slash defence is +5 against magic +750 and ranged +825, so melee slash is overwhelmingly the answer."
+      }
+    ]
+  },
+
+  {
+    "name": "Abyssal Sire",
+    "group": "Abyssal Sire",
+    "tier": "Hard",
+    "hitpoints": 425,
+    "defenceLevel": 250, "magicLevel": 200,
+    "dstab": 40, "dslash": 60, "dcrush": 50, "dmagic": 20, "drange": 60,
+    "attributes": ["demon"],
+    "verified": true,
+    "immunities": ["poison", "venom", "thralls"],
+    "notes": [
+      {
+        "item": "Magic defence is only +20",
+        "reason": "Against +40 stab and +60 slash/ranged, magic is surprisingly competitive here despite the Sire being a classic melee target."
+      }
+    ]
+  },
+  {
+    "name": "Alchemical Hydra",
+    "group": "Alchemical Hydra",
+    "tier": "Hard",
+    "hitpoints": 1100,
+    "defenceLevel": 100, "magicLevel": 260,
+    "dstab": 75, "dslash": 150, "dcrush": 150, "dmagic": 150, "drange": 45,
+    "attributes": ["dragon"],
+    "weaknessElement": "earth",
+    "weaknessPercent": 50,
+    "verified": true
+  },
+  {
+    "name": "The Hueycoatl",
+    "group": "The Hueycoatl",
+    "tier": "Medium",
+    "hitpoints": 2500,
+    "defenceLevel": 125, "magicLevel": 50,
+    "dstab": 100, "dslash": 100, "dcrush": 0, "dmagic": 200, "drange": 350,
+    "attributes": ["dragon"],
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 60,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is 0 against +100 stab/slash, +200 magic and +350 ranged. During the tail phase damage is also capped at 4 or 9 depending on whether crush is your highest attack bonus, so crush is doubly important."
+      }
+    ]
+  },
+  {
+    "name": "Kalphite Queen",
+    "group": "Kalphite Queen",
+    "tier": "Hard",
+    "hitpoints": 255,
+    "defenceLevel": 300, "magicLevel": 150,
+    "dstab": 50, "dslash": 50, "dcrush": 10, "dmagic": 100, "drange": 100,
+    "attributes": ["kalphite"],
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 40,
+    "notes": [
+      {
+        "item": "Two phases, identical stats",
+        "reason": "Both forms share the same combat stats. Phase 1 runs Protect from Magic and Missiles, phase 2 runs Protect from Melee - and these only add Defence rather than blocking damage."
+      },
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +10 against +50 stab and slash and +100 magic and ranged."
+      }
+    ]
+  },
+  {
+    "name": "King Black Dragon",
+    "group": "King Black Dragon",
+    "tier": "Medium",
+    "hitpoints": 240,
+    "defenceLevel": 240, "magicLevel": 240,
+    "dstab": 40, "dslash": 90, "dcrush": 90, "dmagic": 80, "drange": 70,
+    "attributes": ["dragon", "fiery"],
+    "verified": true,
+    "weaknessElement": "water",
+    "weaknessPercent": 50,
+    "immunities": ["burn"],
+    "notes": [
+      {
+        "item": "Dragonfire protection",
+        "reason": "An anti-dragon shield plus an antifire potion stops his regular dragonfire outright and cuts special breaths to 10. That is worth more than any shield's combat stats here."
+      },
+      {
+        "item": "Stab weapon",
+        "reason": "Stab defence is +40 against +90 slash and crush."
+      }
+    ]
+  },
+  {
+    "name": "Giant Mole",
+    "group": "Giant Mole",
+    "tier": "Medium",
+    "hitpoints": 200,
+    "defenceLevel": 200, "magicLevel": 200,
+    "dstab": 60, "dslash": 80, "dcrush": 100, "dmagic": 80, "drange": 60,
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 50,
+    "notes": [
+      {
+        "item": "Protect from Melee negates everything",
+        "reason": "She only attacks with melee, so the prayer removes all damage and defensive gear stops mattering. Dharok's is a standard approach precisely because you can afford to sit at low health."
+      },
+      {
+        "item": "Poison stops her burrowing",
+        "reason": "Between 50% and 5% health she can burrow away on each of your attacks. Poison damage does not trigger it."
+      }
+    ]
+  },
+  {
+    "name": "Thermonuclear smoke devil", "viableStyles": ["MAGIC"], "styleRestriction": "Magic is how this is done. A Trident of the swamp outranges an Eye of ayak, and that extra reach is the point - it lets you attack without being hit back. Freezing spells hold the smoke devils in place while you work.",
+    "group": "Thermonuclear smoke devil",
+    "tier": "Medium",
+    "hitpoints": 240,
+    "defenceLevel": 360, "magicLevel": 1,
+    "dstab": 11, "dslash": 4, "dcrush": 9, "dmagic": 800, "drange": 900,
+    "verified": true,
+    "weaknessElement": "air",
+    "weaknessPercent": 20,
+    "immunities": ["poison", "venom", "cannons", "thralls"],
+    "notes": [
+      {
+        "item": "Melee only, slash",
+        "reason": "Magic defence is +800 and ranged +900 against slash +4. Nothing but melee is viable, whatever the elemental weakness suggests."
+      },
+      {
+        "item": "Requires 93 Slayer",
+        "reason": "You cannot damage it at all below 93 Slayer, and boosts do not count."
+      }
+    ]
+  },
+  {
+    "name": "Scorpia", "viableStyles": ["MAGIC"], "styleRestriction": "Magic defence is +44 against +246 stab and +284 everywhere else. Scorpia is a magic fight.",
+    "group": "Wilderness",
+    "tier": "Hard",
+    "hitpoints": 200,
+    "defenceLevel": 180, "magicLevel": 1,
+    "dstab": 246, "dslash": 284, "dcrush": 284, "dmagic": 44, "drange": 284,
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 35,
+    "notes": [
+      {
+        "item": "Magic, not melee",
+        "reason": "Magic defence is +44 against +246 stab and +284 everything else, and her Magic level is 1. This is a magic fight despite looking like a melee boss."
+      },
+      {
+        "item": "Wilderness - bring gear you can lose",
+        "reason": "Multi-combat zone above level 50 Wilderness, so player killers can attack at any time."
+      },
+      {
+        "item": "Guardians heal her below 50%",
+        "reason": "Two guardians spawn and heal her rapidly at close range, which favours killing her quickly over out-sustaining her."
+      }
+    ]
+  },
+  {
+    "name": "Demonic Gorilla",
+    "group": "Demonic Gorillas",
+    "tier": "Hard",
+    "hitpoints": 380,
+    "defenceLevel": 200, "magicLevel": 195,
+    "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 20, "drange": 0,
+    "attributes": ["demon"],
+    "verified": true,
+    "weaknessElement": "water",
+    "weaknessPercent": 35,
+    "immunities": ["cannons"],
+    "notes": [
+      {
+        "item": "Bring two combat styles",
+        "reason": "They switch protection prayers to your last used style after taking enough damage, so a single-style setup stalls out. This is a fight where the correct answer is two loadouts, not one best item."
+      }
+    ]
+  },
+  {
+    "name": "Tormented Demon",
+    "group": "Tormented Demons",
+    "tier": "Hard",
+    "hitpoints": 600,
+    "defenceLevel": 150, "magicLevel": 255,
+    "dstab": 75, "dslash": 175, "dcrush": 68, "dmagic": 5, "drange": 150,
+    "attributes": ["demon"],
+    "verified": true,
+    "weaknessElement": "water",
+    "weaknessPercent": 30,
+    "immunities": ["cannons"],
+    "notes": [
+      {
+        "item": "Demonbane or abyssal weapons",
+        "reason": "Their fire shield cuts non-demonbane damage by 20% until it is knocked down, so a demonbane weapon effectively gains 20% that no stat line shows."
+      },
+      {
+        "item": "Magic defence is only +5",
+        "reason": "Against +175 slash and +150 ranged, magic is the standout style here - and they are 30% weak to water on top."
+      }
+    ]
+  },
+  {
+    "name": "Skotizo",
+    "group": "Skotizo",
+    "tier": "Hard",
+    "hitpoints": 450,
+    "defenceLevel": 200, "magicLevel": 280,
+    "dstab": 80, "dslash": 80, "dcrush": 80, "dmagic": 80, "drange": 130,
+    "attributes": ["demon"],
+    "verified": true,
+    "weaknessElement": "water",
+    "weaknessPercent": 40,
+    "immunities": ["poison", "venom", "ring of recoil"],
+    "notes": [
+      {
+        "item": "Arclight or other demonbane",
+        "reason": "Skotizo is a demon and takes heavily increased demonbane damage, which puts Arclight ahead of weapons with far better raw stats."
+      }
+    ]
+  },
+  {
+    "name": "Sarachnis",
+    "group": "Sarachnis",
+    "tier": "Medium",
+    "hitpoints": 400,
+    "defenceLevel": 150, "magicLevel": 150,
+    "dstab": 60, "dslash": 40, "dcrush": 10, "dmagic": 150, "drange": 300,
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 40,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +10 against +60 stab, +150 magic and +300 ranged. There is also a combat achievement for killing her with crush."
+      },
+      {
+        "item": "Fire weakness does not make magic good",
+        "reason": "She is 40% weak to fire, but +150 magic defence still makes maging her inefficient. Weakness and defence have to be read together."
+      },
+      {
+        "item": "Aranea boots",
+        "reason": "Fully negate her web-binding immobilisation - useful for comfort rather than damage."
+      }
+    ]
+  },
+  {
+    "name": "Doom of Mokhaiotl (delve 1)",
+    "group": "Doom of Mokhaiotl",
+    "tier": "Master",
+    "hitpoints": 525,
+    "defenceLevel": 90, "magicLevel": 275,
+    "dstab": 300, "dslash": 300, "dcrush": 60, "dmagic": 160, "drange": 160,
+    "attributes": ["demon"],
+    "verified": true,
+    "immunities": ["cannons"],
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +60 against +300 stab and slash, so crush is far and away the melee option."
+      },
+      {
+        "item": "No elemental weakness",
+        "reason": "Unusually, spell element does not matter here - pick a staff on raw damage instead."
+      },
+      {
+        "item": "Poison works, until it shields",
+        "reason": "Takes full poison damage normally, but gains 100% poison and venom resistance while shielded and also becomes immune to thralls. Demonbane weapons carry the shielded phase."
+      }
+    ]
+  },
+  {
+    "name": "TzTok-Jad", "viableStyles": ["RANGED"], "styleRestriction": "Melee is not used against Jad. The whole fight is ranged from a distance while flicking Protect from Missiles and Protect from Magic off his attack animations - standing in melee range removes your reaction window entirely.",
+    "group": "Fight Caves",
+    "tier": "Hard",
+    "hitpoints": 250,
+    "defenceLevel": 480, "magicLevel": 480,
+    "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 0,
+    "weaknessElement": "water",
+    "weaknessPercent": 40,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Ranged is preferred",
+        "reason": "Jad has no defensive bonuses at all, so gear choice is about avoiding his attacks rather than beating his defence. Ranging him from distance removes the melee attack entirely, leaving only magic and ranged to pray against."
+      }
+    ]
+  },
+  {
+    "name": "Eldric the Ice King", "requiredStyles": ["MELEE", "RANGED", "MAGIC"],
+    "group": "The Royal Titans",
+    "tier": "Medium",
+    "hitpoints": 600,
+    "defenceLevel": 100, "magicLevel": 100,
+    "dstab": 12, "dslash": 12, "dcrush": 0, "dmagic": 700, "drange": 700,
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 50,
+    "immunities": ["poison", "venom", "freeze", "cannons"],
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is 0 against +12 stab/slash and +700 magic and ranged, so melee crush is the obvious route."
+      },
+      {
+        "item": "Ranged accuracy x6 at distance",
+        "reason": "Despite +700 ranged defence, your ranged accuracy is multiplied by 6 whenever Eldric is out of melee distance - a mechanic that completely inverts what his stat block implies."
+      }
+    ]
+  },
+  {
+    "name": "Branda the Fire Queen", "requiredStyles": ["MELEE", "RANGED", "MAGIC"],
+    "group": "The Royal Titans",
+    "tier": "Medium",
+    "hitpoints": 600,
+    "defenceLevel": 100, "magicLevel": 100,
+    "dstab": 12, "dslash": 12, "dcrush": 0, "dmagic": 700, "drange": 700,
+    "attributes": ["fiery"],
+    "verified": true,
+    "weaknessElement": "water",
+    "weaknessPercent": 50,
+    "immunities": ["poison", "venom", "freeze", "cannons"],
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Identical stat block to Eldric - crush defence 0, magic and ranged +700."
+      },
+      {
+        "item": "Water spells, not fire",
+        "reason": "Branda and Eldric have the same defensive stats but opposite elemental weaknesses. Stats alone cannot tell them apart."
+      }
+    ]
+  },
+  {
+    "name": "Amoxliatl",
+    "group": "Amoxliatl",
+    "tier": "Medium",
+    "hitpoints": 520,
+    "defenceLevel": 80, "magicLevel": 170,
+    "dstab": 100, "dslash": 100, "dcrush": 40, "dmagic": 100, "drange": 200,
+    "attributes": ["spectral"],
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 30,
+    "notes": [
+      {
+        "item": "Prayer bonus matters",
+        "reason": "She can disable prayers before attacking, and ground hazards deal typeless damage that protection prayers cannot reduce."
+      }
+    ]
+  },
+  {
+    "name": "Scurrius",
+    "group": "Scurrius",
+    "tier": "Easy",
+    "hitpoints": 500,
+    "defenceLevel": 60, "magicLevel": 50,
+    "dstab": 20, "dslash": 20, "dcrush": 20, "dmagic": 10, "drange": 20,
+    "attributes": ["rat"],
+    "verified": true,
+    "notes": [
+      {
+        "item": "Balanced defence and prayer bonus",
+        "reason": "Scurrius uses all three attack styles and is designed to teach fast prayer switching, so coverage matters more than specialising."
+      }
+    ]
+  },
+  {
+    "name": "Blood Moon", "viableStyles": ["MELEE"], "styleRestriction": "Ranged and magic defence are both +500 against +0 slash. This is a melee fight, and slash is the attack type you want.",
+    "group": "Moons of Peril",
+    "tier": "Medium",
+    "hitpoints": 500,
+    "defenceLevel": 60, "magicLevel": 100,
+    "dstab": 100, "dslash": 0, "dcrush": 100, "dmagic": 500, "drange": 500,
+    "verified": true,
+    "weaknessElement": "air",
+    "weaknessPercent": 15,
+    "immunities": ["poison", "venom", "cannons", "burn", "freeze"],
+    "notes": [
+      {
+        "item": "Slash weapon",
+        "reason": "Slash defence is 0 against +100 stab and crush, and +500 on both magic and ranged. Each of the three Moons has the same +500 magic and ranged wall but a different melee gap - Blood wants slash, Blue wants crush, Eclipse wants stab."
+      },
+      {
+        "item": "She heals from her three-hit attack",
+        "reason": "Her series of three hits heals her based on damage dealt, so killing speed matters more than raw sustain."
+      }
+    ]
+  },
+  {
+    "name": "Blue Moon", "viableStyles": ["MELEE"], "styleRestriction": "Ranged and magic defence are both +500 against +0 crush. This is a melee fight, and crush is the attack type you want.",
+    "group": "Moons of Peril",
+    "tier": "Medium",
+    "hitpoints": 500,
+    "defenceLevel": 60, "magicLevel": 100,
+    "dstab": 100, "dslash": 100, "dcrush": 0, "dmagic": 500, "drange": 500,
+    "verified": true,
+    "weaknessElement": "air",
+    "weaknessPercent": 15,
+    "immunities": ["poison", "venom", "cannons", "burn", "freeze"],
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is 0 against +100 stab and slash. Its negative flat armour also makes multi-hit weapons unusually effective."
+      }
+    ]
+  },
+  {
+    "name": "Eclipse Moon", "viableStyles": ["MELEE"], "styleRestriction": "Ranged and magic defence are both +500 against +0 stab. This is a melee fight, and stab is the attack type you want.",
+    "group": "Moons of Peril",
+    "tier": "Medium",
+    "hitpoints": 500,
+    "defenceLevel": 60, "magicLevel": 100,
+    "dstab": 0, "dslash": 100, "dcrush": 100, "dmagic": 500, "drange": 500,
+    "verified": true,
+    "weaknessElement": "air",
+    "weaknessPercent": 15,
+    "immunities": ["poison", "venom", "cannons", "burn", "freeze"],
+    "notes": [
+      {
+        "item": "Stab weapon",
+        "reason": "Stab defence is 0 against +100 slash and crush."
+      },
+      {
+        "item": "Clone phase is melee-only",
+        "reason": "During the Clone special, ranged and magic deal no damage at all - only melee works."
+      }
+    ]
+  },
+  {
+    "name": "Hespori",
+    "group": "Hespori",
+    "tier": "Medium",
+    "hitpoints": 300,
+    "defenceLevel": 120, "magicLevel": 126,
+    "dstab": 60, "dslash": 20, "dcrush": 60, "dmagic": 80, "drange": 80,
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 100,
+    "immunities": ["poison", "venom", "cannons", "freeze"],
+    "notes": [
+      {
+        "item": "Slash weapon",
+        "reason": "Slash defence is +20 against +60 stab and crush."
+      },
+      {
+        "item": "100% fire weakness",
+        "reason": "The largest elemental weakness in the game - fire spells are twice as effective for both accuracy and damage, which makes magic genuinely viable for players without strong melee."
+      }
+    ]
+  },
+  {
+    "name": "The Mimic",
+    "group": "The Mimic",
+    "tier": "Medium",
+    "hitpoints": 230,
+    "defenceLevel": 120, "magicLevel": 60,
+    "dstab": 160, "dslash": 165, "dcrush": 150, "dmagic": 30, "drange": 145,
+    "verified": true,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Magic",
+        "reason": "Magic defence is +30 and its Magic level only 60, against +150 or more on every other style. Strong melee defences make it look like a melee target when it is not."
+      }
+    ]
+  },
+  {
+    "name": "Mad Angel",
+    "group": "Mad Angel",
+    "tier": "Medium",
+    "hitpoints": 755,
+    "defenceLevel": 175, "magicLevel": 150,
+    "dstab": 60, "dslash": 80, "dcrush": 40, "dmagic": 185, "drange": 185,
+    "attributes": ["golem"],
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 15,
+    "immunities": ["poison", "venom", "cannons", "freeze", "burn"],
+    "notes": [
+      {
+        "item": "Golembane weapons",
+        "reason": "It is a golem, so golembane weapons deal bonus damage that no stat line shows."
+      },
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +20 against +40 stab, +60 slash, +165 magic and +175 ranged."
+      },
+      {
+        "item": "Protect from Melee cuts its max hit from 31 to 5",
+        "reason": "Prayer matters far more than defensive gear here."
+      }
+    ]
+  },
+  {
+    "name": "Deranged archaeologist", "viableStyles": ["MAGIC", "RANGED"], "styleRestriction": "Magic is the answer here despite his +300 magic defence bonus, because his Magic level is negligible and the roll is what actually matters. Fighting from a distance also stops him meleeing you at all, so you can pray Ranged and take nothing.",
+    "group": "Deranged archaeologist",
+    "tier": "Easy",
+    "hitpoints": 200,
+    "defenceLevel": 280, "magicLevel": 1,
+    "dstab": 20, "dslash": 20, "dcrush": 50, "dmagic": 300, "drange": 300,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Magic works despite +300 magic defence",
+        "reason": "The wiki states it directly: an NPC's magic defence is calculated off its Magic level, not its Defence level - and his Magic level is 1. Another case where a defensive bonus read alone is misleading."
+      },
+      {
+        "item": "Stab or slash for melee",
+        "reason": "Both are +20 against +50 crush."
+      }
+    ]
+  },
+  {
+    "name": "Chaos Fanatic", "viableStyles": ["RANGED"], "styleRestriction": "Ranged defence is +50 against +250 crush and +280 magic. Range him.",
+    "group": "Wilderness",
+    "tier": "Medium",
+    "hitpoints": 225,
+    "defenceLevel": 220, "magicLevel": 200,
+    "dstab": 260, "dslash": 260, "dcrush": 250, "dmagic": 280, "drange": 50,
+    "verified": true,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Ranged",
+        "reason": "Standard ranged defence is +50 against +250 or more on every melee style and +280 magic. Protect from Magic also negates his main attack entirely."
+      },
+      {
+        "item": "Keep a full inventory",
+        "reason": "A full inventory negates his disarm special attack completely."
+      }
+    ]
+  },
+  {
+    "name": "Crazy archaeologist", "viableStyles": ["MELEE"], "styleRestriction": "Magic and ranged defence are both +250 against +5 stab and slash. Melee only.",
+    "group": "Wilderness",
+    "tier": "Medium",
+    "hitpoints": 225,
+    "defenceLevel": 240, "magicLevel": 1,
+    "dstab": 5, "dslash": 5, "dcrush": 30, "dmagic": 250, "drange": 250,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Magic works despite +250 magic defence",
+        "reason": "Magic defence rolls mostly off the target's Magic level, and his is 1. The +250 bonus looks prohibitive but is not - a good example of why a defensive bonus cannot be read on its own."
+      },
+      {
+        "item": "Stab or slash for melee",
+        "reason": "Stab and slash defence are both +5, against +30 crush."
+      }
+    ]
+  },
+  {
+    "name": "Revenant maledictus",
+    "group": "Wilderness",
+    "tier": "Hard",
+    "hitpoints": 1250,
+    "defenceLevel": 90, "magicLevel": 130,
+    "dstab": 201, "dslash": 206, "dcrush": 188, "dmagic": 101, "drange": 231,
+    "attributes": ["undead", "spectral"],
+    "verified": true,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Magic",
+        "reason": "Magic defence is +101 against +188 or more on melee and +231 ranged, and its Defence level is only 90."
+      }
+    ]
+  },
+  {
+    "name": "Artio", "viableStyles": ["RANGED", "MAGIC"], "styleRestriction": "Ranged defence is +40 and magic defence is +0, against +125 stab. Same as Callisto - do not melee her.",
+    "group": "Wilderness",
+    "tier": "Hard",
+    "hitpoints": 450,
+    "defenceLevel": 150, "magicLevel": 90,
+    "dstab": 125, "dslash": 110, "dcrush": 110, "dmagic": 0, "drange": 40,
+    "verified": true,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Singles variant of Callisto",
+        "reason": "Weaker and safer - his melee minimum hit is 15 rather than Callisto's 35. Magic defence is 0 and ranged only +40."
+      }
+    ]
+  },
+  {
+    "name": "Callisto", "viableStyles": ["RANGED", "MAGIC"], "styleRestriction": "Ranged defence is +50 and magic defence is +0, against +150 stab - and his melee hits far too hard to stand in. Range or mage him.",
+    "group": "Wilderness",
+    "tier": "Hard",
+    "hitpoints": 1000,
+    "defenceLevel": 225, "magicLevel": 140,
+    "dstab": 150, "dslash": 130, "dcrush": 125, "dmagic": 0, "drange": 50,
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 30,
+    "immunities": ["poison", "venom", "cannons", "ring of recoil"],
+    "notes": [
+      {
+        "item": "Bring gear you can afford to lose",
+        "reason": "Multi-way Wilderness. Ranged defence is only +50 and magic defence 0, against +125 or more on every melee style, so fighting from distance is both safer and more accurate."
+      }
+    ]
+  },
+  {
+    "name": "Calvar'ion", "viableStyles": ["MELEE"], "styleRestriction": "Crush defence is -10 against +198 magic and +211 ranged. Crush melee, and nothing else.",
+    "group": "Wilderness",
+    "tier": "Hard",
+    "hitpoints": 150,
+    "defenceLevel": 225, "magicLevel": 178,
+    "dstab": 130, "dslash": 128, "dcrush": -10, "dmagic": 198, "drange": 211,
+    "attributes": ["undead"],
+    "verified": true,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Singles variant of Vet'ion",
+        "reason": "Quicker and safer for lower loot. Crush defence is -10, same as Vet'ion, so crush weapons remain the answer."
+      }
+    ]
+  },
+  {
+    "name": "Spindel", "viableStyles": ["MELEE", "RANGED"], "styleRestriction": "Magic defence is +205 against +10 crush. Crush melee is the answer, with ranged as a slower alternative.",
+    "group": "Wilderness",
+    "tier": "Hard",
+    "hitpoints": 515,
+    "defenceLevel": 225, "magicLevel": 235,
+    "dstab": 70, "dslash": 70, "dcrush": 10, "dmagic": 205, "drange": 103,
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 25,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Singles variant of Venenatis",
+        "reason": "Easier and safer for lower drop rates. Crush defence is +10 against +70 stab and slash, so crush again."
+      }
+    ]
+  },
+  {
+    "name": "Venenatis", "viableStyles": ["MELEE", "RANGED"], "styleRestriction": "Magic defence is +300 against +10 crush. Crush melee is the answer, with ranged as a slower alternative.",
+    "group": "Wilderness",
+    "tier": "Hard",
+    "hitpoints": 850,
+    "defenceLevel": 321, "magicLevel": 300,
+    "dstab": 100, "dslash": 100, "dcrush": 10, "dmagic": 300, "drange": 150,
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 40,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +10 against +100 stab and slash, +300 magic and +150 ranged. The 40% fire weakness does not overcome that magic defence."
+      }
+    ]
+  },
+  {
+    "name": "Chaos Elemental",
+    "group": "Wilderness",
+    "tier": "Hard",
+    "hitpoints": 250,
+    "defenceLevel": 270, "magicLevel": 270,
+    "dstab": 70, "dslash": 70, "dcrush": 70, "dmagic": 70, "drange": 70,
+    "verified": true,
+    "weaknessElement": "air",
+    "weaknessPercent": 50,
+    "notes": [
+      {
+        "item": "It unequips your gear",
+        "reason": "Its Madness attack removes up to four equipped items mid-fight, so expect to re-equip. Defences are a flat +70 across every style, meaning gear choice here is about handling that mechanic rather than beating a weakness."
+      },
+      {
+        "item": "Venom becomes poison",
+        "reason": "Venom-inflicting weapons only apply poison here, so their usual advantage is reduced."
+      }
+    ]
+  },
+  {
+    "name": "Vet'ion", "viableStyles": ["MELEE"], "styleRestriction": "His crush defence is -10 against +250 magic and +270 ranged. Crush melee, and nothing else.",
+    "group": "Wilderness",
+    "tier": "Hard",
+    "hitpoints": 255,
+    "defenceLevel": 395, "magicLevel": 300,
+    "dstab": 201, "dslash": 200, "dcrush": -10, "dmagic": 250, "drange": 270,
+    "attributes": ["undead"],
+    "verified": true,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Bring gear you can afford to lose",
+        "reason": "This is a Wilderness boss in a multicombat area. The recommended setup is deliberately cheaper than your best gear - a few high-strength pieces and budget filler, or Trouver parchments on anything valuable."
+      },
+      {
+        "item": "Crush weapon",
+        "reason": "Vet'ion's crush defence is -10, so crush weapons hit him easily despite his otherwise high defences."
+      }
+    ]
+  },
+  {
+    "name": "Yama", "viableStyles": ["MELEE", "MAGIC"], "styleRestriction": "Ranged defence is +220 against +0 magic and +80 slash. Yama is a demon, so demonbane gear applies - the Purging staff above all.",
+    "group": "Yama",
+    "tier": "Elite",
+    "hitpoints": 2500,
+    "defenceLevel": 225, "magicLevel": 250,
+    "dstab": 100, "dslash": 80, "dcrush": 333, "dmagic": 0, "drange": 220,
+    "attributes": ["demon"],
+    "weaknessElement": "water",
+    "weaknessPercent": 50,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Demonbane weapons",
+        "reason": "Yama is a demon and takes 120% demonbane damage, so Emberlight and Arclight beat higher-stat weapons outright."
+      },
+      {
+        "item": "Adapts to your attacks",
+        "reason": "Yama changes his combat stance based on what you last hit him with, so a single fixed ranking cannot describe the whole fight."
+      }
+    ]
+  },
+  {
+    "name": "Dagannoth Prime", "viableStyles": ["RANGED"], "styleRestriction": "Ranged defence is +10 against +255 on every other style.",
+    "group": "Dagannoth Kings",
+    "tier": "Hard",
+    "hitpoints": 255,
+    "defenceLevel": 255, "magicLevel": 255,
+    "dstab": 255, "dslash": 255, "dcrush": 255, "dmagic": 255, "drange": 10,
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 35,
+    "notes": [
+      {
+        "item": "Ranged, decisively",
+        "reason": "Ranged defence is +10 against +255 on every other style. The three Kings each have exactly one viable style, which is the whole point of the fight."
+      }
+    ]
+  },
+  {
+    "name": "Dagannoth Rex", "viableStyles": ["MAGIC"], "styleRestriction": "Magic defence is +10 and Magic level 0, against +255 on every other style.",
+    "group": "Dagannoth Kings",
+    "tier": "Hard",
+    "hitpoints": 255,
+    "defenceLevel": 255, "magicLevel": 0,
+    "dstab": 255, "dslash": 255, "dcrush": 255, "dmagic": 10, "drange": 255,
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 35,
+    "notes": [
+      {
+        "item": "Magic, decisively",
+        "reason": "Magic defence is +10 and his Magic level is 0, against +255 on every other style. This is the clearest example in the game of a boss that looks like a melee target and is not."
+      }
+    ]
+  },
+  {
+    "name": "Dagannoth Supreme", "viableStyles": ["MELEE"], "styleRestriction": "All melee defences are +10 against +255 magic and +550 ranged.",
+    "group": "Dagannoth Kings",
+    "tier": "Hard",
+    "hitpoints": 255,
+    "defenceLevel": 128, "magicLevel": 255,
+    "dstab": 10, "dslash": 10, "dcrush": 10, "dmagic": 255, "drange": 550,
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 35,
+    "notes": [
+      {
+        "item": "Melee, decisively",
+        "reason": "All melee defences are +10 against +255 magic and +550 ranged."
+      }
+    ]
+  },
+  {
+    "name": "Grotesque Guardians",
+    "group": "Grotesque Guardians",
+    "tier": "Hard",
+    "hitpoints": 450,
+    "defenceLevel": 100, "magicLevel": 140,
+    "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 0,
+    "attributes": ["golem"],
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 40,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Dusk blocks magic and ranged",
+        "reason": "Dusk's armour protects him from both magic and ranged entirely, so melee is mandatory on him regardless of stats."
+      }
+    ]
+  },
+  {
+    "name": "Araxxor", "viableStyles": ["MELEE", "RANGED"], "styleRestriction": "Magic defence is +237 against +15 crush. Crush melee is the fight, with ranged as the alternative.",
+    "group": "Araxxor",
+    "tier": "Hard",
+    "hitpoints": 1020,
+    "defenceLevel": 135, "magicLevel": 190,
+    "dstab": 160, "dslash": 75, "dcrush": 15, "dmagic": 237, "drange": 218,
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 50,
+    "immunities": ["poison", "venom", "cannons"],
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +15 against +160 stab, +237 magic and +218 ranged, which is why Inquisitor's gear ranks above Torva here."
+      }
+    ]
+  },
+  {
+    "name": "Cerberus",
+    "group": "Cerberus",
+    "tier": "Hard",
+    "hitpoints": 600,
+    "defenceLevel": 100, "magicLevel": 220,
+    "dstab": 50, "dslash": 100, "dcrush": 25, "dmagic": 65, "drange": 100,
+    "attributes": ["demon"],
+    "verified": true,
+    "weaknessElement": "water",
+    "weaknessPercent": 40,
+    "immunities": ["poison", "venom", "burn"],
+    "notes": [
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +25 against +50 stab and +100 slash, which supports Inquisitor's gear and a crush weapon here."
+      }
+    ]
+  },
+  {
+    "name": "Corporeal Beast", "viableStyles": ["MELEE"], "styleRestriction": "Damage is halved unless you use a corpbane weapon on stab, so melee is the only real option.",
+    "group": "Corporeal Beast",
+    "tier": "Hard",
+    "hitpoints": 2000,
+    "defenceLevel": 310, "magicLevel": 350,
+    "dstab": 25, "dslash": 200, "dcrush": 100, "dmagic": 150, "drange": 230,
+    "verified": true,
+    "weaknessElement": "earth",
+    "weaknessPercent": 10,
+    "immunities": ["poison", "venom"],
+    "notes": [
+      {
+        "item": "Spear or halberd",
+        "reason": "The Corporeal Beast halves damage from any weapon that is not a spear or halberd, which outweighs raw stat comparisons."
+      }
+    ]
+  },
+  {
+    "name": "Phantom Muspah", "viableStyles": ["RANGED", "MAGIC"], "styleRestriction": "Melee is not used here. Ranged defence is +56 against +185 stab, and the fight alternates between a ranged and a magic phase.",
+    "group": "Phantom Muspah",
+    "tier": "Elite",
+    "hitpoints": 850,
+    "defenceLevel": 200, "magicLevel": 150,
+    "dstab": 185, "dslash": 134, "dcrush": 120, "dmagic": 437, "drange": 56,
+    "attributes": ["spectral"],
+    "verified": true,
+    "weaknessElement": "air",
+    "weaknessPercent": 65,
+    "immunities": ["poison", "venom", "cannons"],
+    "requiredStyles": ["MAGIC", "RANGED"],
+    "forms": [
+      {
+        "name": "Ranged form",
+        "dstab": 185, "dslash": 134, "dcrush": 120, "dmagic": 437, "drange": 56,
+        "note": "Ranged defence is only +56 here, so this is the ranged window."
+      },
+      {
+        "name": "Melee form",
+        "dstab": 185, "dslash": 134, "dcrush": 120, "dmagic": 34, "drange": 261,
+        "note": "Magic defence collapses to +34 while ranged climbs to +261 - switch to magic."
+      }
+    ],
+    "notes": [
+      {
+        "item": "Both styles go in one inventory",
+        "reason": "This is a switch fight, not a choice. The melee form drops magic defence to +34 while ranged rises to +261; the ranged form is the exact reverse. You need magic and ranged gear on the same trip."
+      },
+      {
+        "item": "65% weak to air, but +437 magic defence on the ranged form",
+        "reason": "The largest elemental weakness in the game sits behind very high magic defence for part of the fight, which is why the weakness alone does not make it a pure magic kill."
+      }
+    ]
+  },
+  {
+    "name": "Phosani's Nightmare", "viableStyles": ["MELEE"], "styleRestriction": "Magic and ranged defence are both +600 against +40 crush. This is a melee fight - crush weapons only.",
+    "group": "The Nightmare",
+    "tier": "Master",
+    "hitpoints": 3200,
+    "defenceLevel": 150, "magicLevel": 150,
+    "dstab": 120, "dslash": 180, "dcrush": 40, "dmagic": 600, "drange": 600,
+    "verified": true,
+    "immunities": ["poison", "venom", "cannons", "freeze"],
+    "notes": [
+      {
+        "item": "Praying correctly blocks her damage entirely",
+        "reason": "Unlike the normal Nightmare, correct prayers fully block her attacks, so the fight is a prayer-flick check rather than a gear check."
+      },
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +40 against +120 stab, +180 slash and +600 on magic and ranged. Crush also guarantees max hits on husks and weakened parasites."
+      },
+      {
+        "item": "Not undead",
+        "reason": "Salve amulet does nothing here."
+      }
+    ]
+  },
+  {
+    "name": "The Nightmare", "viableStyles": ["MELEE"], "styleRestriction": "Magic and ranged defence are both +600 against +40 crush. This is a melee fight - crush weapons only.",
+    "group": "The Nightmare",
+    "tier": "Master",
+    "hitpoints": 2400,
+    "defenceLevel": 150, "magicLevel": 150,
+    "dstab": 120, "dslash": 180, "dcrush": 40, "dmagic": 600, "drange": 600,
+    "verified": true,
+    "immunities": ["poison", "venom", "freeze", "cannons"],
+    "notes": [
+      {
+        "item": "Not undead",
+        "reason": "Salve amulet has no effect here, despite being an obvious pick on stats alone."
+      },
+      {
+        "item": "Crush weapon",
+        "reason": "Crush defence is +40 against +120 stab, +180 slash and +600 on both magic and ranged. Melee crush is effectively the only option."
+      }
+    ]
+  },
+  {
+    "name": "Kraken", "viableStyles": ["MAGIC"], "styleRestriction": "Ranged defence is +300 and Defence level is 1, so magic is overwhelmingly the fastest option.",
+    "group": "Kraken",
+    "tier": "Medium",
+    "hitpoints": 255,
+    "defenceLevel": 1, "magicLevel": 1,
+    "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 130, "drange": 300,
+    "weaknessElement": "earth",
+    "weaknessPercent": 50,
+    "verified": true,
+    "notes": [
+      {
+        "item": "Magic setup",
+        "reason": "Ranged defence is +300 and defence level is 1, so magic is overwhelmingly the fastest option."
+      }
+    ]
+  },
+  {
+    "name": "Vorkath", "viableStyles": ["MELEE", "RANGED"], "styleRestriction": "Magic defence is +240 against +26 stab and +26 ranged. Vorkath is a dragon, so dragonbane weapons - the Dragon hunter lance or crossbow - carry the fight.",
+    "group": "Vorkath",
+    "tier": "Elite",
+    "hitpoints": 750,
+    "defenceLevel": 214, "magicLevel": 150,
+    "dstab": 26, "dslash": 108, "dcrush": 108, "dmagic": 240, "drange": 26,
+    "attributes": ["dragon", "undead", "fiery"],
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 40,
+    "immunities": ["poison", "venom", "cannons", "thralls"],
+    "alternativeStyles": ["RANGED", "MELEE"],
+    "notes": [
+      {
+        "item": "Stab and ranged are both +26",
+        "reason": "Against +108 slash/crush and +240 magic, stab melee and ranged are the two viable routes - which is why Dragon hunter lance and Dragon hunter crossbow lead their tables."
+      }
+    ]
+  },
+  {
+    "name": "Zulrah",
+    "group": "Zulrah",
+    "tier": "Elite",
+    "hitpoints": 500,
+    "defenceLevel": 300, "magicLevel": 300,
+    "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": -45, "drange": 50,
+    "verified": true,
+    "weaknessElement": "fire",
+    "weaknessPercent": 50,
+    "alternativeStyles": ["RANGED", "MAGIC", "MELEE"],
+    "forms": [
+      {
+        "name": "Serpentine (green)",
+        "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": -45, "drange": 50,
+        "note": "Magic defence is negative here, so this is the magic window."
+      },
+      {
+        "name": "Magma (red)",
+        "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 300,
+        "note": "Ranged defence jumps to +300 - mage this one."
+      },
+      {
+        "name": "Tanzanite (blue)",
+        "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 300, "drange": 0,
+        "note": "The mirror image - magic defence +300, ranged 0, so range this one."
+      }
+    ],
+    "notes": [
+      {
+        "item": "The rotation is the fight",
+        "reason": "All three forms share the same Defence level, but magic defence swings from -45 to +300 and ranged from 0 to +300 between them. Ranged and magic are the standard pairing; melee is a viable alternative route rather than a required switch."
+      },
+      {
+        "item": "Serpentine helm",
+        "reason": "Venom immunity frees the inventory slot an anti-venom+ would take. It is a DPS loss versus a best-in-slot helm, so it is a trade rather than an upgrade."
+      },
+      {
+        "item": "Tome of fire",
+        "reason": "Zulrah has a 50% elemental weakness to fire, so fire spells perform unusually well here."
+      }
+    ]
+  }
+]

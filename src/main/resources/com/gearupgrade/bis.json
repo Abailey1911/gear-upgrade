@@ -1,0 +1,62 @@
+﻿[
+  {
+    "group": "Tombs of Amascut",
+    "style": "MELEE",
+    "note": "Melee is used for Ba-Ba, Kephri, Akkha and the Warden core; most bosses in the raid are weakest to stab. Osmumten's fang scales very well with invocation - it rolls accuracy twice, and inside the raid the target's defence re-rolls too, so it holds accuracy against defensive targets far better than a bigger stat line suggests. Defence is drained by a flat amount here, so Bandos godsword or Bone dagger beat percentage-based drainers.",
+    "specWeapons": ["Voidwaker", "Bandos godsword", "Elder maul", "Burning claws", "Bone dagger", "Dragon warhammer"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Oathplate helm", "Torva full helm", "Neitiznot faceguard", "Serpentine helm", "Blood moon helm", "Helm of neitiznot", "Eclipse moon helm", "Blue moon helm", "Berserker helm"], "ids": [30750, 26382, 24271, 12931, 29028, 10828, 29010, 29019, 3751], "note": "Oathplate leads with a slash weapon - its +10 slash accuracy beats Torva's extra strength against Akkha's 120 slash defence. With a stab weapon like Osmumten's fang, Torva's strength is worth more. Serpentine helm negates venom and poison on the path of Apmeken, Kephri and Zebak."},
+      {"slot": "AMULET", "items": ["Amulet of rancour", "Amulet of torture", "Amulet of blood fury", "Amulet of fury", "Amulet of glory", "Amulet of strength"], "ids": [29801, 19553, 24780, 6585, 1706, 1725]},
+      {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Ardougne cloak 4", "Mythical cape"], "ids": [21295, 6570, 13124, 22114]},
+      {"slot": "BODY", "items": ["Oathplate chest", "Torva platebody", "Bandos chestplate", "Blood moon chestplate", "Fighter torso", "Eclipse moon chestplate", "Mixed hide top", "Blue moon chestplate", "Obsidian platebody", "Inquisitor's hauberk"], "ids": [30753, 26384, 11832, 29022, 10551, 29004, 29280, 29013, 21301, 24420]},
+      {"slot": "LEGS", "items": ["Oathplate legs", "Torva platelegs", "Bandos tassets", "Blood moon tassets", "Eclipse moon tassets", "Mixed hide legs", "Blue moon tassets", "Obsidian platelegs", "Inquisitor's plateskirt"], "ids": [30756, 26386, 11834, 29025, 29007, 29283, 29016, 21304, 24421]},
+      {"slot": "WEAPON", "items": ["Scythe of vitur", "Noxious halberd", "Soulreaper axe", "Inquisitor's mace", "Elder maul", "Blade of saeldor", "Ghrazi rapier", "Abyssal bludgeon", "Abyssal tentacle", "Abyssal whip", "Voidwaker", "Keris partisan of amascut", "Osmumten's fang", "Zamorakian hasta", "Abyssal dagger", "Ursine chainmace", "Dragon scimitar", "Arkan blade", "Dragon sword", "Keris partisan of breaching", "Dual macuahuitl"], "ids": [22325, 29796, 28338, 24417, 21003, 23995, 22324, 13263, 12006, 4151, 27690, 30891, 26219, 11889, 13267, 27660, 4587, 30955, 21009, 25981, 28997], "note": "Scythe of vitur is the highest raw DPS and pairs with Oathplate on slash. Osmumten's fang is the stab alternative and holds accuracy far better at high invocation, because it rolls accuracy twice and the target's defence re-rolls inside the raid."},
+      {"slot": "SHIELD", "items": ["Avernic defender", "Dragon defender", "Rune defender"], "ids": [22322, 12954, 8850]},
+      {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Rune gloves"], "ids": [22981, 7462, 7460]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Dragon boots", "Aranea boots", "Spiked manacles", "Mixed hide boots"], "ids": [31097, 31091, 31088, 13239, 11840, 29806, 23389, 29286]},
+      {"slot": "RING", "items": ["Lightbearer", "Ultor ring", "Berserker ring (i)", "Bellator ring", "Brimstone ring"], "ids": [25975, 28307, 11773, 28316, 22975], "note": "Lightbearer for spec uptime, Ultor for raw damage."},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "Unholy blessing", "War blessing"], "ids": [22947, 22945, 20220, 20223, 20232]}
+    ]
+  },
+  {
+    "monster": "Vardorvis",
+    "style": "MELEE",
+    "note": "Melee only - magic and ranged defence are both +580. Set slashing weapons to their slash style.",
+    "specWeapons": ["Elder maul", "Dragon warhammer", "Bandos godsword", "Voidwaker"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Slayer helmet (i)", "Oathplate helm", "Torva full helm", "Neitiznot faceguard", "Serpentine helm", "Blood moon helm", "Helm of neitiznot", "Berserker helm"], "ids": [11865, 30750, 26382, 24271, 12931, 29028, 10828, 3751], "note": "Only while on a matching Slayer task, where the imbued helm's 16.67% accuracy and damage beats anything else in this slot. Off task it does nothing at all - use Oathplate helm instead."},
+      {"slot": "AMULET", "items": ["Amulet of rancour", "Amulet of blood fury", "Amulet of torture", "Amulet of fury", "Amulet of strength", "Amulet of glory"], "ids": [29801, 24780, 19553, 6585, 1725, 1706]},
+      {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Ardougne cloak 4"], "ids": [21295, 6570, 22114, 13124]},
+      {"slot": "BODY", "items": ["Oathplate chest", "Torva platebody", "Bandos chestplate", "Blood moon chestplate", "Inquisitor's hauberk", "Fighter torso", "Obsidian platebody"], "ids": [30753, 26384, 11832, 29022, 24420, 10551, 21301]},
+      {"slot": "LEGS", "items": ["Oathplate legs", "Torva platelegs", "Bandos tassets", "Blood moon tassets", "Inquisitor's plateskirt", "Obsidian platelegs"], "ids": [30756, 26386, 11834, 29025, 24421, 21304]},
+      {"slot": "WEAPON", "items": ["Noxious halberd", "Soulreaper axe", "Blade of saeldor", "Elder maul", "Abyssal tentacle", "Inquisitor's mace", "Abyssal bludgeon", "Scythe of vitur", "Abyssal whip", "Ghrazi rapier", "Osmumten's fang", "Dragon scimitar", "Ursine chainmace", "Dual macuahuitl"], "ids": [29796, 28338, 23995, 21003, 12006, 24417, 13263, 22325, 4151, 22324, 26219, 4587, 27660, 28997]},
+      {"slot": "SHIELD", "items": ["Avernic defender", "Dragon defender", "Rune defender"], "ids": [22322, 12954, 8850]},
+      {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Rune gloves"], "ids": [22981, 7462, 7460]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads", "Echo boots", "Primordial boots", "Dragon boots", "Avernic treads (pr)"], "ids": [31097, 31088, 28945, 13239, 11840, 31091]},
+      {"slot": "RING", "items": ["Bellator ring", "Ultor ring", "Berserker ring (i)", "Brimstone ring"], "ids": [28316, 28307, 11773, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing"], "ids": [22947, 22945, 20220, 20232]}
+    ]
+  },
+  {
+    "monster": "Corporeal Beast",
+    "style": "MELEE",
+    "note": "Damage is halved unless you use a corpbane weapon on stab. The standard method is to spec his Defence down with Dragon warhammer, Arclight, Bandos godsword or Elder maul first. Masori (f) is worn for magic defence, because the Corporeal Beast attacks with magic - it is not a damage choice.",
+    "specWeapons": ["Dragon warhammer", "Arclight", "Bandos godsword", "Elder maul", "Voidwaker"],
+    "needsReview": false,
+    "slots": [
+      {"slot": "HEAD", "items": ["Torva full helm", "Neitiznot faceguard", "Inquisitor's great helm", "Oathplate helm", "Serpentine helm", "Blood moon helm", "Helm of neitiznot", "Berserker helm"], "ids": [26382, 24271, 24419, 30750, 12931, 29028, 10828, 3751]},
+      {"slot": "AMULET", "items": ["Amulet of rancour", "Amulet of torture", "Amulet of fury", "Amulet of blood fury", "Amulet of strength", "Amulet of glory"], "ids": [29801, 19553, 6585, 24780, 1725, 1706]},
+      {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Ardougne cloak 4"], "ids": [21295, 6570, 22114, 13124]},
+      {"slot": "WEAPON", "items": ["Scythe of vitur", "Osmumten's fang", "Ghrazi rapier", "Noxious halberd", "Zamorakian spear", "Inquisitor's mace", "Blade of saeldor", "Ursine chainmace", "Elder maul", "Soulreaper axe", "Abyssal bludgeon", "Abyssal tentacle", "Dragon scimitar", "Abyssal whip", "Dual macuahuitl"], "ids": [22325, 26219, 22324, 29796, 11824, 24417, 23995, 27660, 21003, 28338, 13263, 12006, 4587, 4151, 28997], "note": "Must be a corpbane weapon on stab style."},
+      {"slot": "BODY", "items": ["Masori body (f)", "Blood moon chestplate", "Karil's leathertop", "Torva platebody", "Oathplate chest", "Bandos chestplate", "Inquisitor's hauberk", "Fighter torso", "Obsidian platebody"], "ids": [27238, 29022, 4736, 26384, 30753, 11832, 24420, 10551, 21301], "note": "Chosen for magic defence, not damage."},
+      {"slot": "LEGS", "items": ["Masori chaps (f)", "Blood moon tassets", "Karil's leatherskirt", "Torva platelegs", "Oathplate legs", "Bandos tassets", "Inquisitor's plateskirt", "Obsidian platelegs"], "ids": [27241, 29025, 4738, 26386, 30756, 11834, 24421, 21304], "note": "Chosen for magic defence, not damage."},
+      {"slot": "SHIELD", "items": ["Avernic defender", "Dragon defender", "Elysian spirit shield", "Rune defender"], "ids": [22322, 12954, 12817, 8850]},
+      {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Rune gloves"], "ids": [22981, 7462, 7460]},
+      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Echo boots", "Dragon boots"], "ids": [31097, 31091, 31088, 13239, 28945, 11840]},
+      {"slot": "RING", "items": ["Ultor ring", "Berserker ring (i)", "Ring of suffering (i)", "Bellator ring", "Brimstone ring"], "ids": [28307, 11773, 20657, 28316, 22975]},
+      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "War blessing"], "ids": [22947, 22945, 20220, 20232]}
+    ]
+  }
+]
