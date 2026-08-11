@@ -13,47 +13,34 @@ C:\Users\Alexb\OneDrive\Desktop\Claude\gear-upgrade
 
 ---
 
-## Step 1 — Install the GitHub CLI
+## Step 1 — Nothing to install
 
-```powershell
-winget install --id GitHub.cli
-```
+Git for Windows is already here, and it ships with **Git Credential Manager**, which
+is already configured (`credential.helper = manager`). The first time you push, it
+opens a browser window and signs you in. No GitHub CLI needed.
 
-**Close PowerShell and open a new window afterwards.** The installer adds `gh` to
-your PATH, and an already-open window will not see it. Check it worked:
-
-```powershell
-gh --version
-```
+You type your GitHub password into GitHub's own site — never into this terminal, and
+never anywhere else.
 
 ---
 
-## Step 2 — Sign in to GitHub
+## Step 2 — Create the empty repository on GitHub
 
-```powershell
-gh auth login
-```
+In a browser, go to <https://github.com/new> and fill in:
 
-You will be asked four questions. Answer with the arrow keys and Enter:
-
-| Question | Answer |
+| Field | Value |
 | --- | --- |
-| Where do you use GitHub? | **GitHub.com** |
-| Preferred protocol for Git operations? | **HTTPS** |
-| Authenticate Git with your GitHub credentials? | **Yes** |
-| How would you like to authenticate? | **Login with a web browser** |
+| Repository name | `gear-upgrade` |
+| Visibility | **Public** — the hub cannot build a private repo |
+| Add a README file | **leave unticked** |
+| Add .gitignore | **None** |
+| Choose a licence | **None** |
 
-It prints a one-time code like `A1B2-C3D4`. Copy it, press Enter, and your browser
-opens to <https://github.com/login/device>. Paste the code and click **Authorize**.
+Those last three matter. Ticking any of them creates a commit on GitHub that your
+local history does not have, and the push in step 4 is then rejected as a conflict.
+You already have a README, a `.gitignore` and a LICENSE locally.
 
-You type your GitHub password into GitHub's own site here — never into this terminal,
-and never anywhere else.
-
-Confirm it worked:
-
-```powershell
-gh auth status
-```
+Click **Create repository**. Leave the page open — it shows your repository URL.
 
 ---
 
@@ -75,21 +62,20 @@ Skip this if you do not mind the real address being public. Do it **now** if you
 
 ---
 
-## Step 4 — Create the repository and push
+## Step 4 — Push
 
-One command creates it, wires up the remote and pushes both commits:
-
-```powershell
-gh repo create gear-upgrade --public --source=. --remote=origin --push
-```
-
-It must be **public** — the hub cannot build from a private repository.
-
-Check it looks right in the browser:
+Point your local repository at the one you just created, then push:
 
 ```powershell
-gh repo view --web
+git remote add origin https://github.com/YOUR-USERNAME/gear-upgrade.git
+git push -u origin master
 ```
+
+On the push, a browser window opens asking you to sign in to GitHub. Choose
+**Sign in with your browser**, authorise, and the push completes on its own. This
+happens once — the credential is stored in Windows Credential Manager afterwards.
+
+Refresh the GitHub page. Your files should be there.
 
 ---
 
@@ -108,47 +94,43 @@ before — always read it fresh, never reuse an older one.
 
 ## Step 6 — Fork the plugin hub
 
-```powershell
-cd ..
-gh repo fork runelite/plugin-hub --clone
-cd plugin-hub
-git checkout -b add-gear-upgrade
-```
+In a browser, go to <https://github.com/runelite/plugin-hub> and click **Fork** at
+the top right, then **Create fork**. You now have your own copy.
 
 ---
 
-## Step 7 — Add the manifest
+## Step 7 — Add the manifest, in the browser
 
-One file, named exactly `gear-upgrade` with **no file extension**, in the `plugins`
-folder. The filename becomes the plugin's internal name, so the spelling matters.
+No cloning needed — GitHub can create the file directly.
 
-```powershell
-@"
-repository=https://github.com/YOUR-USERNAME/gear-upgrade.git
-commit=THE-40-CHARACTER-HASH
-"@ | Out-File -FilePath plugins\gear-upgrade -Encoding ascii -NoNewline
-```
+1. In **your fork**, click into the `plugins` folder
+2. **Add file** → **Create new file** (the button is top right)
+3. Name the file exactly `gear-upgrade` — **no file extension**, no `.txt`. The
+   filename becomes the plugin's internal name, so the spelling matters
+4. Paste exactly two lines into the body:
 
-Check it:
+   ```
+   repository=https://github.com/YOUR-USERNAME/gear-upgrade.git
+   commit=THE-40-CHARACTER-HASH
+   ```
 
-```powershell
-Get-Content plugins\gear-upgrade
-```
-
-Two lines, your username, your hash. Nothing else.
+5. Click **Commit changes...**
+6. Choose **Create a new branch for this commit and start a pull request**
+7. Click **Propose changes**
 
 ---
 
 ## Step 8 — Open the pull request
 
-```powershell
-git add plugins/gear-upgrade
-git commit -m "Add Gear Upgrade"
-git push -u origin add-gear-upgrade
-gh pr create --repo runelite/plugin-hub --title "Add Gear Upgrade" --fill
-```
+The previous step lands you on the pull request form. Check that it reads:
 
-It prints the pull request URL. That is your submission.
+> base repository: **runelite/plugin-hub** base: **master** ← head repository:
+> **YOUR-USERNAME/plugin-hub**
+
+If the base says your own fork instead of `runelite/plugin-hub`, change it — a PR
+against your own fork goes nowhere.
+
+Click **Create pull request**. That is your submission.
 
 ---
 
@@ -158,10 +140,12 @@ A maintainer reviews the plugin. Expect it to take days, not hours.
 
 **If CI fails**, the fix goes in *your* plugin repository, not the hub PR:
 
-1. Fix the problem in `gear-upgrade`, commit and push
+1. Fix the problem in `gear-upgrade`, commit and `git push`
 2. `git rev-parse HEAD` for the new hash
-3. Edit `plugins/gear-upgrade` in the hub PR with that new hash
-4. Commit and push the PR branch
+3. In your plugin-hub fork, open `plugins/gear-upgrade`, click the pencil icon,
+   replace the `commit=` line with the new hash, and commit to the same branch
+
+The pull request updates itself. You do not open a second one.
 
 The hub builds the exact commit named in the manifest, so a fix is invisible until
 the hash moves. This trips up most first submissions.
