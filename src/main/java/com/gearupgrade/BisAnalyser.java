@@ -30,6 +30,12 @@ public class BisAnalyser
 	private final ItemRequirements requirements;
 	private final ItemVariants itemVariants;
 
+	/**
+	 * How many levels short still counts as "nearly there". Beyond this, telling
+	 * someone to train for an item is not advice they can act on today.
+	 */
+	private static final int TRAINABLE_GAP = 10;
+
 	@Inject
 	public BisAnalyser(EquipmentIndex index, PlayerHoldings holdings,
 					   ItemRequirements requirements, ItemVariants itemVariants)
@@ -38,6 +44,23 @@ public class BisAnalyser
 		this.holdings = holdings;
 		this.requirements = requirements;
 		this.itemVariants = itemVariants;
+	}
+
+	/**
+	 * One rung of a slot's ladder, for the hover-over progression list.
+	 */
+	@Value
+	public static class Step
+	{
+		String name;
+		boolean owned;
+
+		/** 0 when it cannot be bought - earned from content, or untradeable. */
+		long price;
+
+		/** Levels still needed, eg. "82 Attack", or null when wearable. */
+		@Nullable
+		String levelShortfall;
 	}
 
 	/**
@@ -85,6 +108,30 @@ public class BisAnalyser
 		 */
 		@Nullable
 		String craftNote;
+
+		/**
+		 * Best item in this slot the player can actually afford today, which is
+		 * often far below the top pick. Null when the top pick is affordable, or
+		 * when nothing in reach beats what they already have.
+		 */
+		@Nullable
+		EquipmentItem affordable;
+
+		/** An affordable item that only levels are holding back. */
+		@Nullable
+		EquipmentItem trainFor;
+
+		/** Levels still needed for {@link #trainFor}, eg. "75 Attack". */
+		@Nullable
+		String trainNeed;
+
+		/**
+		 * The whole ladder for this slot, best first, for the hover tooltip. Shows
+		 * where the player currently sits and what the rungs above and below are -
+		 * a row saying "buy Ancestral hat" does not tell you that Virtus sits
+		 * between it and your Ahrim's.
+		 */
+		List<Step> progression;
 	}
 
 	@Value
@@ -106,6 +153,14 @@ public class BisAnalyser
 
 		/** Names in the table that did not resolve to a real item. */
 		List<String> unresolved;
+
+		/**
+		 * Special attack weapons for this setup, resolved the same way as a slot
+		 * ladder so they can show what is owned and what a missing one costs.
+		 * These are carried in the inventory rather than worn, so they are not a
+		 * slot - but the progression question is identical.
+		 */
+		List<Step> specWeapons;
 	}
 
 	/** A buildable item priced up from the parts still missing. */
@@ -201,6 +256,13 @@ public class BisAnalyser
 			String craftNote = null;
 			long craftCost = 0;
 
+			EquipmentItem affordable = null;
+			int affordableRank = Integer.MAX_VALUE;
+			EquipmentItem trainFor = null;
+			int trainRank = Integer.MAX_VALUE;
+			String trainNeed = null;
+			final List<Step> progression = new ArrayList<>();
+
 			// Ids, not names. Every ownership bug in this plugin so far has been a
 			// string-matching failure of one kind or another.
 			final List<Integer> slotIds = slot.getIds();
@@ -279,6 +341,12 @@ public class BisAnalyser
 				// "not owned" and the slot looks empty.
 				final EquipmentItem ownedVariant = ownedVariantOf(itemId, item);
 
+				progression.add(new Step(
+					item.getName(),
+					ownedVariant != null,
+					item.isUntradeable() ? 0 : item.getPrice(),
+					requirements.describeShortfall(item, levels)));
+
 				if (ownedVariant != null)
 				{
 					if (rank < ownedRank)
@@ -294,11 +362,39 @@ public class BisAnalyser
 							.add(ownedVariant);
 					}
 				}
-				else if (rank < nextBuyRank && item.getPrice() > 0 && !item.isUntradeable()
-					&& requirements.canEquip(item, levels))
+				else if (item.getPrice() > 0 && !item.isUntradeable())
 				{
-					nextBuy = item;
-					nextBuyRank = rank;
+					if (requirements.canEquip(item, levels))
+					{
+						if (rank < nextBuyRank)
+						{
+							nextBuy = item;
+							nextBuyRank = rank;
+						}
+
+						// The best thing actually within reach today. Without this
+						// the panel tells a mid-level account to buy a 170m Torva
+						// platebody and never mentions the 24m Bandos chestplate
+						// sitting four rows below it.
+						if (rank < affordableRank && budgetKnown && item.getPrice() <= budget)
+						{
+							affordable = item;
+							affordableRank = rank;
+						}
+					}
+					else if (rank < trainRank && (!budgetKnown || item.getPrice() <= budget))
+					{
+						// Affordable but not yet wearable. Worth surfacing when the
+						// gap is small - "train 5 Attack" is advice, "train 25" is
+						// noise.
+						final int gap = requirements.levelsShort(item, levels);
+						if (gap > 0 && gap <= TRAINABLE_GAP)
+						{
+							trainFor = item;
+							trainRank = rank;
+							trainNeed = requirements.describeShortfall(item, levels);
+						}
+					}
 				}
 
 				rank++;
@@ -309,6 +405,22 @@ public class BisAnalyser
 			if (nextBuyRank >= ownedRank)
 			{
 				nextBuy = null;
+			}
+			if (affordableRank >= ownedRank)
+			{
+				affordable = null;
+			}
+			if (trainRank >= ownedRank)
+			{
+				trainFor = null;
+				trainNeed = null;
+			}
+
+			// Training advice only helps when it beats what is already buyable.
+			if (trainFor != null && affordable != null && trainRank >= affordableRank)
+			{
+				trainFor = null;
+				trainNeed = null;
 			}
 
 			// If the top pick is only buyable in its uncharged form, that is the
@@ -344,9 +456,17 @@ public class BisAnalyser
 				? null
 				: requirements.describeShortfall(target, levels);
 
+			// Nothing to point at once the top pick is already affordable.
+			if (affordable != null && nextBuy != null
+				&& affordable.getId() == nextBuy.getId())
+			{
+				affordable = null;
+			}
+
 			statuses.add(new SlotStatus(
 				slot.getSlot(), target, bestOwned, hasBest, cost, shortfall, nextBuy,
-				slot.getNote(), targetOffGe, levelShortfall, craftNote));
+				slot.getNote(), targetOffGe, levelShortfall, craftNote,
+				affordable, trainFor, trainNeed, progression));
 		}
 
 		// Diagnostic: a slot where every listed item resolved to a real item but
@@ -424,7 +544,8 @@ public class BisAnalyser
 				status.getTarget() != null && chosen.getId() == status.getTarget().getId(),
 				status.getCost(), status.getShortfall(), status.getNextBuy(),
 				status.getNote(), status.isTargetOffGe(), status.getLevelShortfall(),
-				status.getCraftNote()));
+				status.getCraftNote(), status.getAffordable(), status.getTrainFor(),
+				status.getTrainNeed(), status.getProgression()));
 		}
 		statuses.clear();
 		statuses.addAll(resolved);
@@ -444,7 +565,34 @@ public class BisAnalyser
 			worn.put(ammoSlot, null);
 		}
 
-		return new Result(setup, statuses, worn, pickNextBuy(statuses), unresolved);
+		return new Result(setup, statuses, worn, pickNextBuy(statuses), unresolved,
+			resolveSpecWeapons(setup, levels));
+	}
+
+	/**
+	 * Turns the setup's spec weapon names into the same rungs a slot ladder uses,
+	 * so the panel can tick the ones already owned and price the rest.
+	 */
+	private List<Step> resolveSpecWeapons(BisSetup setup, PlayerLevels levels)
+	{
+		final List<Step> steps = new ArrayList<>();
+		for (String name : setup.getSpecWeapons())
+		{
+			final EquipmentItem item = index.byName(name);
+			if (item == null)
+			{
+				// Keep the name visible rather than silently dropping it.
+				steps.add(new Step(name, false, 0, null));
+				continue;
+			}
+
+			steps.add(new Step(
+				item.getName(),
+				ownedVariantOf(item.getId(), item) != null,
+				item.isUntradeable() ? 0 : item.getPrice(),
+				requirements.describeShortfall(item, levels)));
+		}
+		return steps;
 	}
 
 	/** Greedy passes; the loadout settles well before this. */

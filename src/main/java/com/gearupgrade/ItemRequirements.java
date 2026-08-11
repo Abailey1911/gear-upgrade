@@ -161,6 +161,33 @@ public class ItemRequirements
 	}
 
 	/**
+	 * How many levels short the player is of the hardest requirement, or 0 if
+	 * they already meet them all.
+	 *
+	 * <p>Used to tell "you cannot wear this" apart from "you are two levels off
+	 * wearing this", which are very different pieces of advice.
+	 */
+	public int levelsShort(EquipmentItem item, PlayerLevels levels)
+	{
+		final Map<String, Integer> reqs = forItem(item);
+		if (reqs == null)
+		{
+			return 0;
+		}
+
+		int worst = 0;
+		for (Map.Entry<String, Integer> req : reqs.entrySet())
+		{
+			final int gap = req.getValue() - levelFor(req.getKey(), levels);
+			if (gap > worst)
+			{
+				worst = gap;
+			}
+		}
+		return worst;
+	}
+
+	/**
 	 * Skills not tracked here (Prayer, Slayer, Agility and so on) return a very
 	 * high level so they never gate anything - failing open again.
 	 */

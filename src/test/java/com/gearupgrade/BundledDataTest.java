@@ -323,6 +323,15 @@ public class BundledDataTest
 					assertNotNull(CombatStyle.valueOf(style));
 				}
 			}
+
+			// A preferred style the boss cannot be fought with would open the panel
+			// on a tab showing "this style is not used here".
+			final CombatStyle preferred = monster.preferred();
+			if (preferred != null)
+			{
+				assertTrue("preferred style " + preferred + " is not viable at "
+					+ monster.getName(), monster.isStyleViable(preferred));
+			}
 		}
 	}
 

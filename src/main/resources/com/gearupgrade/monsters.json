@@ -10,7 +10,7 @@
   },
 
   {
-    "name": "Akkha",
+    "name": "Akkha", "preferredStyle": "RANGED",
     "group": "Tombs of Amascut",
     "tier": "Master",
     "hitpoints": 400,
@@ -30,7 +30,7 @@
     ]
   },
   {
-    "name": "Ba-Ba",
+    "name": "Ba-Ba", "preferredStyle": "MELEE",
     "group": "Tombs of Amascut",
     "tier": "Master",
     "hitpoints": 380,
@@ -39,7 +39,7 @@
     "verified": true
   },
   {
-    "name": "Kephri",
+    "name": "Kephri", "preferredStyle": "RANGED",
     "group": "Tombs of Amascut",
     "tier": "Master",
     "hitpoints": 150,
@@ -51,7 +51,7 @@
     "verified": true
   },
   {
-    "name": "Wardens (P2)",
+    "name": "Wardens (P2)", "preferredStyle": "RANGED",
     "group": "Tombs of Amascut",
     "tier": "Master",
     "hitpoints": 140,
@@ -68,7 +68,7 @@
     ]
   },
   {
-    "name": "Wardens (P3, enraged)",
+    "name": "Wardens (P3, enraged)", "preferredStyle": "RANGED",
     "group": "Tombs of Amascut",
     "tier": "Master",
     "hitpoints": 880,
@@ -153,7 +153,7 @@
   },
 
   {
-    "name": "Commander Zilyana",
+    "name": "Commander Zilyana", "preferredStyle": "RANGED",
     "group": "God Wars Dungeon",
     "tier": "Hard",
     "hitpoints": 255,
@@ -169,7 +169,7 @@
     ]
   },
   {
-    "name": "General Graardor",
+    "name": "General Graardor", "preferredStyle": "MELEE",
     "group": "God Wars Dungeon",
     "tier": "Hard",
     "hitpoints": 255,
@@ -187,7 +187,7 @@
     ]
   },
   {
-    "name": "K'ril Tsutsaroth",
+    "name": "K'ril Tsutsaroth", "preferredStyle": "RANGED",
     "group": "God Wars Dungeon",
     "tier": "Hard",
     "hitpoints": 255,
@@ -225,7 +225,7 @@
     ]
   },
   {
-    "name": "Nex", "styleRestriction": "Ranged is the answer here - a Zaryte crossbow with Ruby dragon bolts (e) puts out damage nothing else matches, because the ruby proc does a flat 100 against her huge health pool. Melee works with an Osmumten's fang for its accuracy re-roll, but is not recommended. Magic is usable and clearly the weakest of the three.",
+    "name": "Nex", "preferredStyle": "RANGED", "styleRestriction": "Ranged is the answer here - a Zaryte crossbow with Ruby dragon bolts (e) puts out damage nothing else matches, because the ruby proc does a flat 100 against her huge health pool. Melee works with an Osmumten's fang for its accuracy re-roll, but is not recommended. Magic is usable and clearly the weakest of the three.",
     "group": "Nex",
     "tier": "Elite",
     "hitpoints": 3400,
@@ -247,7 +247,7 @@
   },
 
   {
-    "name": "Great Olm (head)",
+    "name": "Great Olm (head)", "preferredStyle": "RANGED",
     "group": "Chambers of Xeric",
     "tier": "Master",
     "hitpoints": 800,
@@ -266,7 +266,7 @@
     ]
   },
   {
-    "name": "Great Olm (left claw)",
+    "name": "Great Olm (left claw)", "preferredStyle": "MELEE",
     "group": "Chambers of Xeric",
     "tier": "Master",
     "hitpoints": 600,
@@ -285,7 +285,7 @@
     ]
   },
   {
-    "name": "Great Olm (right claw)",
+    "name": "Great Olm (right claw)", "preferredStyle": "MELEE",
     "group": "Chambers of Xeric",
     "tier": "Master",
     "hitpoints": 600,
@@ -304,7 +304,7 @@
     ]
   },
   {
-    "name": "Verzik Vitur (P1)",
+    "name": "Verzik Vitur (P1)", "preferredStyle": "RANGED",
     "group": "Theatre of Blood",
     "tier": "Master",
     "hitpoints": 2000,
@@ -313,7 +313,7 @@
     "verified": true
   },
   {
-    "name": "Verzik Vitur (P2)",
+    "name": "Verzik Vitur (P2)", "preferredStyle": "MELEE",
     "group": "Theatre of Blood",
     "tier": "Master",
     "hitpoints": 3500,
@@ -322,7 +322,7 @@
     "verified": true
   },
   {
-    "name": "Verzik Vitur (P3)",
+    "name": "Verzik Vitur (P3)", "preferredStyle": "MELEE",
     "group": "Theatre of Blood",
     "tier": "Master",
     "hitpoints": 3500,
@@ -338,30 +338,30 @@
       }
     ]
   },
-  {"name": "The Maiden of Sugadinti", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 3500, "defenceLevel": 200, "magicLevel": 350, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 0, "verified": true,
+  {"name": "The Maiden of Sugadinti", "preferredStyle": "RANGED", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 3500, "defenceLevel": 200, "magicLevel": 350, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 0, "verified": true,
     "notes": [{"item": "Twisted bow shines here", "reason": "Her Magic level is 350, and Twisted bow damage scales with the target's Magic level."}]},
   {"name": "Pestilent Bloat", "viableStyles": ["MELEE"], "styleRestriction": "Magic defence is +600 and ranged +800 against slash +20. Melee only.", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 2000, "defenceLevel": 100, "magicLevel": 150, "dstab": 40, "dslash": 20, "dcrush": 40, "dmagic": 600, "drange": 800, "verified": true, "attributes": ["undead"],
     "notes": [{"item": "Melee only, and Salve works", "reason": "Magic defence is +600 and ranged +800 against slash +20. He is undead, so a Salve amulet (ei) applies."}]},
-  {"name": "Nylocas Vasilias", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 2500, "defenceLevel": 50, "magicLevel": 50, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 0, "verified": true, "weaknessElement": "fire", "weaknessPercent": 15,
+  {"name": "Nylocas Vasilias", "preferredStyle": "MELEE", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 2500, "defenceLevel": 50, "magicLevel": 50, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 0, "verified": true, "weaknessElement": "fire", "weaknessPercent": 15,
     "requiredStyles": ["MELEE", "RANGED", "MAGIC"],
     "notes": [{"item": "All three styles, switched to match its colour", "reason": "The boss cycles colour and only takes damage from the matching style, so every style is carried at once. Defences are all 0 - the check is switching speed, not gear."}]},
-  {"name": "Sotetseg", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 4000, "defenceLevel": 200, "magicLevel": 250, "dstab": 70, "dslash": 70, "dcrush": 70, "dmagic": 30, "drange": 150, "verified": true,
+  {"name": "Sotetseg", "preferredStyle": "RANGED", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 4000, "defenceLevel": 200, "magicLevel": 250, "dstab": 70, "dslash": 70, "dcrush": 70, "dmagic": 30, "drange": 150, "verified": true,
     "notes": [{"item": "Magic", "reason": "Magic defence is +30 against +70 melee and +150 ranged."}]},
-  {"name": "Xarpus", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 5000, "defenceLevel": 250, "magicLevel": 220, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 160, "verified": true, "weaknessElement": "air", "weaknessPercent": 50,
+  {"name": "Xarpus", "preferredStyle": "RANGED", "group": "Theatre of Blood", "tier": "Master", "hitpoints": 5000, "defenceLevel": 250, "magicLevel": 220, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 0, "drange": 160, "verified": true, "weaknessElement": "air", "weaknessPercent": 50,
     "notes": [{"item": "Melee or magic, not ranged", "reason": "Ranged defence is +160 while every melee style and magic sit at 0."}]},
 
-  {"name": "Vasa Nistirio", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 300, "defenceLevel": 175, "magicLevel": 230, "dstab": 170, "dslash": 190, "dcrush": 40, "dmagic": 400, "drange": 40, "verified": true, "attributes": ["xerician"],
+  {"name": "Vasa Nistirio", "preferredStyle": "RANGED", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 300, "defenceLevel": 175, "magicLevel": 230, "dstab": 170, "dslash": 190, "dcrush": 40, "dmagic": 400, "drange": 40, "verified": true, "attributes": ["xerician"],
     "notes": [{"item": "Crush or ranged", "reason": "Crush is +40 and ranged +40, against +170 stab, +190 slash and +400 magic."}]},
-  {"name": "Vespula", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 200, "defenceLevel": 88, "magicLevel": 88, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 70, "drange": 60, "verified": true, "weaknessElement": "fire", "weaknessPercent": 50, "attributes": ["xerician", "flying"]},
-  {"name": "Muttadile", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 250, "defenceLevel": 220, "magicLevel": 250, "dstab": -5, "dslash": 82, "dcrush": 60, "dmagic": 75, "drange": 0, "verified": true, "weaknessElement": "earth", "weaknessPercent": 40, "attributes": ["xerician"],
+  {"name": "Vespula", "preferredStyle": "RANGED", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 200, "defenceLevel": 88, "magicLevel": 88, "dstab": 0, "dslash": 0, "dcrush": 0, "dmagic": 70, "drange": 60, "verified": true, "weaknessElement": "fire", "weaknessPercent": 50, "attributes": ["xerician", "flying"]},
+  {"name": "Muttadile", "preferredStyle": "RANGED", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 250, "defenceLevel": 220, "magicLevel": 250, "dstab": -5, "dslash": 82, "dcrush": 60, "dmagic": 75, "drange": 0, "verified": true, "weaknessElement": "earth", "weaknessPercent": 40, "attributes": ["xerician"],
     "notes": [{"item": "Stab or ranged", "reason": "Stab defence is -5 and ranged 0, against +82 slash and +75 magic."}]},
-  {"name": "Vanguard", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 180, "defenceLevel": 160, "magicLevel": 150, "dstab": 315, "dslash": 340, "dcrush": 400, "dmagic": 110, "drange": 50, "verified": true, "attributes": ["xerician"],
+  {"name": "Vanguard", "preferredStyle": "MELEE", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 180, "defenceLevel": 160, "magicLevel": 150, "dstab": 315, "dslash": 340, "dcrush": 400, "dmagic": 110, "drange": 50, "verified": true, "attributes": ["xerician"],
     "notes": [{"item": "Ranged", "reason": "Ranged defence is +50 against +315 or more on every melee style. Their health must also be kept close together or they heal."}]},
-  {"name": "Ice demon", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 140, "defenceLevel": 160, "magicLevel": 390, "dstab": 70, "dslash": 70, "dcrush": 110, "dmagic": 40, "drange": 140, "verified": true, "weaknessElement": "fire", "weaknessPercent": 150, "attributes": ["demon", "xerician"],
+  {"name": "Ice demon", "preferredStyle": "MAGIC", "group": "Chambers of Xeric", "tier": "Master", "hitpoints": 140, "defenceLevel": 160, "magicLevel": 390, "dstab": 70, "dslash": 70, "dcrush": 110, "dmagic": 40, "drange": 140, "verified": true, "weaknessElement": "fire", "weaknessPercent": 150, "attributes": ["demon", "xerician"],
     "notes": [{"item": "150% weak to fire", "reason": "The largest fire weakness in the raid, and fire spells are required to break its shield regardless of your gear."}]},
 
   {
-    "name": "Tekton",
+    "name": "Tekton", "preferredStyle": "MELEE",
     "group": "Chambers of Xeric",
     "tier": "Master",
     "hitpoints": 300,
@@ -410,7 +410,7 @@
   },
 
   {
-    "name": "Abyssal Sire",
+    "name": "Abyssal Sire", "preferredStyle": "MELEE",
     "group": "Abyssal Sire",
     "tier": "Hard",
     "hitpoints": 425,
@@ -427,7 +427,7 @@
     ]
   },
   {
-    "name": "Alchemical Hydra",
+    "name": "Alchemical Hydra", "preferredStyle": "RANGED",
     "group": "Alchemical Hydra",
     "tier": "Hard",
     "hitpoints": 1100,
@@ -439,7 +439,7 @@
     "verified": true
   },
   {
-    "name": "The Hueycoatl",
+    "name": "The Hueycoatl", "preferredStyle": "MELEE",
     "group": "The Hueycoatl",
     "tier": "Medium",
     "hitpoints": 2500,
@@ -458,7 +458,7 @@
     ]
   },
   {
-    "name": "Kalphite Queen",
+    "name": "Kalphite Queen", "preferredStyle": "MELEE",
     "group": "Kalphite Queen",
     "tier": "Hard",
     "hitpoints": 255,
@@ -480,7 +480,7 @@
     ]
   },
   {
-    "name": "King Black Dragon",
+    "name": "King Black Dragon", "preferredStyle": "MELEE",
     "group": "King Black Dragon",
     "tier": "Medium",
     "hitpoints": 240,
@@ -503,7 +503,7 @@
     ]
   },
   {
-    "name": "Giant Mole",
+    "name": "Giant Mole", "preferredStyle": "MELEE",
     "group": "Giant Mole",
     "tier": "Medium",
     "hitpoints": 200,
@@ -571,7 +571,7 @@
     ]
   },
   {
-    "name": "Demonic Gorilla",
+    "name": "Demonic Gorilla", "preferredStyle": "MELEE",
     "group": "Demonic Gorillas",
     "tier": "Hard",
     "hitpoints": 380,
@@ -590,7 +590,7 @@
     ]
   },
   {
-    "name": "Tormented Demon",
+    "name": "Tormented Demon", "preferredStyle": "MELEE",
     "group": "Tormented Demons",
     "tier": "Hard",
     "hitpoints": 600,
@@ -613,7 +613,7 @@
     ]
   },
   {
-    "name": "Skotizo",
+    "name": "Skotizo", "preferredStyle": "MELEE",
     "group": "Skotizo",
     "tier": "Hard",
     "hitpoints": 450,
@@ -632,7 +632,7 @@
     ]
   },
   {
-    "name": "Sarachnis",
+    "name": "Sarachnis", "preferredStyle": "MELEE",
     "group": "Sarachnis",
     "tier": "Medium",
     "hitpoints": 400,
@@ -658,7 +658,7 @@
     ]
   },
   {
-    "name": "Doom of Mokhaiotl (delve 1)",
+    "name": "Doom of Mokhaiotl (delve 1)", "preferredStyle": "MELEE",
     "group": "Doom of Mokhaiotl",
     "tier": "Master",
     "hitpoints": 525,
@@ -683,7 +683,7 @@
     ]
   },
   {
-    "name": "TzTok-Jad", "viableStyles": ["RANGED"], "styleRestriction": "Melee is not used against Jad. The whole fight is ranged from a distance while flicking Protect from Missiles and Protect from Magic off his attack animations - standing in melee range removes your reaction window entirely.",
+    "name": "TzTok-Jad", "preferredStyle": "RANGED",
     "group": "Fight Caves",
     "tier": "Hard",
     "hitpoints": 250,
@@ -700,7 +700,7 @@
     ]
   },
   {
-    "name": "Eldric the Ice King", "requiredStyles": ["MELEE", "RANGED", "MAGIC"],
+    "name": "Eldric the Ice King", "preferredStyle": "MELEE", "requiredStyles": ["MELEE", "RANGED", "MAGIC"],
     "group": "The Royal Titans",
     "tier": "Medium",
     "hitpoints": 600,
@@ -722,7 +722,7 @@
     ]
   },
   {
-    "name": "Branda the Fire Queen", "requiredStyles": ["MELEE", "RANGED", "MAGIC"],
+    "name": "Branda the Fire Queen", "preferredStyle": "MELEE", "requiredStyles": ["MELEE", "RANGED", "MAGIC"],
     "group": "The Royal Titans",
     "tier": "Medium",
     "hitpoints": 600,
@@ -745,7 +745,7 @@
     ]
   },
   {
-    "name": "Amoxliatl",
+    "name": "Amoxliatl", "preferredStyle": "MELEE",
     "group": "Amoxliatl",
     "tier": "Medium",
     "hitpoints": 520,
@@ -763,7 +763,7 @@
     ]
   },
   {
-    "name": "Scurrius",
+    "name": "Scurrius", "preferredStyle": "MELEE",
     "group": "Scurrius",
     "tier": "Easy",
     "hitpoints": 500,
@@ -841,7 +841,7 @@
     ]
   },
   {
-    "name": "Hespori",
+    "name": "Hespori", "preferredStyle": "MELEE",
     "group": "Hespori",
     "tier": "Medium",
     "hitpoints": 300,
@@ -863,7 +863,7 @@
     ]
   },
   {
-    "name": "The Mimic",
+    "name": "The Mimic", "preferredStyle": "MAGIC",
     "group": "The Mimic",
     "tier": "Medium",
     "hitpoints": 230,
@@ -879,7 +879,7 @@
     ]
   },
   {
-    "name": "Mad Angel",
+    "name": "Mad Angel", "preferredStyle": "MELEE",
     "group": "Mad Angel",
     "tier": "Medium",
     "hitpoints": 755,
@@ -964,7 +964,7 @@
     ]
   },
   {
-    "name": "Revenant maledictus",
+    "name": "Revenant maledictus", "preferredStyle": "MAGIC",
     "group": "Wilderness",
     "tier": "Hard",
     "hitpoints": 1250,
@@ -1068,7 +1068,7 @@
     ]
   },
   {
-    "name": "Chaos Elemental",
+    "name": "Chaos Elemental", "preferredStyle": "RANGED",
     "group": "Wilderness",
     "tier": "Hard",
     "hitpoints": 250,
@@ -1110,7 +1110,7 @@
     ]
   },
   {
-    "name": "Yama", "viableStyles": ["MELEE", "MAGIC"], "styleRestriction": "Ranged defence is +220 against +0 magic and +80 slash. Yama is a demon, so demonbane gear applies - the Purging staff above all.",
+    "name": "Yama", "preferredStyle": "MAGIC", "viableStyles": ["MELEE", "MAGIC"], "styleRestriction": "Ranged defence is +220 against +0 magic and +80 slash. Yama is a demon, so demonbane gear applies - the Purging staff above all.",
     "group": "Yama",
     "tier": "Elite",
     "hitpoints": 2500,
@@ -1183,7 +1183,7 @@
     ]
   },
   {
-    "name": "Grotesque Guardians",
+    "name": "Grotesque Guardians", "preferredStyle": "MELEE",
     "group": "Grotesque Guardians",
     "tier": "Hard",
     "hitpoints": 450,
@@ -1202,7 +1202,7 @@
     ]
   },
   {
-    "name": "Araxxor", "viableStyles": ["MELEE", "RANGED"], "styleRestriction": "Magic defence is +237 against +15 crush. Crush melee is the fight, with ranged as the alternative.",
+    "name": "Araxxor", "preferredStyle": "MELEE", "viableStyles": ["MELEE", "RANGED"], "styleRestriction": "Magic defence is +237 against +15 crush. Crush melee is the fight, with ranged as the alternative.",
     "group": "Araxxor",
     "tier": "Hard",
     "hitpoints": 1020,
@@ -1220,7 +1220,7 @@
     ]
   },
   {
-    "name": "Cerberus",
+    "name": "Cerberus", "preferredStyle": "MELEE",
     "group": "Cerberus",
     "tier": "Hard",
     "hitpoints": 600,
@@ -1354,7 +1354,7 @@
     ]
   },
   {
-    "name": "Vorkath", "viableStyles": ["MELEE", "RANGED"], "styleRestriction": "Magic defence is +240 against +26 stab and +26 ranged. Vorkath is a dragon, so dragonbane weapons - the Dragon hunter lance or crossbow - carry the fight.",
+    "name": "Vorkath", "preferredStyle": "RANGED", "viableStyles": ["MELEE", "RANGED"], "styleRestriction": "Magic defence is +240 against +26 stab and +26 ranged. Vorkath is a dragon, so dragonbane weapons - the Dragon hunter lance or crossbow - carry the fight.",
     "group": "Vorkath",
     "tier": "Elite",
     "hitpoints": 750,
@@ -1374,7 +1374,7 @@
     ]
   },
   {
-    "name": "Zulrah",
+    "name": "Zulrah", "preferredStyle": "RANGED",
     "group": "Zulrah",
     "tier": "Elite",
     "hitpoints": 500,

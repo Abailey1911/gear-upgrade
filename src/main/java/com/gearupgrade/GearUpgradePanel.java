@@ -21,6 +21,7 @@ import java.util.function.Consumer;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -65,6 +66,9 @@ public class GearUpgradePanel extends PluginPanel
 
 	/** Icon column width used by the item rows. */
 	private static final int ICON_WIDTH = 38;
+
+	/** Ladder entries before the hover list splits into two columns. */
+	private static final int TOOLTIP_COLUMN_THRESHOLD = 12;
 
 	/** Width available for wrapped text sitting beside an icon. */
 	private static final int TEXT_WIDTH = CONTENT_WIDTH - ICON_WIDTH - 24;
@@ -560,11 +564,50 @@ public class GearUpgradePanel extends PluginPanel
 			tab.bisSection.add(bisRow(slot));
 		}
 
-		if (!setup.getSpecWeapons().isEmpty())
+		final List<BisAnalyser.Step> specs = result.getSpecWeapons();
+		if (specs != null && !specs.isEmpty())
 		{
 			tab.bisSection.add(sectionHeader("Special attack weapons"));
-			tab.bisSection.add(noteRow(String.join(", ", setup.getSpecWeapons()),
-				"Brought in addition to the worn setup.", Color.WHITE));
+
+			// Lead with the best one still missing, since that is the actionable
+			// part; the full tier list is on hover.
+			BisAnalyser.Step firstMissing = null;
+			int owned = 0;
+			for (BisAnalyser.Step step : specs)
+			{
+				if (step.isOwned())
+				{
+					owned++;
+				}
+				else if (firstMissing == null && step.getLevelShortfall() == null)
+				{
+					firstMissing = step;
+				}
+			}
+
+			final String detail;
+			if (owned == specs.size())
+			{
+				detail = "You have all of these. Brought in addition to the worn setup.";
+			}
+			else if (firstMissing == null)
+			{
+				detail = "Brought in addition to the worn setup. Hover for the full list.";
+			}
+			else
+			{
+				detail = "Best one you are missing: " + firstMissing.getName()
+					+ (firstMissing.getPrice() > 0
+						? " - " + QuantityFormatter.quantityToStackSize(firstMissing.getPrice())
+							+ " gp"
+						: " - not on the GE")
+					+ ". Brought in addition to the worn setup.";
+			}
+
+			final JPanel specRow = noteRow(
+				owned + " of " + specs.size() + " owned", detail, Color.WHITE);
+			applyTooltip(specRow, stepListTooltip("Special attack weapons", specs));
+			tab.bisSection.add(specRow);
 		}
 
 		final BisAnalyser.SlotStatus next = result.getNextBuy();
@@ -601,13 +644,22 @@ public class GearUpgradePanel extends PluginPanel
 		// buy, that is the purchase - naming and picturing the best-in-slot item
 		// while the text said "buy a Dragon hunter lance" was simply confusing.
 		final EquipmentItem shown;
-		if (slot.isHasBest() || slot.getNextBuy() == null)
+		if (slot.isHasBest())
 		{
 			shown = slot.getTarget() != null ? slot.getTarget() : slot.getOwned();
 		}
-		else
+		else if (slot.getAffordable() != null)
+		{
+			// What they can actually buy today outranks what they cannot.
+			shown = slot.getAffordable();
+		}
+		else if (slot.getNextBuy() != null)
 		{
 			shown = slot.getNextBuy();
+		}
+		else
+		{
+			shown = slot.getTarget() != null ? slot.getTarget() : slot.getOwned();
 		}
 
 		if (shown != null)
@@ -648,13 +700,39 @@ public class GearUpgradePanel extends PluginPanel
 
 		row.add(text, BorderLayout.CENTER);
 
-		if (slot.getTarget() != null)
+		String tooltip = progressionTooltip(slot);
+		if (tooltip == null && slot.getTarget() != null)
 		{
-			row.setToolTipText("<html><b>" + slot.getSlotName() + "</b><br>Best: "
-				+ slot.getTarget().getName() + "</html>");
+			tooltip = "<html><b>" + slot.getSlotName() + "</b><br>Best: "
+				+ slot.getTarget().getName() + "</html>";
 		}
 
+		// Swing does not pass a tooltip down to child components, and the icon and
+		// the text between them cover the whole row - so setting it only on the
+		// row means there is nowhere left to hover.
+		applyTooltip(row, tooltip);
+
 		return row;
+	}
+
+	/**
+	 * Sets the same tooltip on a component and everything inside it.
+	 */
+	private static void applyTooltip(JComponent component, String tooltip)
+	{
+		if (tooltip == null)
+		{
+			return;
+		}
+
+		component.setToolTipText(tooltip);
+		for (Component child : component.getComponents())
+		{
+			if (child instanceof JComponent)
+			{
+				applyTooltip((JComponent) child, tooltip);
+			}
+		}
 	}
 
 	/**
@@ -668,6 +746,12 @@ public class GearUpgradePanel extends PluginPanel
 		{
 			return OWNED;
 		}
+		// Something in reach today, even if the top pick is not. This slot is
+		// actionable, so it must not read as blocked.
+		if (slot.getAffordable() != null)
+		{
+			return OBTAINABLE;
+		}
 		if (slot.getLevelShortfall() != null)
 		{
 			return MISSING;
@@ -677,6 +761,106 @@ public class GearUpgradePanel extends PluginPanel
 			return MISSING;
 		}
 		return OBTAINABLE;
+	}
+
+	/**
+	 * The whole ladder for a slot as an HTML tooltip: what you own, what sits
+	 * above it, what sits below. The row itself only has space for one
+	 * suggestion, which hides the fact that Virtus sits between an Ahrim's hood
+	 * and an Ancestral hat.
+	 */
+	private static String progressionTooltip(BisAnalyser.SlotStatus slot)
+	{
+		return stepListTooltip(prettySlot(slot.getSlotName()) + " progression",
+			slot.getProgression());
+	}
+
+	/**
+	 * A titled list of ladder rungs as an HTML tooltip.
+	 */
+	private static String stepListTooltip(String title, List<BisAnalyser.Step> steps)
+	{
+		if (steps == null || steps.isEmpty())
+		{
+			return null;
+		}
+
+		// Swing tooltips cannot scroll, and a weapon ladder runs to 23 entries, so
+		// a long list wraps into two columns rather than running off the screen.
+		final boolean twoColumns = steps.size() > TOOLTIP_COLUMN_THRESHOLD;
+		final int rows = twoColumns ? (steps.size() + 1) / 2 : steps.size();
+
+		final StringBuilder sb = new StringBuilder("<html><body>");
+		sb.append("<b>").append(title).append("</b>");
+		sb.append("<table cellpadding=0 cellspacing=0>");
+
+		for (int row = 0; row < rows; row++)
+		{
+			sb.append("<tr><td>").append(describeStep(steps.get(row))).append("</td>");
+
+			if (twoColumns)
+			{
+				final int second = row + rows;
+				sb.append("<td width=14></td><td>");
+				if (second < steps.size())
+				{
+					sb.append(describeStep(steps.get(second)));
+				}
+				sb.append("</td>");
+			}
+			sb.append("</tr>");
+		}
+
+		sb.append("</table></body></html>");
+		return sb.toString();
+	}
+
+	/**
+	 * One ladder entry: ticked when owned, red with the requirement when the
+	 * levels are not there, priced otherwise.
+	 */
+	private static String describeStep(BisAnalyser.Step step)
+	{
+		if (step.isOwned())
+		{
+			return "<font color='#3ec72c'>&#10003; " + step.getName() + "</font>";
+		}
+		if (step.getLevelShortfall() != null)
+		{
+			return "<font color='#d8534f'>" + step.getName()
+				+ " &ndash; needs " + step.getLevelShortfall() + "</font>";
+		}
+		if (step.getPrice() > 0)
+		{
+			return step.getName() + " &ndash; "
+				+ QuantityFormatter.quantityToStackSize(step.getPrice());
+		}
+		return step.getName() + " &ndash; <i>not on the GE</i>";
+	}
+
+	/** "HEAD" reads better as "Head" in a tooltip heading. */
+	private static String prettySlot(String slotName)
+	{
+		if (slotName == null || slotName.isEmpty())
+		{
+			return "Slot";
+		}
+		return slotName.charAt(0) + slotName.substring(1).toLowerCase(java.util.Locale.ROOT);
+	}
+
+	/**
+	 * "Train 5 Attack for an Abyssal tentacle" - only shown when the item is
+	 * already affordable and the levels are the single thing in the way.
+	 */
+	private static void appendTrainingTip(StringBuilder sb, BisAnalyser.SlotStatus slot)
+	{
+		if (slot.getTrainFor() == null || slot.getTrainNeed() == null)
+		{
+			return;
+		}
+
+		sb.append("\nTrain to ").append(slot.getTrainNeed())
+			.append(" to use ").append(slot.getTrainFor().getName());
 	}
 
 	/**
@@ -693,6 +877,31 @@ public class GearUpgradePanel extends PluginPanel
 		final StringBuilder sb = new StringBuilder();
 		final EquipmentItem buy = slot.getNextBuy();
 		final String target = slot.getTarget() == null ? null : slot.getTarget().getName();
+
+		// Something within budget beats naming a purchase they cannot make. Lead
+		// with it, then say what the slot is ultimately working towards.
+		if (slot.getAffordable() != null)
+		{
+			sb.append(QuantityFormatter.quantityToStackSize(slot.getAffordable().getPrice()))
+				.append(" gp - affordable now");
+
+			if (target != null && !slot.getAffordable().getName().equals(target))
+			{
+				sb.append("\nWorking towards ").append(target);
+				if (slot.getCost() > 0)
+				{
+					sb.append(" (").append(QuantityFormatter.quantityToStackSize(slot.getCost()))
+						.append(")");
+				}
+			}
+
+			sb.append(slot.getOwned() != null
+				? "\nYou have " + slot.getOwned().getName()
+				: "\nNothing owned in this slot");
+
+			appendTrainingTip(sb, slot);
+			return sb.toString();
+		}
 
 		// The row is titled with the purchase when there is one, so lead with its
 		// price and mention what you already have underneath.
@@ -713,6 +922,7 @@ public class GearUpgradePanel extends PluginPanel
 			sb.append(slot.getOwned() != null
 				? "\nYou have " + slot.getOwned().getName()
 				: "\nNothing owned in this slot");
+			appendTrainingTip(sb, slot);
 			return sb.toString();
 		}
 
@@ -754,6 +964,8 @@ public class GearUpgradePanel extends PluginPanel
 			sb.append("\nNext upgrade: ").append(slot.getTarget().getName())
 				.append(" - earned from content, not on the GE");
 		}
+
+		appendTrainingTip(sb, slot);
 
 		return sb.toString();
 	}

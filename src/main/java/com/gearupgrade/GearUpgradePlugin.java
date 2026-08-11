@@ -355,17 +355,25 @@ public class GearUpgradePlugin extends Plugin
 			showStyle(CombatStyle.RANGED, ranged, bisResults, budget);
 			showStyle(CombatStyle.MAGIC, magic, bisResults, budget);
 
-			// The style with the best DPS is the one worth opening on.
-			CombatStyle best = CombatStyle.MELEE;
-			double bestDps = melee.analysis.getCurrentDps();
-			if (ranged.analysis.getCurrentDps() > bestDps)
+			// Prefer the curated answer. Comparing computed DPS across styles has
+			// the same blind spot as ranking gear by stat totals - it reads the
+			// Abyssal Sire's +20 magic defence bonus and calls it a magic boss,
+			// when melee is the stronger fight. DPS only decides where nothing
+			// has been recorded.
+			CombatStyle best = monster.preferred();
+			if (best == null)
 			{
-				best = CombatStyle.RANGED;
-				bestDps = ranged.analysis.getCurrentDps();
-			}
-			if (magic.analysis.getCurrentDps() > bestDps)
-			{
-				best = CombatStyle.MAGIC;
+				best = CombatStyle.MELEE;
+				double bestDps = melee.analysis.getCurrentDps();
+				if (ranged.analysis.getCurrentDps() > bestDps)
+				{
+					best = CombatStyle.RANGED;
+					bestDps = ranged.analysis.getCurrentDps();
+				}
+				if (magic.analysis.getCurrentDps() > bestDps)
+				{
+					best = CombatStyle.MAGIC;
+				}
 			}
 			panel.setBestStyle(best);
 		});

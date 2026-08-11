@@ -137,6 +137,51 @@ public class Monster
 	/** Why the excluded styles do not work, shown in place of a setup. */
 	private String styleRestriction;
 
+	/**
+	 * The style actually worth opening on, where it is known.
+	 *
+	 * <p>Picking this by comparing computed DPS across the three styles fails the
+	 * same way ranking gear by stat totals failed: the Abyssal Sire's magic
+	 * defence bonus is +20 against +40 stab, so the model calls it a magic boss
+	 * when melee is the stronger fight in practice. Where the wiki says which
+	 * style leads, that answer is recorded here and used instead.
+	 */
+	private String preferredStyle;
+
+	/**
+	 * The style to open on: the curated answer, else the first viable style, else
+	 * null to fall back to comparing DPS.
+	 */
+	public CombatStyle preferred()
+	{
+		if (preferredStyle != null && !preferredStyle.isEmpty())
+		{
+			try
+			{
+				return CombatStyle.valueOf(preferredStyle);
+			}
+			catch (IllegalArgumentException e)
+			{
+				// Bad data - fall through to the viable list rather than blowing up.
+			}
+		}
+
+		// A restricted list is already written most-important-first.
+		if (!getViableStyles().isEmpty())
+		{
+			try
+			{
+				return CombatStyle.valueOf(getViableStyles().get(0));
+			}
+			catch (IllegalArgumentException e)
+			{
+				return null;
+			}
+		}
+
+		return null;
+	}
+
 	public List<String> getViableStyles()
 	{
 		return viableStyles == null ? Collections.emptyList() : viableStyles;
