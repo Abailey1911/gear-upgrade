@@ -53,12 +53,14 @@ public class ItemVariants
 		Map<String, List<Integer>> variants;
 		Map<String, Integer> tradeable;
 		Map<String, List<Component>> components;
+		Map<String, Integer> pricedAs;
 	}
 
 	private final Gson gson;
 	private Map<String, List<Integer>> variants = Collections.emptyMap();
 	private Map<String, Integer> tradeable = Collections.emptyMap();
 	private Map<String, List<Component>> components = Collections.emptyMap();
+	private Map<String, Integer> pricedAs = Collections.emptyMap();
 
 	@Inject
 	public ItemVariants(Gson gson)
@@ -95,6 +97,10 @@ public class ItemVariants
 			if (doc != null && doc.components != null)
 			{
 				components = doc.components;
+			}
+			if (doc != null && doc.pricedAs != null)
+			{
+				pricedAs = doc.pricedAs;
 			}
 
 			log.debug("Loaded {} variant groups, {} tradeable forms and {} recipes",
@@ -139,5 +145,19 @@ public class ItemVariants
 	{
 		final List<Component> found = components.get(String.valueOf(itemId));
 		return found == null ? Collections.emptyList() : found;
+	}
+
+	/**
+	 * The item whose price stands in for an untradeable one, or 0 if there is
+	 * none.
+	 *
+	 * <p>A Berserker ring (i) has no price of its own because the imbue is earned
+	 * rather than bought, but the ring underneath it costs what it costs -
+	 * quoting that is far more useful than "not on the Grand Exchange".
+	 */
+	public int pricedAsOf(int itemId)
+	{
+		final Integer found = pricedAs.get(String.valueOf(itemId));
+		return found == null ? 0 : found;
 	}
 }

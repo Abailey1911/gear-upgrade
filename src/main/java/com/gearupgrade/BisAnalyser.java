@@ -15,6 +15,7 @@ import javax.inject.Singleton;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.EquipmentInventorySlot;
+import net.runelite.client.game.ItemEquipmentStats;
 import net.runelite.client.util.QuantityFormatter;
 
 /**
@@ -61,6 +62,14 @@ public class BisAnalyser
 		/** Levels still needed, eg. "82 Attack", or null when wearable. */
 		@Nullable
 		String levelShortfall;
+
+		/**
+		 * "stab", "slash" or "crush" for a melee weapon, else null. Lets the
+		 * hover list show only the weapons that suit a boss's weakness - a crush
+		 * boss should show the crush tier, not every melee weapon in the game.
+		 */
+		@Nullable
+		String attackType;
 	}
 
 	/**
@@ -132,6 +141,48 @@ public class BisAnalyser
 		 * between it and your Ahrim's.
 		 */
 		List<Step> progression;
+
+		/**
+		 * The attack type this boss is softest against, on the weapon slot only.
+		 * Null elsewhere, and null for a boss with no preference.
+		 */
+		@Nullable
+		String attackFocus;
+	}
+
+	/**
+	 * A purchase worth making, measured by what it does to DPS rather than by
+	 * where it sits in a list.
+	 */
+	@Value
+	public static class Recommendation
+	{
+		EquipmentItem item;
+		String slotName;
+		long cost;
+
+		/** DPS with this item worn, minus DPS as things stand. */
+		double dpsGain;
+
+		/** Percentage improvement, which reads better than a raw delta. */
+		double percentGain;
+
+		/** Coins still needed, or 0 when it is already within budget. */
+		long shortfall;
+
+		/**
+		 * Offensive stat improvement, eg. "+3 strength, +12 slash". Max hit is a
+		 * whole number, so a small upgrade can leave computed DPS untouched while
+		 * still being a real improvement - this is what makes it visible.
+		 */
+		@Nullable
+		String statNote;
+
+		/**
+		 * False when this upgrade cannot be bought at all - an Avernic defender
+		 * or an Infernal cape is still the next step, it just is not a purchase.
+		 */
+		boolean purchasable;
 	}
 
 	@Value
@@ -161,6 +212,18 @@ public class BisAnalyser
 		 * slot - but the progression question is identical.
 		 */
 		List<Step> specWeapons;
+
+		/**
+		 * The single purchase that raises DPS the most out of everything the
+		 * player can afford, whichever slot it happens to be in. A weapon often
+		 * beats an armour piece here, which a per-slot list never shows.
+		 */
+		@Nullable
+		Recommendation bestBuy;
+
+		/** Most DPS per million spent, when that is a different item. */
+		@Nullable
+		Recommendation bestValue;
 	}
 
 	/** A buildable item priced up from the parts still missing. */
@@ -334,6 +397,26 @@ public class BisAnalyser
 							targetOffGe = false;
 						}
 					}
+
+					// Last resort: quote the item it is built on. A Berserker
+					// ring (i) costs a Berserker ring plus a trip to Nightmare
+					// Zone, and the ring is the part with a price.
+					if (targetOffGe)
+					{
+						final int baseId = itemVariants.pricedAsOf(item.getId());
+						final EquipmentItem base = baseId > 0 ? index.byId(baseId) : null;
+						final int basePrice = baseId > 0 ? index.priceOf(baseId) : 0;
+
+						if (basePrice > 0)
+						{
+							craftNote = "Not sold directly. Buy "
+								+ (base != null ? base.getName() : "the base item")
+								+ " for " + QuantityFormatter.quantityToStackSize(basePrice)
+								+ " gp, then earn the upgrade.";
+							craftCost = basePrice;
+							targetOffGe = false;
+						}
+					}
 				}
 
 				// An ornamented or imbued version of the listed item counts as
@@ -345,7 +428,8 @@ public class BisAnalyser
 					item.getName(),
 					ownedVariant != null,
 					item.isUntradeable() ? 0 : item.getPrice(),
-					requirements.describeShortfall(item, levels)));
+					requirements.describeShortfall(item, levels),
+					attackTypeOf(item)));
 
 				if (ownedVariant != null)
 				{
@@ -463,10 +547,15 @@ public class BisAnalyser
 				affordable = null;
 			}
 
+			// Only the weapon slot cares which attack type the boss is soft to.
+			final String attackFocus = "WEAPON".equals(slot.getSlot())
+				? weakestAttackType(monster)
+				: null;
+
 			statuses.add(new SlotStatus(
 				slot.getSlot(), target, bestOwned, hasBest, cost, shortfall, nextBuy,
 				slot.getNote(), targetOffGe, levelShortfall, craftNote,
-				affordable, trainFor, trainNeed, progression));
+				affordable, trainFor, trainNeed, progression, attackFocus));
 		}
 
 		// Diagnostic: a slot where every listed item resolved to a real item but
@@ -545,7 +634,7 @@ public class BisAnalyser
 				status.getCost(), status.getShortfall(), status.getNextBuy(),
 				status.getNote(), status.isTargetOffGe(), status.getLevelShortfall(),
 				status.getCraftNote(), status.getAffordable(), status.getTrainFor(),
-				status.getTrainNeed(), status.getProgression()));
+				status.getTrainNeed(), status.getProgression(), status.getAttackFocus()));
 		}
 		statuses.clear();
 		statuses.addAll(resolved);
@@ -565,8 +654,196 @@ public class BisAnalyser
 			worn.put(ammoSlot, null);
 		}
 
+		final List<Recommendation> ranked = rankPurchases(statuses, worn, monster, levels,
+			type, prayer, baseSpellMaxHit, budget, budgetKnown);
+
+		Recommendation bestBuy = null;
+		Recommendation bestValue = null;
+		if (!ranked.isEmpty())
+		{
+			bestBuy = ranked.get(0);
+
+			// Most DPS per million. Only interesting when it is not the same item,
+			// and only for something that actually costs money.
+			Recommendation value = null;
+			double bestRatio = 0;
+			for (Recommendation r : ranked)
+			{
+				if (r.getCost() <= 0)
+				{
+					continue;
+				}
+				final double ratio = r.getDpsGain() / (r.getCost() / 1_000_000d);
+				if (ratio > bestRatio)
+				{
+					bestRatio = ratio;
+					value = r;
+				}
+			}
+			if (value != null && value.getItem().getId() != bestBuy.getItem().getId())
+			{
+				bestValue = value;
+			}
+		}
+
 		return new Result(setup, statuses, worn, pickNextBuy(statuses), unresolved,
-			resolveSpecWeapons(setup, levels));
+			resolveSpecWeapons(setup, levels), bestBuy, bestValue);
+	}
+
+	/**
+	 * Every affordable purchase, scored by what it actually does to DPS when worn
+	 * rather than by its position in a list. Ordering slots by rank cannot tell
+	 * you that a weapon is worth more than three armour pieces put together.
+	 */
+	private List<Recommendation> rankPurchases(List<SlotStatus> statuses, Loadout worn,
+											   Monster monster, PlayerLevels levels,
+											   DamageType type, PrayerBoost prayer,
+											   int baseSpellMaxHit, long budget,
+											   boolean budgetKnown)
+	{
+		final List<Recommendation> ranked = new ArrayList<>();
+		if (monster == null || !monster.isGearApplicable())
+		{
+			return ranked;
+		}
+
+		final double baseline = dpsOf(worn, monster, levels, type, prayer, baseSpellMaxHit);
+
+		for (SlotStatus status : statuses)
+		{
+			// What they could buy today, else the next real purchase, else the
+			// wiki's pick even though it is earned rather than bought. Only the
+			// last of those is not a purchase, and saying nothing at all because
+			// an upgrade happens to be untradeable is worse than naming it.
+			EquipmentItem candidate = status.getAffordable() != null
+				? status.getAffordable()
+				: status.getNextBuy();
+			boolean purchasable = candidate != null;
+
+			if (candidate == null && !status.isHasBest() && status.getTarget() != null)
+			{
+				candidate = status.getTarget();
+				purchasable = false;
+			}
+
+			if (candidate == null)
+			{
+				continue;
+			}
+
+			// Already wearing it, so there is nothing to suggest.
+			final EquipmentItem wornHere = status.getOwned();
+			if (wornHere != null && wornHere.getId() == candidate.getId())
+			{
+				continue;
+			}
+
+			final int slotIdx;
+			try
+			{
+				slotIdx = EquipmentInventorySlot.valueOf(status.getSlotName()).getSlotIdx();
+			}
+			catch (IllegalArgumentException e)
+			{
+				continue;
+			}
+
+			// Buying the uncharged form of a charged weapon still ends with the
+			// charged weapon in your hand, so score the item you will actually
+			// wield. An uncharged Scythe has no stats at all, which made every
+			// melee recommendation score zero and disappear.
+			EquipmentItem worthIt = candidate;
+			final EquipmentItem target = status.getTarget();
+			if (target != null
+				&& itemVariants.tradeableFormOf(target.getId()) == candidate.getId())
+			{
+				worthIt = target;
+			}
+
+			final Loadout trial = worn.copy();
+			trial.put(slotIdx, worthIt);
+
+			final double after = dpsOf(trial, monster, levels, type, prayer, baseSpellMaxHit);
+			final double gain = after - baseline;
+
+			// Max hit is a whole number, so against a target with no Defence a
+			// small strength upgrade can leave computed DPS identical. Judging
+			// purely on that number silently discarded every real upgrade on the
+			// reference dummy, so the raw stat change is the tiebreak.
+			final GearStats before = worn.stats();
+			final GearStats now = trial.stats();
+			final int strDelta = strengthOf(now, type) - strengthOf(before, type);
+			final int attDelta = attackOf(now, type) - attackOf(before, type);
+			final int defDelta = defenceOf(now) - defenceOf(before);
+
+			// Defence counts too - a piece that only adds survivability is still
+			// an upgrade, and saying "nothing" because it adds no damage is wrong.
+			if (gain <= 0 && strDelta <= 0 && attDelta <= 0 && defDelta <= 0)
+			{
+				continue;
+			}
+
+			final StringBuilder sb = new StringBuilder();
+			if (strDelta > 0)
+			{
+				sb.append('+').append(strDelta).append(" strength");
+			}
+			if (attDelta > 0)
+			{
+				if (sb.length() > 0)
+				{
+					sb.append(", ");
+				}
+				sb.append('+').append(attDelta).append(' ')
+					.append(type.name().toLowerCase(java.util.Locale.ROOT))
+					.append(" accuracy");
+			}
+			if (sb.length() == 0 && defDelta > 0)
+			{
+				sb.append('+').append(defDelta).append(" defence");
+			}
+			final String statNote = sb.length() == 0 ? null : sb.toString();
+
+			final long price = purchasable ? candidate.getPrice() : 0;
+			ranked.add(new Recommendation(candidate, status.getSlotName(),
+				price, gain,
+				baseline > 0 ? (gain / baseline) * 100d : 0,
+				budgetKnown && price > 0 ? Math.max(0, price - budget) : 0,
+				statNote, purchasable));
+		}
+
+		// Something you can actually buy comes first - this section is headed
+		// "recommended next purchase", so an earned item is the fallback answer
+		// rather than the headline. Within each group, biggest gain wins.
+		ranked.sort((a, b) ->
+		{
+			if (a.isPurchasable() != b.isPurchasable())
+			{
+				return a.isPurchasable() ? -1 : 1;
+			}
+			final int byDps = Double.compare(b.getDpsGain(), a.getDpsGain());
+			if (byDps != 0)
+			{
+				return byDps;
+			}
+			return Long.compare(b.getCost(), a.getCost());
+		});
+
+		if (log.isDebugEnabled())
+		{
+			final StringBuilder sb = new StringBuilder();
+			for (SlotStatus status : statuses)
+			{
+				final EquipmentItem c = status.getAffordable() != null
+					? status.getAffordable() : status.getNextBuy();
+				sb.append(status.getSlotName()).append('=')
+					.append(c == null ? "none" : c.getName()).append(' ');
+			}
+			log.debug("Purchases [{}] baseline={} candidates: {} -> ranked {}",
+				type, String.format("%.2f", baseline), sb, ranked.size());
+		}
+
+		return ranked;
 	}
 
 	/**
@@ -582,7 +859,7 @@ public class BisAnalyser
 			if (item == null)
 			{
 				// Keep the name visible rather than silently dropping it.
-				steps.add(new Step(name, false, 0, null));
+				steps.add(new Step(name, false, 0, null, null));
 				continue;
 			}
 
@@ -590,7 +867,8 @@ public class BisAnalyser
 				item.getName(),
 				ownedVariantOf(item.getId(), item) != null,
 				item.isUntradeable() ? 0 : item.getPrice(),
-				requirements.describeShortfall(item, levels)));
+				requirements.describeShortfall(item, levels),
+				attackTypeOf(item)));
 		}
 		return steps;
 	}
@@ -892,6 +1170,105 @@ public class BisAnalyser
 				}
 			}
 		}
+	}
+
+	/** The strength stat that drives max hit for this style. */
+	private static int strengthOf(GearStats stats, DamageType type)
+	{
+		switch (type)
+		{
+			case RANGED:
+				return stats.getRstr();
+			case MAGIC:
+				// Magic damage rides on the multiplier rather than a flat bonus.
+				return (int) Math.round(stats.getDamageMultiplier() * 100);
+			default:
+				return stats.getStr();
+		}
+	}
+
+	/** Total defensive bonus, so a purely defensive upgrade still registers. */
+	private static int defenceOf(GearStats stats)
+	{
+		return stats.getDstab() + stats.getDslash() + stats.getDcrush()
+			+ stats.getDmagic() + stats.getDrange();
+	}
+
+	/** The accuracy stat this style actually rolls with. */
+	private static int attackOf(GearStats stats, DamageType type)
+	{
+		switch (type)
+		{
+			case STAB:
+				return stats.getAstab();
+			case SLASH:
+				return stats.getAslash();
+			case CRUSH:
+				return stats.getAcrush();
+			case RANGED:
+				return stats.getArange();
+			default:
+				return stats.getAmagic();
+		}
+	}
+
+	/**
+	 * Which melee attack type a weapon is actually for, by whichever of its stab,
+	 * slash and crush bonuses is highest. Null for anything that is not a melee
+	 * weapon, so ranged and magic lists are left alone.
+	 */
+	@Nullable
+	private static String attackTypeOf(EquipmentItem item)
+	{
+		if (item == null || item.getStats() == null)
+		{
+			return null;
+		}
+
+		final ItemEquipmentStats s = item.getStats();
+		final int stab = s.getAstab();
+		final int slash = s.getAslash();
+		final int crush = s.getAcrush();
+
+		if (stab <= 0 && slash <= 0 && crush <= 0)
+		{
+			return null;
+		}
+
+		if (stab >= slash && stab >= crush)
+		{
+			return "stab";
+		}
+		return slash >= crush ? "slash" : "crush";
+	}
+
+	/**
+	 * The melee attack type a monster is softest against, or null when it has no
+	 * meaningful preference.
+	 */
+	@Nullable
+	private static String weakestAttackType(Monster monster)
+	{
+		if (monster == null)
+		{
+			return null;
+		}
+
+		final int stab = monster.getDstab();
+		final int slash = monster.getDslash();
+		final int crush = monster.getDcrush();
+
+		// A flat stat line means no preference worth acting on.
+		if (stab == slash && slash == crush)
+		{
+			return null;
+		}
+
+		if (stab <= slash && stab <= crush)
+		{
+			return "stab";
+		}
+		return slash <= crush ? "slash" : "crush";
 	}
 
 	private static double dpsOf(Loadout loadout, Monster monster, PlayerLevels levels,

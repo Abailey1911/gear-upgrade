@@ -16,6 +16,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.EnumMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.function.Consumer;
 import javax.swing.BorderFactory;
@@ -544,6 +545,77 @@ public class GearUpgradePanel extends PluginPanel
 		tab.grid.update(result.getWornFromBis());
 
 		tab.bisSection.removeAll();
+
+		// The single most useful thing on the page, so it goes first. A per-slot
+		// list cannot say that one weapon beats three armour pieces put together.
+		// Always shown, even when the answer is "nothing" - a missing section
+		// reads as a bug rather than as an answer.
+		tab.bisSection.add(sectionHeader("Recommended next purchase"));
+
+		final BisAnalyser.Recommendation best = result.getBestBuy();
+		if (best == null)
+		{
+			tab.bisSection.add(noteRow("You have best in slot",
+				"Nothing in this setup would improve on what you are already wearing.",
+				OWNED));
+		}
+		else if (!best.isPurchasable())
+		{
+			// Still the next step, just not one you can buy.
+			final StringBuilder earned = new StringBuilder("Earned from content, not sold on "
+				+ "the Grand Exchange - it is still your next upgrade here.");
+			earned.append("\nGoes in the ").append(best.getSlotName().toLowerCase(Locale.ROOT))
+				.append(" slot.");
+			if (best.getStatNote() != null)
+			{
+				earned.append(" Worth ").append(best.getStatNote()).append('.');
+			}
+			tab.bisSection.add(noteRow(best.getItem().getName(), earned.toString(),
+				ColorScheme.BRAND_ORANGE));
+		}
+		else
+		{
+			final StringBuilder detail = new StringBuilder();
+			detail.append(best.getCost() > 0
+				? QuantityFormatter.quantityToStackSize(best.getCost()) + " gp"
+				: "not on the GE");
+
+			if (best.getShortfall() > 0)
+			{
+				detail.append(" - need ")
+					.append(QuantityFormatter.quantityToStackSize(best.getShortfall()))
+					.append(" more");
+			}
+
+			// Against a target with no Defence the rounded DPS often does not move,
+			// so quote the stat change instead of a meaningless "+0.0%".
+			if (best.getPercentGain() >= 0.05)
+			{
+				detail.append(String.format(" - biggest damage gain available (+%.1f%%)",
+					best.getPercentGain()));
+			}
+			else if (best.getStatNote() != null)
+			{
+				detail.append(" - biggest stat gain available (")
+					.append(best.getStatNote()).append(')');
+			}
+
+			detail.append("\nGoes in the ").append(best.getSlotName().toLowerCase(Locale.ROOT))
+				.append(" slot.");
+
+			final BisAnalyser.Recommendation value = result.getBestValue();
+			if (value != null && value.getCost() > 0)
+			{
+				detail.append("\nBest value per gp: ").append(value.getItem().getName())
+					.append(" at ")
+					.append(QuantityFormatter.quantityToStackSize(value.getCost()))
+					.append(String.format(" gp (+%.1f%%)", value.getPercentGain()));
+			}
+
+			tab.bisSection.add(noteRow(best.getItem().getName(), detail.toString(),
+				best.getShortfall() > 0 ? MISSING : OBTAINABLE));
+		}
+
 		tab.bisSection.add(sectionHeader("Best in slot (wiki)"));
 
 		final BisSetup setup = result.getSetup();
@@ -771,8 +843,41 @@ public class GearUpgradePanel extends PluginPanel
 	 */
 	private static String progressionTooltip(BisAnalyser.SlotStatus slot)
 	{
-		return stepListTooltip(prettySlot(slot.getSlotName()) + " progression",
-			slot.getProgression());
+		final List<BisAnalyser.Step> all = slot.getProgression();
+
+		// On a boss with a clear melee weakness, the weapon list is far more use
+		// filtered to that attack type - a crush boss wants the crush tier, not
+		// every melee weapon in the game interleaved.
+		if (slot.getAttackFocus() != null && all != null)
+		{
+			final List<BisAnalyser.Step> matching = new java.util.ArrayList<>();
+			for (BisAnalyser.Step step : all)
+			{
+				if (slot.getAttackFocus().equals(step.getAttackType()))
+				{
+					matching.add(step);
+				}
+			}
+
+			// Below a couple of entries the filter hides more than it helps.
+			if (matching.size() >= 2)
+			{
+				return stepListTooltip(
+					capitalise(slot.getAttackFocus()) + " weapons - what this boss is weak to",
+					matching);
+			}
+		}
+
+		return stepListTooltip(prettySlot(slot.getSlotName()) + " progression", all);
+	}
+
+	private static String capitalise(String s)
+	{
+		if (s == null || s.isEmpty())
+		{
+			return s;
+		}
+		return Character.toUpperCase(s.charAt(0)) + s.substring(1);
 	}
 
 	/**
