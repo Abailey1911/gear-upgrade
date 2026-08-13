@@ -814,13 +814,23 @@ public class BisAnalyser
 
 		// Something you can actually buy comes first - this section is headed
 		// "recommended next purchase", so an earned item is the fallback answer
-		// rather than the headline. Within each group, biggest gain wins.
+		// rather than the headline. Ammunition sorts last whatever it scores:
+		// bolts are consumable, so "buy Ruby dragon bolts" is restocking, not
+		// the next step in a player's progression.
 		ranked.sort((a, b) ->
 		{
 			if (a.isPurchasable() != b.isPurchasable())
 			{
 				return a.isPurchasable() ? -1 : 1;
 			}
+
+			final boolean aAmmo = "AMMO".equals(a.getSlotName());
+			final boolean bAmmo = "AMMO".equals(b.getSlotName());
+			if (aAmmo != bAmmo)
+			{
+				return aAmmo ? 1 : -1;
+			}
+
 			final int byDps = Double.compare(b.getDpsGain(), a.getDpsGain());
 			if (byDps != 0)
 			{

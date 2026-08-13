@@ -682,14 +682,10 @@ public class GearUpgradePanel extends PluginPanel
 			tab.bisSection.add(specRow);
 		}
 
-		final BisAnalyser.SlotStatus next = result.getNextBuy();
-		if (next != null && next.getNextBuy() != null)
-		{
-			tab.bisSection.add(sectionHeader("Buy this next"));
-			tab.bisSection.add(noteRow(next.getNextBuy().getName(),
-				QuantityFormatter.quantityToStackSize(next.getCost())
-					+ " gp - you can afford this now.", OWNED));
-		}
+		// The old "Buy this next" section picked whichever upgrade was cheapest,
+		// which meant a 3k stack of bolts outranked a full armour set. The
+		// recommendation at the top of the panel ranks by what an item actually
+		// does, so two answers that disagree is worse than one that is right.
 
 		tab.root.revalidate();
 		tab.root.repaint();
