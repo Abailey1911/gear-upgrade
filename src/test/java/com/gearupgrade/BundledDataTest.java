@@ -117,6 +117,71 @@ public class BundledDataTest
 	}
 
 	/**
+	 * The general ladders were not covered by the check above, because that one
+	 * insists every setup names a monster or a group and these name neither.
+	 * They went unvalidated as a result - and they are the tables every boss
+	 * without its own entry falls back to, so a bad id here is worse than a bad
+	 * id at one boss, not better.
+	 */
+	@Test
+	public void defaultLaddersParseAndUseRealSlotNames() throws Exception
+	{
+		final Type type = new TypeToken<List<BisSetup>>()
+		{
+		}.getType();
+
+		final List<BisSetup> setups = load("bis-default.json", type);
+		assertNotNull("failed to parse bis-default.json", setups);
+		assertFalse("bis-default.json is empty", setups.isEmpty());
+
+		final java.util.Set<CombatStyle> styles = new java.util.HashSet<>();
+
+		for (BisSetup setup : setups)
+		{
+			final CombatStyle style = setup.combatStyle();
+			assertNotNull("default ladder has no combat style", style);
+			assertTrue("duplicate default ladder for " + style, styles.add(style));
+
+			assertFalse("default ladder has no slots: " + style,
+				setup.getSlots().isEmpty());
+
+			for (BisSlot slot : setup.getSlots())
+			{
+				assertTrue("unknown slot '" + slot.getSlot() + "' in " + style + " ladder",
+					slot.slotIndex() >= 0);
+				assertFalse("empty item list in " + style + " " + slot.getSlot(),
+					slot.getItems().isEmpty());
+
+				assertEquals("ids do not line up with items in " + style + " " + slot.getSlot(),
+					slot.getItems().size(), slot.getIds().size());
+
+				// A name repeated in one slot is a copy-paste slip that would
+				// silently rank the same item twice.
+				final java.util.Set<String> seen = new java.util.HashSet<>();
+				for (String item : slot.getItems())
+				{
+					assertTrue("duplicate '" + item + "' in " + style + " " + slot.getSlot(),
+						seen.add(item));
+				}
+
+				final java.util.Set<Integer> seenIds = new java.util.HashSet<>();
+				for (Integer id : slot.getIds())
+				{
+					assertTrue("unresolved item id in " + style + " " + slot.getSlot(),
+						id != null && id > 0);
+					assertTrue("duplicate id " + id + " in " + style + " " + slot.getSlot(),
+						seenIds.add(id));
+				}
+			}
+		}
+
+		// One ladder per style, or a style falls back to nothing at a boss with
+		// no table of its own.
+		assertEquals("expected a ladder for every combat style",
+			CombatStyle.values().length, styles.size());
+	}
+
+	/**
 	 * The variant map is generated, and a generator that collapses single-entry
 	 * lists into bare numbers produced a file that parsed as JSON but failed to
 	 * deserialise, which stopped the plugin starting. Parsing it here with the
