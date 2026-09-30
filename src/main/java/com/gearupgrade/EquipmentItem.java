@@ -20,8 +20,13 @@ public class EquipmentItem
 	boolean twoHanded;
 	ItemEquipmentStats stats;
 
-	/** Live GE price per unit, or 0 if the item is not tradeable. */
-	int price;
+	/**
+	 * Live GE price per unit, or 0 if the item is not tradeable.
+	 *
+	 * <p>A long because RuneLite's item prices are - an int silently wraps negative
+	 * for anything over 2.147b, which would read as free.
+	 */
+	long price;
 
 	/** True if this item is untradeable, so it can never be "bought". */
 	boolean untradeable;

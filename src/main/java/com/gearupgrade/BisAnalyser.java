@@ -260,7 +260,7 @@ public class BisAnalyser
 				continue;
 			}
 
-			final int unit = index.priceOf(part.getId());
+			final long unit = index.priceOf(part.getId());
 			if (unit <= 0)
 			{
 				log.debug("No price for component {} ({}) of {}",
@@ -405,7 +405,7 @@ public class BisAnalyser
 					{
 						final int baseId = itemVariants.pricedAsOf(item.getId());
 						final EquipmentItem base = baseId > 0 ? index.byId(baseId) : null;
-						final int basePrice = baseId > 0 ? index.priceOf(baseId) : 0;
+						final long basePrice = baseId > 0 ? index.priceOf(baseId) : 0;
 
 						if (basePrice > 0)
 						{

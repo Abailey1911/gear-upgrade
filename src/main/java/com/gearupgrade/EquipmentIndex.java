@@ -96,7 +96,7 @@ public class EquipmentIndex
 			}
 
 			final boolean tradeable = composition.isGeTradeable();
-			final int price = tradeable ? itemManager.getItemPrice(id) : 0;
+			final long price = tradeable ? itemManager.getItemPrice(id) : 0;
 
 			final EquipmentItem item = new EquipmentItem(
 				id, name, equipment.getSlot(), equipment.isTwoHanded(),
@@ -141,7 +141,7 @@ public class EquipmentIndex
 	 * from are often not wearable themselves - an Arcane sigil and ten thousand
 	 * soul runes make a fortified ward, and neither goes in a gear slot.
 	 */
-	public int priceOf(int itemId)
+	public long priceOf(int itemId)
 	{
 		return itemId <= 0 ? 0 : itemManager.getItemPrice(itemId);
 	}
