@@ -32,7 +32,9 @@ final class WeaponRules
 		 * fit no other crossbow. Treating them as ordinary bolts would load Ruby
 		 * dragon bolts into ascension crossbows and count them.
 		 */
-		ASCENSION_BOLTS
+		ASCENSION_BOLTS,
+		/** Eclipse atlatl's own darts. */
+		ATLATL_DARTS
 	}
 
 	/** Crystal armour: accuracy and damage bonuses to the crystal bows. */
@@ -83,6 +85,10 @@ final class WeaponRules
 		{
 			return AmmoType.JAVELINS;
 		}
+		if (name.startsWith("eclipse atlatl"))
+		{
+			return AmmoType.ATLATL_DARTS;
+		}
 		if (name.contains("crossbow") || name.contains("c'bow"))
 		{
 			return AmmoType.BOLTS;
@@ -109,6 +115,10 @@ final class WeaponRules
 		if (name.contains("javelin"))
 		{
 			return AmmoType.JAVELINS;
+		}
+		if (name.startsWith("atlatl dart"))
+		{
+			return AmmoType.ATLATL_DARTS;
 		}
 		if (name.contains("ascension bolt"))
 		{
@@ -139,6 +149,38 @@ final class WeaponRules
 	{
 		final String name = normalise(weapon);
 		return name.startsWith("crystal bow") || name.startsWith("bow of faerdhinen");
+	}
+
+	/**
+	 * Max-hit gain from a Soulreaper axe at its full five stacks. Each stack
+	 * boosts Strength by 6% of the base level, so five add 30% of 99 - about 24%
+	 * on the max hit once prayer and the style bonus are in the effective level.
+	 */
+	static final double SOULREAPER_STACK_DAMAGE = 1.24d;
+
+	/**
+	 * The Soulreaper axe's stacks are its whole point: on raw stats it ranks
+	 * below weapons it beats comfortably in a real fight, so the model wears it
+	 * at full stacks, as it is during any sustained kill.
+	 */
+	/**
+	 * The Eclipse atlatl attacks with Ranged but hits with Strength: its max hit
+	 * uses the Strength level and the melee strength bonus, not ranged strength.
+	 * Rated on ranged strength it would look useless, whatever the player's
+	 * Strength.
+	 */
+	static boolean hitsWithStrength(EquipmentItem weapon)
+	{
+		return normalise(weapon).startsWith("eclipse atlatl");
+	}
+
+	static void applySoulreaperStacks(GearStats stats, EquipmentItem weapon)
+	{
+		if (weapon != null && weapon.getName() != null
+			&& weapon.getName().toLowerCase(Locale.ROOT).startsWith("soulreaper axe"))
+		{
+			stats.applyMultipliers(1.0d, SOULREAPER_STACK_DAMAGE);
+		}
 	}
 
 	/**

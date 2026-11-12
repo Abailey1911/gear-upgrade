@@ -43,6 +43,14 @@ public class GearStats
 	private double accuracyMultiplier = 1.0d;
 	private double damageMultiplier = 1.0d;
 
+	/** Ranged attack whose max hit uses Strength, as with the Eclipse atlatl. */
+	private boolean strengthScaledRanged;
+
+	void setStrengthScaledRanged(boolean value)
+	{
+		this.strengthScaledRanged = value;
+	}
+
 	void applyMultipliers(double accuracy, double damage)
 	{
 		this.accuracyMultiplier *= accuracy;
@@ -123,6 +131,9 @@ public class GearStats
 		c.mdmg = mdmg;
 		c.prayer = prayer;
 		c.attackSpeed = attackSpeed;
+		c.accuracyMultiplier = accuracyMultiplier;
+		c.damageMultiplier = damageMultiplier;
+		c.strengthScaledRanged = strengthScaledRanged;
 		return c;
 	}
 

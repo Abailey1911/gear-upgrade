@@ -11,7 +11,7 @@
       {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Mixed hide cape", "Ardougne cloak 4", "Ardougne cloak 3", "Ardougne cloak 2", "Ardougne cloak 1", "Obsidian cape", "Black cape"], "ids": [21295, 6570, 22114, 29289, 13124, 13123, 13122, 13121, 6568, 1019]},
       {"slot": "BODY", "items": ["Torva platebody", "Oathplate chest", "Bandos chestplate", "Inquisitor's hauberk", "Blood moon chestplate", "Fighter torso", "Elite void top", "Obsidian platebody", "Void knight top", "Dragon platebody", "Rune platebody", "Adamant platebody", "Mithril platebody", "Steel platebody", "Iron platebody"], "ids": [26384, 30753, 11832, 24420, 29022, 10551, 13072, 21301, 8839, 21892, 1127, 1123, 1121, 1119, 1115]},
       {"slot": "LEGS", "items": ["Torva platelegs", "Oathplate legs", "Bandos tassets", "Inquisitor's plateskirt", "Blood moon tassets", "Elite void robe", "Obsidian platelegs", "Void knight robe", "Torag's platelegs", "Dragon platelegs", "Rune platelegs", "Adamant platelegs", "Mithril platelegs", "Steel platelegs", "Iron platelegs"], "ids": [26386, 30756, 11834, 24421, 29025, 13073, 21304, 8840, 4751, 4087, 1079, 1073, 1071, 1069, 1067]},
-      {"slot": "WEAPON", "items": ["Scythe of vitur", "Obligator", "Noxious halberd", "Soulreaper axe", "Osmumten's fang", "Blade of saeldor", "Ghrazi rapier", "Inquisitor's mace", "Abyssal bludgeon", "Ursine chainmace", "Elder maul", "Abyssal tentacle", "Dual macuahuitl", "Abyssal whip", "Dragon scimitar", "Dragon longsword", "Rune scimitar", "Adamant scimitar", "Mithril scimitar", "Steel scimitar", "Iron scimitar"], "ids": [22325, 34715, 29796, 28338, 26219, 23995, 22324, 24417, 13263, 27660, 21003, 12006, 28997, 4151, 4587, 1305, 1333, 1331, 1329, 1325, 1323]},
+      {"slot": "WEAPON", "items": ["Scythe of vitur", "Obligator", "Soulreaper axe", "Noxious halberd", "Osmumten's fang", "Blade of saeldor", "Ghrazi rapier", "Inquisitor's mace", "Abyssal bludgeon", "Ursine chainmace", "Elder maul", "Abyssal tentacle", "Dual macuahuitl", "Abyssal whip", "Dragon scimitar", "Dragon longsword", "Rune scimitar", "Adamant scimitar", "Mithril scimitar", "Steel scimitar", "Iron scimitar"], "ids": [22325, 34715, 28338, 29796, 26219, 23995, 22324, 24417, 13263, 27660, 21003, 12006, 28997, 4151, 4587, 1305, 1333, 1331, 1329, 1325, 1323]},
       {"slot": "SHIELD", "items": ["Avernic defender", "Rondache", "Dragon defender", "Rune defender", "Adamant defender"], "ids": [22322, 34719, 12954, 8850, 8849]},
       {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Void knight gloves", "Dragon gloves", "Rune gloves", "Granite gloves", "Adamant gloves", "Mithril gloves", "Black gloves", "Steel gloves", "Iron gloves", "Hardleather gloves", "Leather gloves"], "ids": [22981, 7462, 8842, 7461, 7460, 21736, 7459, 7458, 7457, 7456, 7455, 7453, 1059]},
       {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Dragon boots", "Rune boots", "Fighting boots", "Leather boots"], "ids": [31097, 31091, 31088, 13239, 11840, 4131, 9006, 1061]},
@@ -72,7 +72,7 @@
       {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Mixed hide cape", "Ardougne cloak 4", "Ardougne cloak 3", "Ardougne cloak 2", "Ardougne cloak 1", "Obsidian cape", "Black cape"], "ids": [21295, 6570, 22114, 29289, 13124, 13123, 13122, 13121, 6568, 1019]},
       {"slot": "BODY", "items": ["Inquisitor's hauberk", "Torva platebody", "Oathplate chest", "Bandos chestplate", "Blood moon chestplate", "Fighter torso", "Elite void top", "Obsidian platebody", "Void knight top", "Dragon platebody", "Rune platebody", "Adamant platebody", "Mithril platebody", "Steel platebody", "Iron platebody"], "ids": [24420, 26384, 30753, 11832, 29022, 10551, 13072, 21301, 8839, 21892, 1127, 1123, 1121, 1119, 1115]},
       {"slot": "LEGS", "items": ["Inquisitor's plateskirt", "Torva platelegs", "Oathplate legs", "Bandos tassets", "Blood moon tassets", "Elite void robe", "Obsidian platelegs", "Void knight robe", "Torag's platelegs", "Dragon platelegs", "Rune platelegs", "Adamant platelegs", "Mithril platelegs", "Steel platelegs", "Iron platelegs"], "ids": [24421, 26386, 30756, 11834, 29025, 13073, 21304, 8840, 4751, 4087, 1079, 1073, 1071, 1069, 1067]},
-      {"slot": "WEAPON", "items": ["Obligator", "Inquisitor's mace", "Abyssal bludgeon", "Ursine chainmace", "Elder maul", "Dual macuahuitl"], "ids": [34715, 24417, 13263, 27660, 21003, 28997]},
+      {"slot": "WEAPON", "items": ["Obligator", "Inquisitor's mace", "Soulreaper axe", "Abyssal bludgeon", "Ursine chainmace", "Elder maul", "Dual macuahuitl"], "ids": [34715, 24417, 28338, 13263, 27660, 21003, 28997]},
       {"slot": "SHIELD", "items": ["Avernic defender", "Rondache", "Dragon defender", "Rune defender", "Adamant defender"], "ids": [22322, 34719, 12954, 8850, 8849]},
       {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Void knight gloves", "Dragon gloves", "Rune gloves", "Granite gloves", "Adamant gloves", "Mithril gloves", "Black gloves", "Steel gloves", "Iron gloves", "Hardleather gloves", "Leather gloves"], "ids": [22981, 7462, 8842, 7461, 7460, 21736, 7459, 7458, 7457, 7456, 7455, 7453, 1059]},
       {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Dragon boots", "Rune boots", "Fighting boots", "Leather boots"], "ids": [31097, 31091, 31088, 13239, 11840, 4131, 9006, 1061]},
@@ -93,7 +93,7 @@
       {"slot": "CAPE", "items": ["Infernal cape", "Fire cape", "Mythical cape", "Mixed hide cape", "Ardougne cloak 4", "Ardougne cloak 3", "Ardougne cloak 2", "Ardougne cloak 1", "Obsidian cape", "Black cape"], "ids": [21295, 6570, 22114, 29289, 13124, 13123, 13122, 13121, 6568, 1019]},
       {"slot": "BODY", "items": ["Oathplate chest", "Torva platebody", "Bandos chestplate", "Inquisitor's hauberk", "Blood moon chestplate", "Fighter torso", "Elite void top", "Obsidian platebody", "Void knight top", "Dragon platebody", "Rune platebody", "Adamant platebody", "Mithril platebody", "Steel platebody", "Iron platebody"], "ids": [30753, 26384, 11832, 24420, 29022, 10551, 13072, 21301, 8839, 21892, 1127, 1123, 1121, 1119, 1115]},
       {"slot": "LEGS", "items": ["Oathplate legs", "Torva platelegs", "Bandos tassets", "Inquisitor's plateskirt", "Blood moon tassets", "Elite void robe", "Obsidian platelegs", "Void knight robe", "Torag's platelegs", "Dragon platelegs", "Rune platelegs", "Adamant platelegs", "Mithril platelegs", "Steel platelegs", "Iron platelegs"], "ids": [30756, 26386, 11834, 24421, 29025, 13073, 21304, 8840, 4751, 4087, 1079, 1073, 1071, 1069, 1067]},
-      {"slot": "WEAPON", "items": ["Scythe of vitur", "Noxious halberd", "Soulreaper axe", "Blade of saeldor", "Abyssal tentacle", "Abyssal whip", "Dragon scimitar", "Dragon longsword", "Rune scimitar", "Adamant scimitar", "Mithril scimitar", "Steel scimitar", "Iron scimitar"], "ids": [22325, 29796, 28338, 23995, 12006, 4151, 4587, 1305, 1333, 1331, 1329, 1325, 1323]},
+      {"slot": "WEAPON", "items": ["Scythe of vitur", "Soulreaper axe", "Noxious halberd", "Blade of saeldor", "Abyssal tentacle", "Abyssal whip", "Dragon scimitar", "Dragon longsword", "Rune scimitar", "Adamant scimitar", "Mithril scimitar", "Steel scimitar", "Iron scimitar"], "ids": [22325, 28338, 29796, 23995, 12006, 4151, 4587, 1305, 1333, 1331, 1329, 1325, 1323]},
       {"slot": "SHIELD", "items": ["Avernic defender", "Rondache", "Dragon defender", "Rune defender", "Adamant defender"], "ids": [22322, 34719, 12954, 8850, 8849]},
       {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Void knight gloves", "Dragon gloves", "Rune gloves", "Granite gloves", "Adamant gloves", "Mithril gloves", "Black gloves", "Steel gloves", "Iron gloves", "Hardleather gloves", "Leather gloves"], "ids": [22981, 7462, 8842, 7461, 7460, 21736, 7459, 7458, 7457, 7456, 7455, 7453, 1059]},
       {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pr)", "Avernic treads", "Primordial boots", "Dragon boots", "Rune boots", "Fighting boots", "Leather boots"], "ids": [31097, 31091, 31088, 13239, 11840, 4131, 9006, 1061]},
@@ -125,8 +125,8 @@
   {
     "isDefault": true,
     "style": "RANGED",
-    "variant": "BLOWPIPE",
-    "note": "General blowpipe ladder, after the wiki's Endgame Light Ranged setup. Not specific to the selected boss - check the boss notes for required weapons or styles.",
+    "variant": "BOW",
+    "note": "General bow ladder, after the wiki's Endgame Megarare, Bow and Level 85+ setup. Not specific to the selected boss - check the boss notes for required weapons or styles.",
     "specWeapons": ["Zaryte crossbow", "Tonalztics of ralos", "Webweaver bow", "Toxic blowpipe", "Dark bow", "Dragon knife", "Dragon thrownaxe"],
     "needsReview": false,
     "slots": [
@@ -135,19 +135,19 @@
       {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ava's attractor", "Ranging cape", "Black cape"], "ids": [28951, 22109, 10499, 10498, 9757, 1019]},
       {"slot": "BODY", "items": ["Masori body (f)", "Masori body", "Armadyl chestplate", "Elite void top", "Crystal body", "Karil's leathertop", "Hueycoatl hide body", "Void knight top", "Guthix d'hide body", "Black d'hide body", "Mixed hide top", "Red d'hide body", "Blue d'hide body", "Green d'hide body", "Studded body", "Leather body"], "ids": [27238, 27229, 11828, 13072, 23975, 4736, 30076, 8839, 10378, 2503, 29280, 2501, 2499, 1135, 1133, 1129]},
       {"slot": "LEGS", "items": ["Masori chaps (f)", "Masori chaps", "Armadyl chainskirt", "Elite void robe", "Crystal legs", "Karil's leatherskirt", "Hueycoatl hide chaps", "Void knight robe", "Guthix chaps", "Black d'hide chaps", "Mixed hide legs", "Red d'hide chaps", "Blue d'hide chaps", "Green d'hide chaps", "Studded chaps", "Leather chaps"], "ids": [27241, 27232, 11830, 13073, 23979, 4738, 30079, 8840, 10380, 2497, 29283, 2495, 2493, 1099, 1097, 1095]},
-      {"slot": "WEAPON", "items": ["Toxic blowpipe"], "ids": [12926]},
+      {"slot": "WEAPON", "items": ["Twisted bow", "Venator bow", "Bow of faerdhinen", "Scorching bow", "Magic shortbow (i)", "Magic shortbow", "Maple shortbow", "Willow shortbow", "Oak shortbow", "Shortbow"], "ids": [20997, 27610, 25865, 29591, 12788, 861, 853, 849, 843, 841]},
       {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward", "Book of law", "Green d'hide shield"], "ids": [21000, 22002, 11926, 12610, 22275]},
       {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Hueycoatl hide vambraces", "Void knight gloves", "Black d'hide vambraces", "Red d'hide vambraces", "Blue d'hide vambraces", "Green d'hide vambraces", "Leather vambraces"], "ids": [26235, 7462, 30082, 8842, 2491, 2489, 2487, 1065, 1063]},
       {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots", "Bandos d'hide boots", "Armadyl d'hide boots", "Mixed hide boots", "Snakeskin boots", "Leather boots"], "ids": [31097, 31092, 31088, 13237, 19927, 19924, 19930, 29286, 6328, 1061]},
       {"slot": "RING", "items": ["Venator ring", "Archers ring (i)", "Archers ring", "Ring of suffering (i)", "Lightbearer", "Explorer's ring 4"], "ids": [28310, 11771, 6733, 20657, 25975, 13128]},
-      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "Peaceful blessing", "Honourable blessing", "War blessing", "Unholy blessing"], "ids": [22947, 22945, 20220, 20226, 20229, 20232, 20223]}
+      {"slot": "AMMO", "items": ["Seeking dragon arrow", "Dragon arrow", "Amethyst arrow", "Rune arrow", "Adamant arrow", "Mithril arrow", "Steel arrow", "Iron arrow", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "Peaceful blessing", "Honourable blessing", "War blessing", "Unholy blessing"], "ids": [33595, 11227, 21332, 893, 891, 889, 886, 885, 22947, 22945, 20220, 20226, 20229, 20232, 20223]}
     ]
   },
   {
     "isDefault": true,
     "style": "RANGED",
-    "variant": "ASCENSION",
-    "note": "General ascension crossbow ladder, after the wiki's Endgame Heavy Ranged setup. Not specific to the selected boss - check the boss notes for required weapons or styles.",
+    "variant": "CROSSBOW",
+    "note": "General crossbow ladder, after the wiki's crossbow setup. Not specific to the selected boss - check the boss notes for required weapons or styles.",
     "specWeapons": ["Zaryte crossbow", "Tonalztics of ralos", "Webweaver bow", "Toxic blowpipe", "Dark bow", "Dragon knife", "Dragon thrownaxe"],
     "needsReview": false,
     "slots": [
@@ -156,19 +156,19 @@
       {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ava's attractor", "Ranging cape", "Black cape"], "ids": [28951, 22109, 10499, 10498, 9757, 1019]},
       {"slot": "BODY", "items": ["Masori body (f)", "Masori body", "Armadyl chestplate", "Elite void top", "Crystal body", "Karil's leathertop", "Hueycoatl hide body", "Void knight top", "Guthix d'hide body", "Black d'hide body", "Mixed hide top", "Red d'hide body", "Blue d'hide body", "Green d'hide body", "Studded body", "Leather body"], "ids": [27238, 27229, 11828, 13072, 23975, 4736, 30076, 8839, 10378, 2503, 29280, 2501, 2499, 1135, 1133, 1129]},
       {"slot": "LEGS", "items": ["Masori chaps (f)", "Masori chaps", "Armadyl chainskirt", "Elite void robe", "Crystal legs", "Karil's leatherskirt", "Hueycoatl hide chaps", "Void knight robe", "Guthix chaps", "Black d'hide chaps", "Mixed hide legs", "Red d'hide chaps", "Blue d'hide chaps", "Green d'hide chaps", "Studded chaps", "Leather chaps"], "ids": [27241, 27232, 11830, 13073, 23979, 4738, 30079, 8840, 10380, 2497, 29283, 2495, 2493, 1099, 1097, 1095]},
-      {"slot": "WEAPON", "items": ["Ascension crossbows"], "ids": [34681]},
+      {"slot": "WEAPON", "items": ["Zaryte crossbow", "Armadyl crossbow", "Dragon crossbow", "Hunters' sunlight crossbow", "Rune crossbow", "Dorgeshuun crossbow"], "ids": [26374, 11785, 21902, 28869, 9185, 8880]},
       {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward", "Book of law", "Green d'hide shield"], "ids": [21000, 22002, 11926, 12610, 22275]},
       {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Hueycoatl hide vambraces", "Void knight gloves", "Black d'hide vambraces", "Red d'hide vambraces", "Blue d'hide vambraces", "Green d'hide vambraces", "Leather vambraces"], "ids": [26235, 7462, 30082, 8842, 2491, 2489, 2487, 1065, 1063]},
       {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots", "Bandos d'hide boots", "Armadyl d'hide boots", "Mixed hide boots", "Snakeskin boots", "Leather boots"], "ids": [31097, 31092, 31088, 13237, 19927, 19924, 19930, 29286, 6328, 1061]},
       {"slot": "RING", "items": ["Venator ring", "Archers ring (i)", "Archers ring", "Ring of suffering (i)", "Lightbearer", "Explorer's ring 4"], "ids": [28310, 11771, 6733, 20657, 25975, 13128]},
-      {"slot": "AMMO", "items": ["Diamond ascension bolts (e)", "Onyx ascension bolts (e)", "Ascension bolts"], "ids": [34696, 34708, 34684]}
+      {"slot": "AMMO", "items": ["Ruby dragon bolts (e)", "Diamond dragon bolts (e)", "Moonlight antler bolts", "Sunlight antler bolts", "Ruby bolts (e)", "Bone bolts"], "ids": [21944, 21946, 28878, 28872, 9242, 8882]}
     ]
   },
   {
     "isDefault": true,
     "style": "RANGED",
-    "variant": "TBOW",
-    "note": "General Twisted bow ladder, after the wiki's Endgame Megarare setup. Not specific to the selected boss - check the boss notes for required weapons or styles.",
+    "variant": "DPS",
+    "note": "General fast high-DPS (Ascension crossbows, blowpipe) ladder, after the wiki's Endgame Heavy and Light Ranged setup. Not specific to the selected boss - check the boss notes for required weapons or styles.",
     "specWeapons": ["Zaryte crossbow", "Tonalztics of ralos", "Webweaver bow", "Toxic blowpipe", "Dark bow", "Dragon knife", "Dragon thrownaxe"],
     "needsReview": false,
     "slots": [
@@ -177,54 +177,33 @@
       {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ava's attractor", "Ranging cape", "Black cape"], "ids": [28951, 22109, 10499, 10498, 9757, 1019]},
       {"slot": "BODY", "items": ["Masori body (f)", "Masori body", "Armadyl chestplate", "Elite void top", "Crystal body", "Karil's leathertop", "Hueycoatl hide body", "Void knight top", "Guthix d'hide body", "Black d'hide body", "Mixed hide top", "Red d'hide body", "Blue d'hide body", "Green d'hide body", "Studded body", "Leather body"], "ids": [27238, 27229, 11828, 13072, 23975, 4736, 30076, 8839, 10378, 2503, 29280, 2501, 2499, 1135, 1133, 1129]},
       {"slot": "LEGS", "items": ["Masori chaps (f)", "Masori chaps", "Armadyl chainskirt", "Elite void robe", "Crystal legs", "Karil's leatherskirt", "Hueycoatl hide chaps", "Void knight robe", "Guthix chaps", "Black d'hide chaps", "Mixed hide legs", "Red d'hide chaps", "Blue d'hide chaps", "Green d'hide chaps", "Studded chaps", "Leather chaps"], "ids": [27241, 27232, 11830, 13073, 23979, 4738, 30079, 8840, 10380, 2497, 29283, 2495, 2493, 1099, 1097, 1095]},
-      {"slot": "WEAPON", "items": ["Twisted bow"], "ids": [20997]},
+      {"slot": "WEAPON", "items": ["Ascension crossbows", "Toxic blowpipe"], "ids": [34681, 12926]},
       {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward", "Book of law", "Green d'hide shield"], "ids": [21000, 22002, 11926, 12610, 22275]},
       {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Hueycoatl hide vambraces", "Void knight gloves", "Black d'hide vambraces", "Red d'hide vambraces", "Blue d'hide vambraces", "Green d'hide vambraces", "Leather vambraces"], "ids": [26235, 7462, 30082, 8842, 2491, 2489, 2487, 1065, 1063]},
       {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots", "Bandos d'hide boots", "Armadyl d'hide boots", "Mixed hide boots", "Snakeskin boots", "Leather boots"], "ids": [31097, 31092, 31088, 13237, 19927, 19924, 19930, 29286, 6328, 1061]},
       {"slot": "RING", "items": ["Venator ring", "Archers ring (i)", "Archers ring", "Ring of suffering (i)", "Lightbearer", "Explorer's ring 4"], "ids": [28310, 11771, 6733, 20657, 25975, 13128]},
-      {"slot": "AMMO", "items": ["Seeking dragon arrow", "Dragon arrow", "Amethyst arrow", "Rune arrow", "Adamant arrow", "Mithril arrow", "Steel arrow", "Iron arrow"], "ids": [33595, 11227, 21332, 893, 891, 889, 886, 885]}
+      {"slot": "AMMO", "items": ["Diamond ascension bolts (e)", "Onyx ascension bolts (e)", "Ascension bolts", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "Peaceful blessing", "Honourable blessing", "War blessing", "Unholy blessing"], "ids": [34696, 34708, 34684, 22947, 22945, 20220, 20226, 20229, 20232, 20223]}
     ]
   },
   {
     "isDefault": true,
     "style": "RANGED",
-    "variant": "VENATOR",
-    "note": "General Venator bow ladder, after the wiki's Endgame Bow setup. Not specific to the selected boss - check the boss notes for required weapons or styles.",
+    "variant": "THROWN",
+    "note": "General thrown weapon ladder, after the wiki's thrown weapon setup. Not specific to the selected boss - check the boss notes for required weapons or styles.",
     "specWeapons": ["Zaryte crossbow", "Tonalztics of ralos", "Webweaver bow", "Toxic blowpipe", "Dark bow", "Dragon knife", "Dragon thrownaxe"],
     "needsReview": false,
     "slots": [
-      {"slot": "HEAD", "items": ["Masori mask (f)", "Masori mask", "Armadyl helmet", "Crystal helm", "Void ranger helm", "Hueycoatl hide coif", "Guthix coif", "Karil's coif", "Archer helm", "Snakeskin bandana", "Coif", "Leather cowl"], "ids": [27235, 27226, 11826, 23971, 11664, 30073, 10382, 4732, 3749, 6326, 1169, 1167]},
+      {"slot": "HEAD", "items": ["Masori mask (f)", "Eclipse moon helm", "Masori mask", "Armadyl helmet", "Crystal helm", "Void ranger helm", "Hueycoatl hide coif", "Guthix coif", "Karil's coif", "Archer helm", "Snakeskin bandana", "Coif", "Leather cowl"], "ids": [27235, 29010, 27226, 11826, 23971, 11664, 30073, 10382, 4732, 3749, 6326, 1169, 1167]},
       {"slot": "AMULET", "items": ["Necklace of rupture", "Necklace of anguish", "Amulet of fury", "Amulet of glory", "Amulet of power"], "ids": [33639, 19547, 6585, 1706, 1731]},
       {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ava's attractor", "Ranging cape", "Black cape"], "ids": [28951, 22109, 10499, 10498, 9757, 1019]},
-      {"slot": "BODY", "items": ["Masori body (f)", "Masori body", "Armadyl chestplate", "Elite void top", "Crystal body", "Karil's leathertop", "Hueycoatl hide body", "Void knight top", "Guthix d'hide body", "Black d'hide body", "Mixed hide top", "Red d'hide body", "Blue d'hide body", "Green d'hide body", "Studded body", "Leather body"], "ids": [27238, 27229, 11828, 13072, 23975, 4736, 30076, 8839, 10378, 2503, 29280, 2501, 2499, 1135, 1133, 1129]},
-      {"slot": "LEGS", "items": ["Masori chaps (f)", "Masori chaps", "Armadyl chainskirt", "Elite void robe", "Crystal legs", "Karil's leatherskirt", "Hueycoatl hide chaps", "Void knight robe", "Guthix chaps", "Black d'hide chaps", "Mixed hide legs", "Red d'hide chaps", "Blue d'hide chaps", "Green d'hide chaps", "Studded chaps", "Leather chaps"], "ids": [27241, 27232, 11830, 13073, 23979, 4738, 30079, 8840, 10380, 2497, 29283, 2495, 2493, 1099, 1097, 1095]},
-      {"slot": "WEAPON", "items": ["Venator bow"], "ids": [27610]},
+      {"slot": "BODY", "items": ["Masori body (f)", "Eclipse moon chestplate", "Masori body", "Armadyl chestplate", "Elite void top", "Crystal body", "Karil's leathertop", "Hueycoatl hide body", "Void knight top", "Guthix d'hide body", "Black d'hide body", "Mixed hide top", "Red d'hide body", "Blue d'hide body", "Green d'hide body", "Studded body", "Leather body"], "ids": [27238, 29004, 27229, 11828, 13072, 23975, 4736, 30076, 8839, 10378, 2503, 29280, 2501, 2499, 1135, 1133, 1129]},
+      {"slot": "LEGS", "items": ["Masori chaps (f)", "Eclipse moon tassets", "Masori chaps", "Armadyl chainskirt", "Elite void robe", "Crystal legs", "Karil's leatherskirt", "Hueycoatl hide chaps", "Void knight robe", "Guthix chaps", "Black d'hide chaps", "Mixed hide legs", "Red d'hide chaps", "Blue d'hide chaps", "Green d'hide chaps", "Studded chaps", "Leather chaps"], "ids": [27241, 29007, 27232, 11830, 13073, 23979, 4738, 30079, 8840, 10380, 2497, 29283, 2495, 2493, 1099, 1097, 1095]},
+      {"slot": "WEAPON", "items": ["Eclipse atlatl", "Dragon knife", "Dragon dart", "Dragon thrownaxe", "Amethyst dart", "Rune knife", "Rune dart", "Rune thrownaxe", "Black chinchompa", "Red chinchompa", "Chinchompa"], "ids": [29000, 22804, 11230, 20849, 25849, 868, 811, 805, 11959, 10034, 10033]},
       {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward", "Book of law", "Green d'hide shield"], "ids": [21000, 22002, 11926, 12610, 22275]},
       {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Hueycoatl hide vambraces", "Void knight gloves", "Black d'hide vambraces", "Red d'hide vambraces", "Blue d'hide vambraces", "Green d'hide vambraces", "Leather vambraces"], "ids": [26235, 7462, 30082, 8842, 2491, 2489, 2487, 1065, 1063]},
       {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots", "Bandos d'hide boots", "Armadyl d'hide boots", "Mixed hide boots", "Snakeskin boots", "Leather boots"], "ids": [31097, 31092, 31088, 13237, 19927, 19924, 19930, 29286, 6328, 1061]},
       {"slot": "RING", "items": ["Venator ring", "Archers ring (i)", "Archers ring", "Ring of suffering (i)", "Lightbearer", "Explorer's ring 4"], "ids": [28310, 11771, 6733, 20657, 25975, 13128]},
-      {"slot": "AMMO", "items": ["Seeking dragon arrow", "Dragon arrow", "Amethyst arrow", "Rune arrow", "Adamant arrow", "Mithril arrow", "Steel arrow", "Iron arrow"], "ids": [33595, 11227, 21332, 893, 891, 889, 886, 885]}
-    ]
-  },
-  {
-    "isDefault": true,
-    "style": "RANGED",
-    "variant": "BOWFA",
-    "note": "General Bow of faerdhinen ladder, after the wiki's Level 85+ setup. Not specific to the selected boss - check the boss notes for required weapons or styles.",
-    "specWeapons": ["Zaryte crossbow", "Tonalztics of ralos", "Webweaver bow", "Toxic blowpipe", "Dark bow", "Dragon knife", "Dragon thrownaxe"],
-    "needsReview": false,
-    "slots": [
-      {"slot": "HEAD", "items": ["Crystal helm", "Masori mask (f)", "Masori mask", "Armadyl helmet", "Void ranger helm", "Hueycoatl hide coif", "Guthix coif", "Karil's coif", "Archer helm", "Snakeskin bandana", "Coif", "Leather cowl"], "ids": [23971, 27235, 27226, 11826, 11664, 30073, 10382, 4732, 3749, 6326, 1169, 1167]},
-      {"slot": "AMULET", "items": ["Necklace of rupture", "Necklace of anguish", "Amulet of fury", "Amulet of glory", "Amulet of power"], "ids": [33639, 19547, 6585, 1706, 1731]},
-      {"slot": "CAPE", "items": ["Dizana's quiver", "Ava's assembler", "Ava's accumulator", "Ava's attractor", "Ranging cape", "Black cape"], "ids": [28951, 22109, 10499, 10498, 9757, 1019]},
-      {"slot": "BODY", "items": ["Crystal body", "Masori body (f)", "Masori body", "Armadyl chestplate", "Elite void top", "Karil's leathertop", "Hueycoatl hide body", "Void knight top", "Guthix d'hide body", "Black d'hide body", "Mixed hide top", "Red d'hide body", "Blue d'hide body", "Green d'hide body", "Studded body", "Leather body"], "ids": [23975, 27238, 27229, 11828, 13072, 4736, 30076, 8839, 10378, 2503, 29280, 2501, 2499, 1135, 1133, 1129]},
-      {"slot": "LEGS", "items": ["Crystal legs", "Masori chaps (f)", "Masori chaps", "Armadyl chainskirt", "Elite void robe", "Karil's leatherskirt", "Hueycoatl hide chaps", "Void knight robe", "Guthix chaps", "Black d'hide chaps", "Mixed hide legs", "Red d'hide chaps", "Blue d'hide chaps", "Green d'hide chaps", "Studded chaps", "Leather chaps"], "ids": [23979, 27241, 27232, 11830, 13073, 4738, 30079, 8840, 10380, 2497, 29283, 2495, 2493, 1099, 1097, 1095]},
-      {"slot": "WEAPON", "items": ["Bow of faerdhinen"], "ids": [25865]},
-      {"slot": "SHIELD", "items": ["Twisted buckler", "Dragonfire ward", "Odium ward", "Book of law", "Green d'hide shield"], "ids": [21000, 22002, 11926, 12610, 22275]},
-      {"slot": "GLOVES", "items": ["Zaryte vambraces", "Barrows gloves", "Hueycoatl hide vambraces", "Void knight gloves", "Black d'hide vambraces", "Red d'hide vambraces", "Blue d'hide vambraces", "Green d'hide vambraces", "Leather vambraces"], "ids": [26235, 7462, 30082, 8842, 2491, 2489, 2487, 1065, 1063]},
-      {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads (pe)", "Avernic treads", "Pegasian boots", "Guthix d'hide boots", "Bandos d'hide boots", "Armadyl d'hide boots", "Mixed hide boots", "Snakeskin boots", "Leather boots"], "ids": [31097, 31092, 31088, 13237, 19927, 19924, 19930, 29286, 6328, 1061]},
-      {"slot": "RING", "items": ["Venator ring", "Archers ring (i)", "Archers ring", "Ring of suffering (i)", "Lightbearer", "Explorer's ring 4"], "ids": [28310, 11771, 6733, 20657, 25975, 13128]},
-      {"slot": "AMMO", "items": ["Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "Peaceful blessing", "Honourable blessing", "War blessing", "Unholy blessing"], "ids": [22947, 22945, 20220, 20226, 20229, 20232, 20223]}
+      {"slot": "AMMO", "items": ["Atlatl dart", "Rada's blessing 4", "Rada's blessing 3", "Holy blessing", "Peaceful blessing", "Honourable blessing", "War blessing", "Unholy blessing"], "ids": [28991, 22947, 22945, 20220, 20226, 20229, 20232, 20223]}
     ]
   },
   {

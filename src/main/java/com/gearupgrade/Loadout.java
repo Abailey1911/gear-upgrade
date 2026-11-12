@@ -93,6 +93,8 @@ public class Loadout
 
 		WeaponRules.applyCrystalSetBonus(stats, items, HEAD_SLOT, BODY_SLOT, LEGS_SLOT,
 			WEAPON_SLOT);
+		WeaponRules.applySoulreaperStacks(stats, weapon);
+		stats.setStrengthScaledRanged(WeaponRules.hitsWithStrength(weapon));
 
 		return stats;
 	}

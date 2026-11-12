@@ -31,11 +31,12 @@ public enum GearView
 	MELEE_STAB(CombatStyle.MELEE, "Stab", "STAB", DamageType.STAB),
 
 	RANGED_RECOMMENDED(CombatStyle.RANGED, "Best", null, null),
-	RANGED_BLOWPIPE(CombatStyle.RANGED, "Blowpipe", "BLOWPIPE", DamageType.RANGED),
-	RANGED_ASCENSION(CombatStyle.RANGED, "Ascension", "ASCENSION", DamageType.RANGED),
-	RANGED_TBOW(CombatStyle.RANGED, "Tbow", "TBOW", DamageType.RANGED),
-	RANGED_VENATOR(CombatStyle.RANGED, "Venator", "VENATOR", DamageType.RANGED),
-	RANGED_BOWFA(CombatStyle.RANGED, "Bowfa", "BOWFA", DamageType.RANGED),
+	RANGED_BOW(CombatStyle.RANGED, "Bows", "BOW", DamageType.RANGED),
+	RANGED_CROSSBOW(CombatStyle.RANGED, "Crossbows", "CROSSBOW", DamageType.RANGED),
+	/** The fast, high-DPS pair: Ascension crossbows and the blowpipe. */
+	RANGED_DPS(CombatStyle.RANGED, "DPS", "DPS", DamageType.RANGED),
+	/** Knives, darts, thrownaxes and chinchompas. */
+	RANGED_THROWN(CombatStyle.RANGED, "Thrown", "THROWN", DamageType.RANGED),
 
 	MAGIC_RECOMMENDED(CombatStyle.MAGIC, "Best", null, null),
 	MAGIC_POWERED(CombatStyle.MAGIC, "Powered", "POWERED", DamageType.MAGIC),

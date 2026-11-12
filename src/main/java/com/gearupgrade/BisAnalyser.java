@@ -286,6 +286,92 @@ public class BisAnalyser
 		return recipe;
 	}
 
+	/** Resolves a table entry to an indexed item, by id and then by name. */
+	@Nullable
+	private EquipmentItem resolve(int itemId, String itemName)
+	{
+		final EquipmentItem item = itemId > 0 ? index.byId(itemId) : null;
+		return item != null ? item : index.byName(itemName);
+	}
+
+	/** The first weapon in the table that resolves, or null. */
+	@Nullable
+	private EquipmentItem topWeapon(BisSetup setup)
+	{
+		for (BisSlot slot : setup.getSlots())
+		{
+			if (!"WEAPON".equals(slot.getSlot()))
+			{
+				continue;
+			}
+			for (int i = 0; i < slot.getIds().size(); i++)
+			{
+				final EquipmentItem item = resolve(slot.getIds().get(i),
+					i < slot.getItems().size() ? slot.getItems().get(i) : null);
+				if (item != null)
+				{
+					return item;
+				}
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Moves ammunition the weapon can fire ahead of what it cannot, keeping the
+	 * table's order within each group. Blessings are not ammunition and stay put.
+	 */
+	private void fireableFirst(EquipmentItem weapon, List<Integer> ids, List<String> names)
+	{
+		final List<Integer> fireIds = new ArrayList<>();
+		final List<String> fireNames = new ArrayList<>();
+		final List<Integer> otherIds = new ArrayList<>();
+		final List<String> otherNames = new ArrayList<>();
+
+		for (int i = 0; i < ids.size(); i++)
+		{
+			final String name = i < names.size() ? names.get(i) : "?";
+			final EquipmentItem ammo = resolve(ids.get(i), name);
+			final boolean fires = ammo == null
+				|| WeaponRules.ammoType(ammo) == WeaponRules.AmmoType.NONE
+				|| WeaponRules.ammoCounts(weapon, ammo);
+			(fires ? fireIds : otherIds).add(ids.get(i));
+			(fires ? fireNames : otherNames).add(name);
+		}
+
+		ids.clear();
+		ids.addAll(fireIds);
+		ids.addAll(otherIds);
+		names.clear();
+		names.addAll(fireNames);
+		names.addAll(otherNames);
+	}
+
+	/** Shields the player owns from a hidden shield row, for the worn loadout. */
+	private void collectOwnedShields(BisSlot slot, Map<Integer, List<EquipmentItem>> ownedBySlot)
+	{
+		final int equipSlot = slot.slotIndex();
+		if (equipSlot < 0)
+		{
+			return;
+		}
+		for (int i = 0; i < slot.getIds().size(); i++)
+		{
+			final int itemId = slot.getIds().get(i);
+			final EquipmentItem item = resolve(itemId,
+				i < slot.getItems().size() ? slot.getItems().get(i) : null);
+			if (item == null)
+			{
+				continue;
+			}
+			final EquipmentItem owned = ownedVariantOf(itemId, item);
+			if (owned != null)
+			{
+				ownedBySlot.computeIfAbsent(equipSlot, k -> new ArrayList<>()).add(owned);
+			}
+		}
+	}
+
 	/**
 	 * What an item costs to get, for display on a ladder rung or spec weapon.
 	 *
@@ -337,8 +423,21 @@ public class BisAnalyser
 		// faerdhinen.
 		final Map<Integer, List<EquipmentItem>> ownedBySlot = new HashMap<>();
 
+		// The ammo and shield rows have to agree with the weapon at the top of
+		// the table. Slots are ranked independently, so without this a Twisted
+		// bow was shown with ascension bolts and a buckler it cannot wear.
+		final EquipmentItem weaponTarget = topWeapon(setup);
+
 		for (BisSlot slot : setup.getSlots())
 		{
+			if ("SHIELD".equals(slot.getSlot()) && weaponTarget != null && weaponTarget.isTwoHanded())
+			{
+				// Still offered to the worn loadout, which handles one-handed
+				// weapons the player actually owns; just not shown as a target.
+				collectOwnedShields(slot, ownedBySlot);
+				continue;
+			}
+
 			EquipmentItem target = null;
 			EquipmentItem bestOwned = null;
 			EquipmentItem nextBuy = null;
@@ -360,8 +459,12 @@ public class BisAnalyser
 
 			// Ids, not names. Every ownership bug in this plugin so far has been a
 			// string-matching failure of one kind or another.
-			final List<Integer> slotIds = slot.getIds();
-			final List<String> slotNames = slot.getItems();
+			final List<Integer> slotIds = new ArrayList<>(slot.getIds());
+			final List<String> slotNames = new ArrayList<>(slot.getItems());
+			if ("AMMO".equals(slot.getSlot()) && weaponTarget != null)
+			{
+				fireableFirst(weaponTarget, slotIds, slotNames);
+			}
 
 			for (int idx = 0; idx < slotIds.size(); idx++)
 			{

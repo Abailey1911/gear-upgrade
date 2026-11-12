@@ -17,7 +17,14 @@ import lombok.RequiredArgsConstructor;
 public enum PrayerBoost
 {
 	NONE("No prayers", 1.0d, 1.0d, 1.0d, 1.0d, 1.0d),
-	STANDARD("Piety / Rigour / Augury", 1.20d, 1.23d, 1.20d, 1.23d, 1.25d);
+	STANDARD("Piety / Rigour / Augury", 1.20d, 1.23d, 1.20d, 1.23d, 1.25d),
+	/**
+	 * Zeal, unlocked by the Horn of Bran from The Fractured Archive, replaces
+	 * Piety: +25% Attack and +28% Strength. Ranged and magic are unchanged.
+	 * Melee prayers never boost the Eclipse atlatl, which uses ranged prayers
+	 * for both accuracy and damage.
+	 */
+	ZEAL("Zeal / Rigour / Augury", 1.25d, 1.28d, 1.20d, 1.23d, 1.25d);
 
 	private final String displayName;
 	private final double meleeAttack;

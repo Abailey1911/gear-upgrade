@@ -50,7 +50,11 @@ public final class DpsCalculator
 		{
 			case RANGED:
 				effectiveAttack = effectiveLevel(levels.getRanged(), prayer.getRangedAttack());
-				maxHit = rangedMaxHit(levels.getRanged(), prayer.getRangedStrength(), gear.getRstr());
+				// The Eclipse atlatl rolls accuracy on Ranged but hits with
+				// Strength: Strength level and melee strength bonus.
+				maxHit = gear.isStrengthScaledRanged()
+					? rangedMaxHit(levels.getStrength(), prayer.getRangedStrength(), gear.getStr())
+					: rangedMaxHit(levels.getRanged(), prayer.getRangedStrength(), gear.getRstr());
 				break;
 
 			case MAGIC:
