@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "group": "Tombs of Amascut",
     "style": "MELEE",
@@ -32,7 +32,7 @@
       {"slot": "BODY", "items": ["Oathplate chest", "Torva platebody", "Bandos chestplate", "Blood moon chestplate", "Inquisitor's hauberk", "Fighter torso", "Obsidian platebody", "Dragon platebody", "Rune platebody", "Elite void top", "Void knight top"], "ids": [30753, 26384, 11832, 29022, 24420, 10551, 21301, 21892, 1127, 13072, 8839]},
       {"slot": "LEGS", "items": ["Oathplate legs", "Torva platelegs", "Bandos tassets", "Blood moon tassets", "Inquisitor's plateskirt", "Obsidian platelegs", "Dragon platelegs", "Rune platelegs", "Elite void robe", "Void knight robe"], "ids": [30756, 26386, 11834, 29025, 24421, 21304, 4087, 1079, 13073, 8840]},
       {"slot": "WEAPON", "items": ["Noxious halberd", "Soulreaper axe", "Blade of saeldor", "Elder maul", "Abyssal tentacle", "Inquisitor's mace", "Abyssal bludgeon", "Scythe of vitur", "Abyssal whip", "Ghrazi rapier", "Osmumten's fang", "Dragon scimitar", "Ursine chainmace", "Dragon longsword", "Rune scimitar", "Dual macuahuitl"], "ids": [29796, 28338, 23995, 21003, 12006, 24417, 13263, 22325, 4151, 22324, 26219, 4587, 27660, 1305, 1333, 28997]},
-      {"slot": "SHIELD", "items": ["Avernic defender", "Dragon defender", "Rune defender", "Adamant defender"], "ids": [22322, 12954, 8850, 8849]},
+      {"slot": "SHIELD", "items": ["Rondache", "Avernic defender", "Dragon defender", "Rune defender", "Adamant defender"], "ids": [34719, 22322, 12954, 8850, 8849]},
       {"slot": "GLOVES", "items": ["Ferocious gloves", "Barrows gloves", "Rune gloves", "Void knight gloves", "Dragon gloves", "Adamant gloves", "Mithril gloves", "Black gloves", "Steel gloves", "Iron gloves", "Hardleather gloves", "Leather gloves", "Granite gloves"], "ids": [22981, 7462, 7460, 8842, 7461, 7459, 7458, 7457, 7456, 7455, 7453, 1059, 21736]},
       {"slot": "BOOTS", "items": ["Avernic treads (max)", "Avernic treads", "Echo boots", "Primordial boots", "Dragon boots", "Avernic treads (pr)", "Rune boots", "Fighting boots", "Leather boots"], "ids": [31097, 31088, 28945, 13239, 11840, 31091, 4131, 9006, 1061]},
       {"slot": "RING", "items": ["Bellator ring", "Ultor ring", "Berserker ring (i)", "Brimstone ring", "Berserker ring", "Warrior ring"], "ids": [28316, 28307, 11773, 22975, 6737, 6735]},

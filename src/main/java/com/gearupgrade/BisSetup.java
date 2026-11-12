@@ -46,6 +46,13 @@ public class BisSetup
 	/** MELEE, RANGED or MAGIC. */
 	private String style;
 
+	/**
+	 * Which way of fighting within the style this table is for, eg. CRUSH or
+	 * ANCIENT, matching {@link GearView#getVariant()}. Null for the table that
+	 * answers "what is best here" with no further constraint.
+	 */
+	private String variant;
+
 	private List<BisSlot> slots;
 
 	/**

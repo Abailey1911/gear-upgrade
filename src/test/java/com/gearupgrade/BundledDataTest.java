@@ -134,13 +134,14 @@ public class BundledDataTest
 		assertNotNull("failed to parse bis-default.json", setups);
 		assertFalse("bis-default.json is empty", setups.isEmpty());
 
-		final java.util.Set<CombatStyle> styles = new java.util.HashSet<>();
+		final java.util.Set<String> views = new java.util.HashSet<>();
 
 		for (BisSetup setup : setups)
 		{
 			final CombatStyle style = setup.combatStyle();
 			assertNotNull("default ladder has no combat style", style);
-			assertTrue("duplicate default ladder for " + style, styles.add(style));
+			final String view = style + "|" + setup.getVariant();
+			assertTrue("duplicate default ladder for " + view, views.add(view));
 
 			assertFalse("default ladder has no slots: " + style,
 				setup.getSlots().isEmpty());
@@ -175,10 +176,15 @@ public class BundledDataTest
 			}
 		}
 
-		// One ladder per style, or a style falls back to nothing at a boss with
-		// no table of its own.
-		assertEquals("expected a ladder for every combat style",
-			CombatStyle.values().length, styles.size());
+		// One ladder per sub-tab, or that tab shows nothing at a boss with no
+		// table of its own - and a variant tab never borrows another table.
+		for (GearView view : GearView.values())
+		{
+			assertTrue("no default ladder for the " + view + " tab",
+				views.contains(view.getStyle() + "|" + view.getVariant()));
+		}
+		assertEquals("a default ladder matches no tab",
+			GearView.values().length, views.size());
 	}
 
 	/**

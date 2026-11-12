@@ -287,9 +287,9 @@ public class GearUpgradePlugin extends Plugin
 					? config.budgetOverride() : holdings.getCoins(), false, holdings.isBankSeen());
 				panel.setStatus("");
 				panel.setNotes(java.util.Collections.emptyList());
-				for (CombatStyle style : CombatStyle.values())
+				for (GearView view : GearView.values())
 				{
-					panel.showGearNotApplicable(style, reason);
+					panel.showGearNotApplicable(view, reason);
 				}
 			});
 			return;
@@ -308,34 +308,53 @@ public class GearUpgradePlugin extends Plugin
 
 		final long start = System.nanoTime();
 
-		final StyleResult melee = analyseMelee(monster, levels, prayer, baseSpellMaxHit,
-			maxSuggestions, budget);
-		final StyleResult ranged = analyse(DamageType.RANGED, monster, levels, prayer,
-			baseSpellMaxHit, maxSuggestions, budget);
-		final StyleResult magic = analyse(DamageType.MAGIC, monster, levels, prayer,
-			baseSpellMaxHit, maxSuggestions, budget);
+		// Each melee type is kept, not just the best: the crush, slash and stab
+		// sub-tabs are judged on their own type even when another type wins here.
+		final Map<DamageType, StyleResult> byType = new EnumMap<>(DamageType.class);
+		for (DamageType type : DamageType.values())
+		{
+			byType.put(type, analyse(type, monster, levels, prayer, baseSpellMaxHit,
+				maxSuggestions, budget));
+		}
+
+		StyleResult melee = null;
+		for (DamageType type : new DamageType[]{DamageType.STAB, DamageType.SLASH, DamageType.CRUSH})
+		{
+			final StyleResult result = byType.get(type);
+			if (melee == null || result.analysis.getCurrentDps() > melee.analysis.getCurrentDps())
+			{
+				melee = result;
+			}
+		}
+		final StyleResult ranged = byType.get(DamageType.RANGED);
+		final StyleResult magic = byType.get(DamageType.MAGIC);
 
 		log.debug("Analysis for {} took {}ms", selectedMonster,
 			(System.nanoTime() - start) / 1_000_000);
 
 		// Wiki best-in-slot tables are the authority where they exist; the
 		// computed ranking is only a fallback for bosses not yet covered.
-		final Map<CombatStyle, BisAnalyser.Result> bisResults = new EnumMap<>(CombatStyle.class);
-		for (CombatStyle style : CombatStyle.values())
+		final Map<GearView, StyleResult> computedByView = new EnumMap<>(GearView.class);
+		final Map<GearView, BisAnalyser.Result> bisResults = new EnumMap<>(GearView.class);
+		for (GearView view : GearView.values())
 		{
-			final BisSetup setup = bisRepository.find(selectedMonster, monster.getGroup(), style);
+			// A sub-tab is judged on its own attack type; the recommended tab on
+			// whichever type the computed pass found best for the style.
+			final StyleResult computed = view.getDamageType() != null
+				? byType.get(view.getDamageType())
+				: view.getStyle() == CombatStyle.MELEE ? melee
+				: view.getStyle() == CombatStyle.RANGED ? ranged : magic;
+			computedByView.put(view, computed);
+
+			final BisSetup setup = bisRepository.find(selectedMonster, monster.getGroup(), view);
 			if (setup != null)
 			{
-				// Use the attack type the computed pass found best for this style,
-				// so melee is judged on stab/slash/crush as appropriate.
-				final DamageType type = style == CombatStyle.MELEE ? melee.type
-					: style == CombatStyle.RANGED ? ranged.type : magic.type;
-
-				bisResults.put(style, bisAnalyser.analyse(setup, budget, bankSeen, levels,
-					monster, type, prayer, baseSpellMaxHit));
+				bisResults.put(view, bisAnalyser.analyse(setup, budget, bankSeen, levels,
+					monster, computed.type, prayer, baseSpellMaxHit));
 			}
 		}
 
+		final StyleResult bestMelee = melee;
 		SwingUtilities.invokeLater(() ->
 		{
 			if (panel == null)
@@ -351,9 +370,10 @@ public class GearUpgradePlugin extends Plugin
 					+ "and prices are not compared against your real coins.");
 			panel.setNotes(monster.allNotes());
 
-			showStyle(CombatStyle.MELEE, melee, bisResults, budget);
-			showStyle(CombatStyle.RANGED, ranged, bisResults, budget);
-			showStyle(CombatStyle.MAGIC, magic, bisResults, budget);
+			for (GearView view : GearView.values())
+			{
+				showView(view, computedByView.get(view), bisResults.get(view), budget);
+			}
 
 			// Prefer the curated answer. Comparing computed DPS across styles has
 			// the same blind spot as ranking gear by stat totals - it reads the
@@ -364,7 +384,7 @@ public class GearUpgradePlugin extends Plugin
 			if (best == null)
 			{
 				best = CombatStyle.MELEE;
-				double bestDps = melee.analysis.getCurrentDps();
+				double bestDps = bestMelee.analysis.getCurrentDps();
 				if (ranged.analysis.getCurrentDps() > bestDps)
 				{
 					best = CombatStyle.RANGED;
@@ -379,57 +399,34 @@ public class GearUpgradePlugin extends Plugin
 		});
 	}
 
-	private void showStyle(CombatStyle style, StyleResult computed,
-						   Map<CombatStyle, BisAnalyser.Result> bisResults, long budget)
+	private void showView(GearView view, StyleResult computed, BisAnalyser.Result bis,
+						  long budget)
 	{
 		// Some styles simply are not used at some bosses. Showing a full setup
 		// implies it is a choice when it is not.
-		if (lastMonster != null && !lastMonster.isStyleViable(style))
+		if (lastMonster != null && !lastMonster.isStyleViable(view.getStyle()))
 		{
 			final String reason = lastMonster.getStyleRestriction() != null
 				? lastMonster.getStyleRestriction()
 				: "This style is not used at this boss.";
-			panel.showGearNotApplicable(style, reason);
+			panel.showGearNotApplicable(view, reason);
 			return;
 		}
 
-		final BisAnalyser.Result bis = bisResults.get(style);
-
-		panel.showComputed(style, computed.analysis, computed.type, bis != null);
+		panel.showComputed(view, computed.analysis, computed.type, bis != null);
 
 		if (bis != null)
 		{
-			panel.showBis(style, bis, budget);
+			panel.showBis(view, bis, budget);
 
 			// Measure the summary from the gear they would actually wear here,
 			// rather than from the computed loadout shown when there is no table.
 			final DpsCalculator.Result dps = DpsCalculator.compute(
 				bis.getWornFromBis().stats(), lastLevels, lastMonster, computed.type,
 				config.prayerBoost(), config.baseSpellMaxHit());
-			panel.showBisSummary(style, dps, computed.type);
+			panel.showBisSummary(view, dps, computed.type);
 		}
 	}
-
-	/**
-	 * Melee has three attack types and the monster's defence against each can
-	 * differ a lot, so the best of the three is what the tab reports.
-	 */
-	private StyleResult analyseMelee(Monster monster, PlayerLevels levels, PrayerBoost prayer,
-									 int baseSpellMaxHit, int maxSuggestions, long budget)
-	{
-		StyleResult best = null;
-		for (DamageType type : new DamageType[]{DamageType.STAB, DamageType.SLASH, DamageType.CRUSH})
-		{
-			final StyleResult result = analyse(type, monster, levels, prayer, baseSpellMaxHit,
-				maxSuggestions, budget);
-			if (best == null || result.analysis.getCurrentDps() > best.analysis.getCurrentDps())
-			{
-				best = result;
-			}
-		}
-		return best;
-	}
-
 	private StyleResult analyse(DamageType type, Monster monster, PlayerLevels levels,
 								PrayerBoost prayer, int baseSpellMaxHit, int maxSuggestions,
 								long budget)

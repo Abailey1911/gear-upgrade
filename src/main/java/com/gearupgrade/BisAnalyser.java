@@ -287,6 +287,38 @@ public class BisAnalyser
 	}
 
 	/**
+	 * What an item costs to get, for display on a ladder rung or spec weapon.
+	 *
+	 * <p>The item's own Grand Exchange price when it has one; otherwise the
+	 * price of its buyable form (an uncharged Tonalztics of ralos), the parts it
+	 * is built from, or the base item it is earned on. Without this every
+	 * charged weapon below the top pick read as having no price at all.
+	 */
+	private long listPrice(EquipmentItem item)
+	{
+		if (!item.isUntradeable() && item.getPrice() > 0)
+		{
+			return item.getPrice();
+		}
+
+		final int buyableId = itemVariants.tradeableFormOf(item.getId());
+		final long buyable = buyableId > 0 ? index.priceOf(buyableId) : 0;
+		if (buyable > 0)
+		{
+			return buyable;
+		}
+
+		final Recipe recipe = priceRecipe(item.getId());
+		if (recipe != null && recipe.cost > 0)
+		{
+			return recipe.cost;
+		}
+
+		final int baseId = itemVariants.pricedAsOf(item.getId());
+		return baseId > 0 ? Math.max(0, index.priceOf(baseId)) : 0;
+	}
+
+	/**
 	 * @param budgetKnown false until the bank has been read, in which case the
 	 *                    coin total is not the player's real budget and a
 	 *                    shortfall would be meaningless.
@@ -427,7 +459,7 @@ public class BisAnalyser
 				progression.add(new Step(
 					item.getName(),
 					ownedVariant != null,
-					item.isUntradeable() ? 0 : item.getPrice(),
+					listPrice(item),
 					requirements.describeShortfall(item, levels),
 					attackTypeOf(item)));
 
@@ -876,7 +908,7 @@ public class BisAnalyser
 			steps.add(new Step(
 				item.getName(),
 				ownedVariantOf(item.getId(), item) != null,
-				item.isUntradeable() ? 0 : item.getPrice(),
+				listPrice(item),
 				requirements.describeShortfall(item, levels),
 				attackTypeOf(item)));
 		}

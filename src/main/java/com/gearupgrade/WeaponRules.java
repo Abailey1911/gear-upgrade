@@ -26,7 +26,13 @@ final class WeaponRules
 		NONE,
 		ARROWS,
 		BOLTS,
-		JAVELINS
+		JAVELINS,
+		/**
+		 * The ascension crossbows fire only ascension bolts, and ascension bolts
+		 * fit no other crossbow. Treating them as ordinary bolts would load Ruby
+		 * dragon bolts into ascension crossbows and count them.
+		 */
+		ASCENSION_BOLTS
 	}
 
 	/** Crystal armour: accuracy and damage bonuses to the crystal bows. */
@@ -69,6 +75,10 @@ final class WeaponRules
 			return AmmoType.NONE;
 		}
 
+		if (name.startsWith("ascension crossbow"))
+		{
+			return AmmoType.ASCENSION_BOLTS;
+		}
 		if (name.contains("ballista"))
 		{
 			return AmmoType.JAVELINS;
@@ -99,6 +109,10 @@ final class WeaponRules
 		if (name.contains("javelin"))
 		{
 			return AmmoType.JAVELINS;
+		}
+		if (name.contains("ascension bolt"))
+		{
+			return AmmoType.ASCENSION_BOLTS;
 		}
 		if (name.contains("bolt"))
 		{

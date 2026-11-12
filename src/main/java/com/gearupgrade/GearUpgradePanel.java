@@ -6,12 +6,14 @@
 package com.gearupgrade;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.EnumMap;
@@ -21,6 +23,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -28,6 +31,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.JToggleButton;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingConstants;
@@ -91,7 +95,10 @@ public class GearUpgradePanel extends PluginPanel
 	private final JPanel notesPanel = new JPanel();
 	private final JTabbedPane tabs = new JTabbedPane();
 
-	private final Map<CombatStyle, StyleTab> styleTabs = new EnumMap<>(CombatStyle.class);
+	private final Map<GearView, StyleTab> styleTabs = new EnumMap<>(GearView.class);
+
+	/** The sub-tab currently showing within each style, so tab switches can find it. */
+	private final Map<CombatStyle, GearView> selectedViews = new EnumMap<>(CombatStyle.class);
 
 	private Consumer<String> onTierSelected = name -> {
 	};
@@ -218,8 +225,41 @@ public class GearUpgradePanel extends PluginPanel
 
 		for (CombatStyle style : CombatStyle.values())
 		{
+			tabs.addTab(style.getDisplayName(), buildStyleTab(style));
+		}
+
+		// Each tab keeps its own scroll position, so switching from halfway down
+		// one tab lands halfway down the next. Always start at the top.
+		tabs.addChangeListener(e -> scrollSelectedTabToTop());
+
+		add(tabs, BorderLayout.CENTER);
+	}
+
+	/**
+	 * One style tab: a row of sub-tab buttons over a card per sub-tab.
+	 *
+	 * <p>Buttons rather than a nested JTabbedPane, which cannot wrap its titles
+	 * in a sidebar this narrow - it scrolls them sideways instead, hiding half
+	 * the choices.
+	 */
+	private JPanel buildStyleTab(CombatStyle style)
+	{
+		final JPanel container = new JPanel(new BorderLayout(0, 4));
+		container.setBackground(ColorScheme.DARK_GRAY_COLOR);
+
+		final CardLayout cardLayout = new CardLayout();
+		final JPanel cards = new JPanel(cardLayout);
+		cards.setBackground(ColorScheme.DARK_GRAY_COLOR);
+
+		final JPanel selector = new JPanel(new GridLayout(0, 3, 3, 3));
+		selector.setBackground(ColorScheme.DARK_GRAY_COLOR);
+		selector.setBorder(BorderFactory.createEmptyBorder(4, 0, 0, 0));
+		final ButtonGroup group = new ButtonGroup();
+
+		for (GearView view : GearView.of(style))
+		{
 			final StyleTab tab = new StyleTab(itemManager);
-			styleTabs.put(style, tab);
+			styleTabs.put(view, tab);
 
 			final JScrollPane scroll = new JScrollPane(tab.root,
 				ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
@@ -228,15 +268,36 @@ public class GearUpgradePanel extends PluginPanel
 			scroll.getVerticalScrollBar().setUnitIncrement(16);
 			scroll.setBackground(ColorScheme.DARK_GRAY_COLOR);
 			tab.scroll = scroll;
+			cards.add(scroll, view.name());
 
-			tabs.addTab(style.getDisplayName(), scroll);
+			final JToggleButton button = new JToggleButton(view.getLabel());
+			button.setFont(FontManager.getRunescapeSmallFont());
+			button.setFocusPainted(false);
+			button.setMargin(new Insets(2, 2, 2, 2));
+			button.setToolTipText(view.isRecommended()
+				? "This boss's own wiki setup, or the general ladder if it has none"
+				: "General " + view.getLabel().toLowerCase(Locale.ROOT)
+					+ " ladder - not specific to this boss");
+			button.addActionListener(e ->
+			{
+				selectedViews.put(style, view);
+				cardLayout.show(cards, view.name());
+				scrollSelectedTabToTop();
+			});
+			group.add(button);
+			selector.add(button);
+
+			if (view.isRecommended())
+			{
+				button.setSelected(true);
+				selectedViews.put(style, view);
+			}
 		}
 
-		// Each tab keeps its own scroll position, so switching from halfway down
-		// one tab lands halfway down the next. Always start at the top.
-		tabs.addChangeListener(e -> scrollSelectedTabToTop());
-
-		add(tabs, BorderLayout.CENTER);
+		cardLayout.show(cards, selectedViews.get(style).name());
+		container.add(selector, BorderLayout.NORTH);
+		container.add(cards, BorderLayout.CENTER);
+		return container;
 	}
 
 	private JPanel buildHeader()
@@ -333,13 +394,20 @@ public class GearUpgradePanel extends PluginPanel
 	 */
 	private void scrollSelectedTabToTop()
 	{
-		final Component selected = tabs.getSelectedComponent();
-		if (!(selected instanceof JScrollPane))
+		final int index = tabs.getSelectedIndex();
+		if (index < 0 || index >= CombatStyle.values().length)
 		{
 			return;
 		}
 
-		final JScrollPane scroll = (JScrollPane) selected;
+		final GearView view = selectedViews.get(CombatStyle.values()[index]);
+		final StyleTab tab = view == null ? null : styleTabs.get(view);
+		if (tab == null || tab.scroll == null)
+		{
+			return;
+		}
+
+		final JScrollPane scroll = tab.scroll;
 		SwingUtilities.invokeLater(() -> scroll.getVerticalScrollBar().setValue(0));
 	}
 
@@ -510,9 +578,9 @@ public class GearUpgradePanel extends PluginPanel
 	 * Replaces the computed summary with one measured from the wiki setup the
 	 * player actually owns, so the diagram, the numbers and the list agree.
 	 */
-	public void showBisSummary(CombatStyle style, DpsCalculator.Result dps, DamageType type)
+	public void showBisSummary(GearView view, DpsCalculator.Result dps, DamageType type)
 	{
-		final StyleTab tab = styleTabs.get(style);
+		final StyleTab tab = styleTabs.get(view);
 		if (tab == null)
 		{
 			return;
@@ -527,9 +595,9 @@ public class GearUpgradePanel extends PluginPanel
 		tab.summary.repaint();
 	}
 
-	public void showBis(CombatStyle style, BisAnalyser.Result result, long budget)
+	public void showBis(GearView view, BisAnalyser.Result result, long budget)
 	{
-		final StyleTab tab = styleTabs.get(style);
+		final StyleTab tab = styleTabs.get(view);
 		if (tab == null)
 		{
 			return;
@@ -1075,9 +1143,9 @@ public class GearUpgradePanel extends PluginPanel
 	 * Shown for content you cannot bring equipment into, where any ranking would
 	 * be meaningless rather than merely imprecise.
 	 */
-	public void showGearNotApplicable(CombatStyle style, String reason)
+	public void showGearNotApplicable(GearView view, String reason)
 	{
-		final StyleTab tab = styleTabs.get(style);
+		final StyleTab tab = styleTabs.get(view);
 		if (tab == null)
 		{
 			return;
@@ -1099,10 +1167,10 @@ public class GearUpgradePanel extends PluginPanel
 	/**
 	 * Fallback view for bosses with no wiki table bundled yet.
 	 */
-	public void showComputed(CombatStyle style, UpgradeFinder.Analysis analysis,
+	public void showComputed(GearView view, UpgradeFinder.Analysis analysis,
 							 DamageType usedType, boolean hasBisData)
 	{
-		final StyleTab tab = styleTabs.get(style);
+		final StyleTab tab = styleTabs.get(view);
 		if (tab == null)
 		{
 			return;

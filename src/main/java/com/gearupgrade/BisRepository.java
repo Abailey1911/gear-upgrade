@@ -38,7 +38,7 @@ public class BisRepository
 	private final Gson gson;
 	private final Map<String, BisSetup> setups = new HashMap<>();
 	private final Map<String, BisSetup> groupSetups = new HashMap<>();
-	private final Map<CombatStyle, BisSetup> defaults = new java.util.EnumMap<>(CombatStyle.class);
+	private final Map<String, BisSetup> defaults = new HashMap<>();
 
 	@Inject
 	public BisRepository(Gson gson)
@@ -46,9 +46,15 @@ public class BisRepository
 		this.gson = gson;
 	}
 
-	private static String key(String name, CombatStyle style)
+	private static String key(String name, CombatStyle style, String variant)
 	{
-		return name.toLowerCase(Locale.ROOT) + "|" + style.name();
+		return name.toLowerCase(Locale.ROOT) + "|" + style.name()
+			+ (variant == null ? "" : "|" + variant.toUpperCase(Locale.ROOT));
+	}
+
+	private static String defaultKey(CombatStyle style, String variant)
+	{
+		return key("", style, variant);
 	}
 
 	public void load()
@@ -91,18 +97,19 @@ public class BisRepository
 
 			for (BisSetup setup : loaded)
 			{
+				final String variant = setup.getVariant();
 				if (setup.isDefault())
 				{
-					defaults.put(setup.combatStyle(), setup);
+					defaults.put(defaultKey(setup.combatStyle(), variant), setup);
 					continue;
 				}
 				if (setup.getMonster() != null)
 				{
-					setups.put(key(setup.getMonster(), setup.combatStyle()), setup);
+					setups.put(key(setup.getMonster(), setup.combatStyle(), variant), setup);
 				}
 				if (setup.getGroup() != null)
 				{
-					groupSetups.put(key(setup.getGroup(), setup.combatStyle()), setup);
+					groupSetups.put(key(setup.getGroup(), setup.combatStyle(), variant), setup);
 				}
 			}
 		}
@@ -116,11 +123,14 @@ public class BisRepository
 	 * The wiki setup for this boss and style, or null if it has not been
 	 * added to the bundled data yet.
 	 */
-	public BisSetup find(String monster, String group, CombatStyle style)
+	public BisSetup find(String monster, String group, GearView view)
 	{
+		final CombatStyle style = view.getStyle();
+		final String variant = view.getVariant();
+
 		if (monster != null)
 		{
-			final BisSetup specific = setups.get(key(monster, style));
+			final BisSetup specific = setups.get(key(monster, style, variant));
 			if (specific != null)
 			{
 				return specific;
@@ -130,15 +140,17 @@ public class BisRepository
 		// Then the raid-wide table, which is how the wiki publishes them.
 		if (group != null)
 		{
-			final BisSetup groupSetup = groupSetups.get(key(group, style));
+			final BisSetup groupSetup = groupSetups.get(key(group, style, variant));
 			if (groupSetup != null)
 			{
 				return groupSetup;
 			}
 		}
 
-		// Finally the general ladder for the style, so nothing falls through to
-		// a computed ranking.
-		return defaults.get(style);
+		// Finally the general ladder for the view, so nothing falls through to a
+		// computed ranking. A variant view deliberately never borrows the boss's
+		// unconstrained table: a crush tab showing the boss's slash setup would
+		// be answering a different question.
+		return defaults.get(defaultKey(style, variant));
 	}
 }
